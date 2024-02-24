@@ -1,4 +1,4 @@
-package com.togather.sensei.controllers.atletaController;
+package com.togather.sensei.controllers.historiolesoesController;
 
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.HistoricoLesoesModel;
