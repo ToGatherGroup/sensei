@@ -1,4 +1,4 @@
-package com.togather.sensei.models.models;
+package com.togather.sensei.models;
 
 import com.togather.sensei.models.AtletaModel;
 import jakarta.persistence.*;
