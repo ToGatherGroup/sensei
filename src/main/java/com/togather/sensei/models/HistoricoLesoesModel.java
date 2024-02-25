@@ -1,5 +1,6 @@
 package com.togather.sensei.models;
 
+import com.togather.sensei.enums.RegiaoCorpoEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,8 +20,9 @@ public class HistoricoLesoesModel {
     private Long id;
     @Temporal(TemporalType.DATE)
     private LocalDate data;
+    @Column(length = 500) //TODO Validar tamanho do campo para descrição de lesões.
     private String descricao;
-
+    private RegiaoCorpoEnum regiaoLesao;
     @ManyToOne
     @JoinColumn(name = "atleta_id")
     private AtletaModel atletaModel;
