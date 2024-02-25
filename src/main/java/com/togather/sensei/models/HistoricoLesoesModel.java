@@ -17,6 +17,7 @@ public class HistoricoLesoesModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Temporal(TemporalType.DATE)
     private LocalDate data;
     private String descricao;
