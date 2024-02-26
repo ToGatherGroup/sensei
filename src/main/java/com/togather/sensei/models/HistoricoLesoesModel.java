@@ -21,9 +21,11 @@ public class HistoricoLesoesModel {
 
     @Temporal(TemporalType.DATE)
     private LocalDate data;
-    @Column(length = 500) //TODO Validar tamanho do campo para descrição de lesões.
+
     private String descricao;
+
     private RegiaoCorpoEnum regiaoLesao;
+
     @ManyToOne
     @JoinColumn(name = "atleta_id")
     private AtletaModel atletaModel;
