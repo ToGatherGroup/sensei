@@ -11,4 +11,3 @@ public class AtletaIdNomeDTO {
     private Long id;
     private String nome;
 }
-
