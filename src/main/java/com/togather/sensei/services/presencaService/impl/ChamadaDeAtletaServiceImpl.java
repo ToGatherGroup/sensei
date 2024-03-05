@@ -1,10 +1,10 @@
-package com.togather.sensei.services.impl;
+package com.togather.sensei.services.presencaService.impl;
 
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.PresencaModel;
 import com.togather.sensei.repositories.AtletaRepository;
 import com.togather.sensei.repositories.PresencaRepository;
-import com.togather.sensei.services.ChamadaDeAtletaService;
+import com.togather.sensei.services.presencaService.ChamadaDeAtletaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

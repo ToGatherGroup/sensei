@@ -1,4 +1,4 @@
-package com.togather.sensei.services;
+package com.togather.sensei.services.presencaService;
 
 import java.util.List;
 

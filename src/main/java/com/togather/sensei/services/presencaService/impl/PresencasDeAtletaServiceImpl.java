@@ -1,11 +1,11 @@
-package com.togather.sensei.services.impl;
+package com.togather.sensei.services.presencaService.impl;
 
 import com.togather.sensei.DTO.PresencaAtletaDTO;
 import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.PresencaModel;
 import com.togather.sensei.repositories.PresencaRepository;
-import com.togather.sensei.services.PresencasDeAtletaService;
+import com.togather.sensei.services.presencaService.PresencasDeAtletaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

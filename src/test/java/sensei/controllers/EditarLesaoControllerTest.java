@@ -1,8 +1,8 @@
 package sensei.controllers;
 
-import com.togather.sensei.controllers.historicoLesoesController.EditarHistoricoLesoesController;
-import com.togather.sensei.models.HistoricoLesoesModel;
-import com.togather.sensei.services.EditarHistoricoLesoesService;
+import com.togather.sensei.controllers.lesaoController.EditarLesaoController;
+import com.togather.sensei.models.LesaoModel;
+import com.togather.sensei.services.lesaoService.EditarLesaoService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,25 +17,25 @@ import org.springframework.web.client.HttpClientErrorException;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
-class EditarHistoricoLesoesControllerTest {
+class EditarLesaoControllerTest {
 
     @Mock
-    private EditarHistoricoLesoesService service;
+    private EditarLesaoService service;
 
     @InjectMocks
-    private EditarHistoricoLesoesController controller;
+    private EditarLesaoController controller;
 
     @Test
     void dadoAtualizarDeHistoricoLesao_entaoRetorneHistoricoAtualizado() {
         // Criação de um modelo de entrada e um modelo de resultado esperado
-        HistoricoLesoesModel inputModel = new HistoricoLesoesModel();
-        HistoricoLesoesModel expectedResult = new HistoricoLesoesModel();
+        LesaoModel inputModel = new LesaoModel();
+        LesaoModel expectedResult = new LesaoModel();
 
         // Configuração do comportamento esperado do serviço
         Mockito.when(service.updateHistoricoLesao(inputModel)).thenReturn(expectedResult);
 
         // Chama o método a ser testado
-        ResponseEntity<HistoricoLesoesModel> response = controller.atualizarHistoricoLesao(inputModel);
+        ResponseEntity<LesaoModel> response = controller.atualizarHistoricoLesao(inputModel);
 
         // Assert
         // Verifica se o status da resposta e o corpo são os esperados
@@ -45,7 +45,7 @@ class EditarHistoricoLesoesControllerTest {
     @Test
     void dadoAtualizarDeHistoricoLesao_entaoRetorneHttpClientErrorException() {
         // Criação de um modelo de entrada
-        HistoricoLesoesModel inputModel = new HistoricoLesoesModel();
+        LesaoModel inputModel = new LesaoModel();
 
         // Configuração do comportamento esperado do serviço para lançar uma exceção
         Mockito.when(service.updateHistoricoLesao(inputModel)).thenThrow(new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Bad Request"));

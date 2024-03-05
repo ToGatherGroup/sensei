@@ -1,9 +1,9 @@
-package com.togather.sensei.services.impl;
+package com.togather.sensei.services.atletaService.impl;
 
 import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;
-import com.togather.sensei.services.AtletaDeleteByIdService;
+import com.togather.sensei.services.atletaService.AtletaDeleteByIdService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

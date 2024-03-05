@@ -1,7 +1,7 @@
-package com.togather.sensei.controllers.historicoLesoesController;
+package com.togather.sensei.controllers.lesaoController;
 
-import com.togather.sensei.models.HistoricoLesoesModel;
-import com.togather.sensei.services.BuscarHistoricoLesoesPorAtletaService;
+import com.togather.sensei.models.LesaoModel;
+import com.togather.sensei.services.lesaoService.BuscarHistoricoLesoesPorAtletaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +13,14 @@ import java.util.List;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/historicolesoes")
-public class BuscarHistoricoLesoesPorAtletaController {
+public class BuscarLesaoPorAtletaController {
 
     private final BuscarHistoricoLesoesPorAtletaService buscarHistoricoLesoesPorAtletaService;
 
     @GetMapping("/{atleta_id}")
-    public ResponseEntity<List<HistoricoLesoesModel>> historicoDeLesoesPorAtleta(@PathVariable long atleta_id) {
+    public ResponseEntity<List<LesaoModel>> historicoDeLesoesPorAtleta(@PathVariable long atleta_id) {
         try {
-            List<HistoricoLesoesModel> lesoesAtleta = buscarHistoricoLesoesPorAtletaService.buscaHistoricoLesoes(atleta_id);
+            List<LesaoModel> lesoesAtleta = buscarHistoricoLesoesPorAtletaService.buscaHistoricoLesoes(atleta_id);
             return ResponseEntity.ok(lesoesAtleta);
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
