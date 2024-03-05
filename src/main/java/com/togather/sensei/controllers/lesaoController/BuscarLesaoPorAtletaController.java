@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/historicolesoes")
+@RequestMapping("/lesao")
 public class BuscarLesaoPorAtletaController {
 
     private final BuscarHistoricoLesoesPorAtletaService buscarHistoricoLesoesPorAtletaService;

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/historicolesoes")
+@RequestMapping("/lesao")
 public class CadastraLesaoController {
 
     private final CadastraLesaoService cadastraLesaoService;

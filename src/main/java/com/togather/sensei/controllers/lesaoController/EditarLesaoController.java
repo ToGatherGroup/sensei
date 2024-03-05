@@ -11,7 +11,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/historicolesoes")
+@RequestMapping("/lesao")
 public class EditarLesaoController {
     private final EditarLesaoService service;
 
