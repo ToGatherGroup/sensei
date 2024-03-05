@@ -1,8 +1,8 @@
-package com.togather.sensei.services.impl;
+package com.togather.sensei.services.atletaService.impl;
 
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;
-import com.togather.sensei.services.AtletaGetService;
+import com.togather.sensei.services.atletaService.AtletaGetService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

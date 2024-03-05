@@ -1,7 +1,7 @@
-package com.togather.sensei.controllers.historicoLesoesController;
+package com.togather.sensei.controllers.lesaoController;
 
-import com.togather.sensei.models.HistoricoLesoesModel;
-import com.togather.sensei.services.EditarHistoricoLesoesService;
+import com.togather.sensei.models.LesaoModel;
+import com.togather.sensei.services.lesaoService.EditarLesaoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,14 +11,14 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/historicolesoes")
-public class EditarHistoricoLesoesController {
-    private final EditarHistoricoLesoesService service;
+@RequestMapping("/lesao")
+public class EditarLesaoController {
+    private final EditarLesaoService service;
 
     @PutMapping
-    public ResponseEntity<HistoricoLesoesModel> atualizarHistoricoLesao(@RequestBody HistoricoLesoesModel model){
+    public ResponseEntity<LesaoModel> atualizarHistoricoLesao(@RequestBody LesaoModel model){
         try {
-            HistoricoLesoesModel historico = service.updateHistoricoLesao(model);
+            LesaoModel historico = service.updateHistoricoLesao(model);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(historico);
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
