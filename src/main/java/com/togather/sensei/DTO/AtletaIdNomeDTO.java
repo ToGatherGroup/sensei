@@ -1,5 +1,6 @@
 package com.togather.sensei.DTO;
 
+import com.togather.sensei.models.AtletaModel;
 import lombok.*;
 
 @AllArgsConstructor
@@ -10,4 +11,9 @@ import lombok.*;
 public class AtletaIdNomeDTO {
     private Long id;
     private String nome;
+
+    public AtletaIdNomeDTO(AtletaModel atletaModel) {
+        id = atletaModel.getId();
+        nome = atletaModel.getNome();
+    }
 }
