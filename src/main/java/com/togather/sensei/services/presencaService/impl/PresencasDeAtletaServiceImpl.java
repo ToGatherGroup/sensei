@@ -30,7 +30,6 @@ public class PresencasDeAtletaServiceImpl implements PresencasDeAtletaService {
         List<PresencaModel> list = presencaRepository.buscaPresencasPorAtleta(idAtleta);
 
         validaListaPresenca(list);
-
         for (PresencaModel model : list){
             atletaModel = model.getAtletaModel();
             datasPresenca.add(model.getData());
