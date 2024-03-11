@@ -17,4 +17,6 @@ public interface PresencaRepository extends JpaRepository<PresencaModel, Long> {
 
     @Query(nativeQuery = true, value = "SELECT count(atleta_id) FROM presenca_tb WHERE atleta_id = :idAtleta")
     Double getDiasDoAtleta(Long idAtleta);
+
+
 }
