@@ -1,4 +1,4 @@
-package com.togather.sensei.services;
+package com.togather.sensei.services.atletaService;
 
 public interface AtletaDeleteByIdService
 {

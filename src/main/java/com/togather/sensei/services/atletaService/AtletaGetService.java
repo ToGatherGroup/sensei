@@ -1,4 +1,4 @@
-package com.togather.sensei.services;
+package com.togather.sensei.services.atletaService;
 
 import com.togather.sensei.models.AtletaModel;
 import org.springframework.stereotype.Service;
