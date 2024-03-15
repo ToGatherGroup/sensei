@@ -50,6 +50,7 @@ public class PresencasDeAtletaServiceImpl implements PresencasDeAtletaService {
         }
     }
 
+
     private String getPorcentagemPresenca(Long idAtleta) {
         Double totalDias = presencaRepository.getTotalDeDias();
         Double diasDoAtleta = presencaRepository.getDiasDoAtleta(idAtleta);
