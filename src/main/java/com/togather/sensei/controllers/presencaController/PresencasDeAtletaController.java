@@ -16,10 +16,13 @@ public class PresencasDeAtletaController {
 
     private final PresencasDeAtletaService presencasDeAtletaService;
 
-    @GetMapping("/{id_atleta}")
-    public ResponseEntity<PresencaAtletaDTO> presencasDeAtleta(@PathVariable("id_atleta") Long idAtleta){
+    @GetMapping("/{id_atleta}/data_inicio/{inicio}/data_fim/{fim}")
+    public ResponseEntity<PresencaAtletaDTO> presencasDeAtleta(
+            @PathVariable("id_atleta") Long idAtleta,
+            @PathVariable("inicio") String dataInicio,
+            @PathVariable("fim") String dataFim){
         try {
-            PresencaAtletaDTO presencas = presencasDeAtletaService.buscarPresencasPorAtleta(idAtleta);
+            PresencaAtletaDTO presencas = presencasDeAtletaService.buscarPresencasPorAtleta(idAtleta, dataInicio, dataFim);
             return ResponseEntity.status(HttpStatus.OK).body(presencas);
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
