@@ -1,5 +1,8 @@
 package com.togather.sensei.enums;
 
+import lombok.Data;
+
+
 public enum PosicaoEnum {
     PRIMEIRO("Medalha de ouro"),
     SEGUNDO("Medalha de prata"),
@@ -13,4 +16,5 @@ public enum PosicaoEnum {
     public String getDescricao() {
         return descricao;
     }
+
 }
