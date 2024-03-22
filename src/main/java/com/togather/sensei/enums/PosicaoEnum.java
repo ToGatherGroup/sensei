@@ -4,6 +4,8 @@ import lombok.Data;
 
 
 public enum PosicaoEnum {
+
+    PARTICIPACAO("Participação"),
     PRIMEIRO("Medalha de ouro"),
     SEGUNDO("Medalha de prata"),
     TERCEIRO("Medalha de bronze");
