@@ -1,5 +1,6 @@
 package com.togather.sensei.controllers.atletaController;
 
+import com.togather.sensei.DTO.AtletaIdNomeFotoDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.services.atletaService.BuscaAtletaPaginadaService;
 import lombok.RequiredArgsConstructor;
@@ -18,9 +19,9 @@ public class BuscaAtletaPaginadaController {
 
     private final BuscaAtletaPaginadaService buscaAtletaPaginadaService;
     @GetMapping
-    public ResponseEntity<Page<AtletaModel>> findAllAtleta(@PageableDefault(sort = "nome", size = 5)Pageable pageable) {
+    public ResponseEntity<Page<AtletaIdNomeFotoDTO>> findAllAtleta(@PageableDefault( size = 16, page = 0,sort = "nome") Pageable pageable) {
         try {
-            Page<AtletaModel> atletaModelList = buscaAtletaPaginadaService.buscaAtletas(pageable);
+            Page<AtletaIdNomeFotoDTO> atletaModelList = buscaAtletaPaginadaService.buscaAtletas(pageable);
             return ResponseEntity.ok(atletaModelList);
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
