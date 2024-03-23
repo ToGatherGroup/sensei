@@ -24,6 +24,7 @@ public class LesaoModel {
 
     private String descricao;
 
+    @Enumerated(EnumType.STRING)
     private RegiaoCorpoEnum regiaoLesao;
 
     @ManyToOne

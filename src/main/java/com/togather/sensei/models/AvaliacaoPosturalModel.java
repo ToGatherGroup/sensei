@@ -20,6 +20,7 @@ public class AvaliacaoPosturalModel {
     @Temporal(TemporalType.DATE)
     private LocalDate data;
     private String foto;
+    @Enumerated(EnumType.STRING)
     private PosicaoEnum posicao;
     @ManyToOne
     @JoinColumn(name = "atleta_id")
