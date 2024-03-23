@@ -13,6 +13,6 @@ import java.util.List;
 public interface AtletaRepository extends JpaRepository<AtletaModel, Long> {
     AtletaModel findByNome(String nome);
 
-    @Query(nativeQuery = true, value = "SELECT * from atleta_tb where nome like  :nome% ;")
+    @Query(nativeQuery = true, value = "SELECT * from atleta_tb where nome like  %:nome% ;")
     Page<AtletaModel> buscaPorNome(String nome, Pageable pageable);
 }
