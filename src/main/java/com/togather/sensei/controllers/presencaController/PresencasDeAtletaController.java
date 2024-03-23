@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.presencaController;
 
-import com.togather.sensei.DTO.PresencaAtletaDTO;
+import com.togather.sensei.DTO.presenca.PresencaAtletaDTO;
 import com.togather.sensei.services.presencaService.PresencasDeAtletaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

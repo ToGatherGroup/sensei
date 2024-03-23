@@ -1,4 +1,4 @@
-package com.togather.sensei.DTO;
+package com.togather.sensei.DTO.campeonato;
 
 import com.togather.sensei.enums.PosicaoEnum;
 import lombok.AllArgsConstructor;

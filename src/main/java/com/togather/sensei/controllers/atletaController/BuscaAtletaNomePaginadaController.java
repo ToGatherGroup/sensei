@@ -1,17 +1,13 @@
 package com.togather.sensei.controllers.atletaController;
 
-import com.togather.sensei.DTO.AtletaIdNomeFotoDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.services.atletaService.BuscaAtletaByNomePaginadaService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @CrossOrigin("*")
 @RequestMapping("/atleta/nome")

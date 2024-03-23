@@ -5,6 +5,6 @@ import com.togather.sensei.models.AtletaModel;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface AtletaPutService {
+public interface AtualizaAtletatService {
     AtletaModel updateAtleta(AtletaModel atletaModel);
 }

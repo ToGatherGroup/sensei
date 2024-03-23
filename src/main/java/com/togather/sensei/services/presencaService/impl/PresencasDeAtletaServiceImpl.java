@@ -1,6 +1,6 @@
 package com.togather.sensei.services.presencaService.impl;
 
-import com.togather.sensei.DTO.PresencaAtletaDTO;
+import com.togather.sensei.DTO.presenca.PresencaAtletaDTO;
 import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.PresencaModel;

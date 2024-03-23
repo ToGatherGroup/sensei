@@ -1,6 +1,6 @@
 package com.togather.sensei.services.atletaService;
 
-public interface AtletaDeleteByIdService
+public interface DeletaAtletaByIdService
 {
     void deleteAtletaById(long id);
 }

@@ -1,7 +1,6 @@
 package com.togather.sensei.services.atletaService;
 
-import com.togather.sensei.DTO.AtletaIdNomeFotoDTO;
-import com.togather.sensei.models.AtletaModel;
+import com.togather.sensei.DTO.atleta.AtletaIdNomeFotoDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

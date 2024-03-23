@@ -1,6 +1,6 @@
 package com.togather.sensei.models;
 
-import com.togather.sensei.enums.PosicaoEnum;
+import com.togather.sensei.enums.PosicaoFotoEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +20,7 @@ public class AvaliacaoPosturalModel {
     @Temporal(TemporalType.DATE)
     private LocalDate data;
     private String foto;
-    private PosicaoEnum posicao;
+    private PosicaoFotoEnum posicaoFoto;
     @ManyToOne
     @JoinColumn(name = "atleta_id")
     private AtletaModel atletaModel;

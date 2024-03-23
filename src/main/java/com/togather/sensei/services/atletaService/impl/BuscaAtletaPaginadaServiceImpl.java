@@ -1,15 +1,12 @@
 package com.togather.sensei.services.atletaService.impl;
 
-import com.togather.sensei.DTO.AtletaIdNomeDTO;
-import com.togather.sensei.DTO.AtletaIdNomeFotoDTO;
+import com.togather.sensei.DTO.atleta.AtletaIdNomeFotoDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;
 import com.togather.sensei.services.atletaService.BuscaAtletaPaginadaService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.internal.bytebuddy.description.annotation.AnnotationValue;
 import org.springframework.data.domain.*;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

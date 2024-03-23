@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.atletaController;
 
-import com.togather.sensei.DTO.AtletaDTO;
+import com.togather.sensei.DTO.atleta.AtletaDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.services.atletaService.AtletaPostService;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +13,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/atleta")
-public class AtletaPostController {
+public class CadastraAtletaController {
 
     private final AtletaPostService atletaPostService;
     @PostMapping
