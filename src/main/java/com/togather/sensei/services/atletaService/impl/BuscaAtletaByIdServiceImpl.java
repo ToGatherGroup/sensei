@@ -37,7 +37,6 @@ public class BuscaAtletaByIdServiceImpl implements BuscaAtletaByIdService {
                 .sexo((model.getSexo() != null ? model.getSexo() : null))
                 .peso((model.getPeso() != null ? model.getPeso() : null))
                 .altura((model.getAltura() != null ? model.getAltura() : null))
-                .categoria((model.getCategoria() != null ? model.getCategoria() : null))
                 .faixa((model.getFaixa() != null ? model.getFaixa() : null))
                 .foto((model.getFoto() != null ? model.getFoto() : null))
                 .email((model.getEmail() != null ? model.getEmail() : null))

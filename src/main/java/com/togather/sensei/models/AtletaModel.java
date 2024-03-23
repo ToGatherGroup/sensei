@@ -22,7 +22,6 @@ public class AtletaModel {
     private Character sexo;
     private Double peso;
     private Double altura;
-    private String categoria;
     private String faixa;
     private String foto;
     private String email;
