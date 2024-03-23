@@ -1,5 +1,6 @@
 package com.togather.sensei.models;
 
+import com.togather.sensei.enums.PosicaoEnum;
 import com.togather.sensei.enums.PosicaoFotoEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
