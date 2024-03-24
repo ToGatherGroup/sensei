@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 public class MedalhaDTO {
 
     private String posicao;
-    private String quantidade;
+    private int quantidade;
 
 }
