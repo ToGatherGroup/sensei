@@ -24,13 +24,11 @@ public class BuscaMedalhaServiceImpl implements BuscaMedalhaService {
         List<MedalhaDTO> listaMedalhas= new ArrayList<>();
 
         for (Object[] tupla: campeonatos) {
-            int index= Integer.parseInt(tupla[0].toString());
-
-            String posicao= buscaDescricaoEnum(index);
             int quantidade=(int) tupla[1];
+            int index= Integer.parseInt(tupla[0].toString());
+            String posicao= buscaDescricaoEnum(index);
 
             listaMedalhas.add(new MedalhaDTO(posicao,quantidade));
-
         }
 
         return listaMedalhas ;
