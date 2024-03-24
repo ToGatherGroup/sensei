@@ -20,8 +20,6 @@ public class CampeonatosDisputadosModel {
     private Long id;
     private String nome;
 
-
-    @Enumerated(EnumType.STRING)
     private PosicaoEnum posicaoPodium;
 
 
