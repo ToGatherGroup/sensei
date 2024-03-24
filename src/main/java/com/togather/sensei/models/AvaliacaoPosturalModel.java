@@ -1,5 +1,7 @@
 package com.togather.sensei.models;
 
+import com.togather.sensei.enums.PosicaoEnum;
+import com.togather.sensei.enums.PosicaoFotoEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,18 +13,17 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "atleta_tb")
-public class AtletaModel {
+@Table(name = "avaliacaopostural_tb")
+public class AvaliacaoPosturalModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
     @Temporal(TemporalType.DATE)
-    private LocalDate nascimento;
-    private Character sexo;
-    private Double peso;
-    private Double altura;
-    private String faixa;
+    private LocalDate data;
     private String foto;
-    private String email;
+    @Enumerated(EnumType.STRING)
+    private PosicaoFotoEnum posicao;
+    @ManyToOne
+    @JoinColumn(name = "atleta_id")
+    private AtletaModel atletaModel;
 }

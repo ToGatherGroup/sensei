@@ -1,10 +1,10 @@
 package com.togather.sensei.services.atletaService.impl;
 
-import com.togather.sensei.DTO.AtletaDTO;
+import com.togather.sensei.DTO.atleta.AtletaDTO;
 import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;
-import com.togather.sensei.services.atletaService.AtletaGetByIdService;
+import com.togather.sensei.services.atletaService.BuscaAtletaByIdService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class AtletaGetByIdServiceImpl implements AtletaGetByIdService {
+public class BuscaAtletaByIdServiceImpl implements BuscaAtletaByIdService {
 
     private final AtletaRepository atletaRepository;
 
@@ -37,7 +37,6 @@ public class AtletaGetByIdServiceImpl implements AtletaGetByIdService {
                 .sexo((model.getSexo() != null ? model.getSexo() : null))
                 .peso((model.getPeso() != null ? model.getPeso() : null))
                 .altura((model.getAltura() != null ? model.getAltura() : null))
-                .categoria((model.getCategoria() != null ? model.getCategoria() : null))
                 .faixa((model.getFaixa() != null ? model.getFaixa() : null))
                 .foto((model.getFoto() != null ? model.getFoto() : null))
                 .email((model.getEmail() != null ? model.getEmail() : null))

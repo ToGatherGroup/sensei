@@ -1,19 +1,18 @@
 package com.togather.sensei.repositories;
 
 import com.togather.sensei.models.AtletaModel;
+import com.togather.sensei.models.CategoriaModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public interface AtletaRepository extends JpaRepository<AtletaModel, Long> {
-    AtletaModel findByNome(String nome);
+public interface CategoriaRepository extends JpaRepository<CategoriaModel, Long> {
 
-    @Query(nativeQuery = true, value = "SELECT * from atleta_tb where nome like  %:nome% ;")
-    Page<AtletaModel> buscaPorNome(String nome, Pageable pageable);
+
+    @Query(nativeQuery = true, value = "select descricao from categoria_tb where :idade between idade_min and idade_max;")
+    String gerarCategoria(int idade);
 
 }

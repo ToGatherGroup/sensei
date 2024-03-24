@@ -1,8 +1,8 @@
 package com.togather.sensei.controllers.atletaController;
 
-import com.togather.sensei.services.atletaService.AtletaDeleteByIdService;
+import com.togather.sensei.DTO.atleta.AtletaDTO;
+import com.togather.sensei.services.atletaService.BuscaAtletaByIdService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
@@ -11,16 +11,15 @@ import org.springframework.web.client.HttpClientErrorException;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/atleta")
-public class AtletaDeleteByIdController
-{
-    private final AtletaDeleteByIdService atletaDeleteByIdService;
+public class BuscaAtletaByIdController {
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> apagaAtletaById(@PathVariable Long id)
-    {
+    private final BuscaAtletaByIdService buscaAtletaByIdService;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<AtletaDTO> buscaAtletabyId(@PathVariable Long id){
         try {
-            atletaDeleteByIdService.deleteAtletaById(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            AtletaDTO atleta = buscaAtletaByIdService.findAtletaById(id);
+            return ResponseEntity.ok(atleta);
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
         }

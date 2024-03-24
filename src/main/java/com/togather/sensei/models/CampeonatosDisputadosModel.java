@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "campeonatosDisputados_tb")
+@Table(name = "campeonatos_disputados_tb")
 public class CampeonatosDisputadosModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +21,8 @@ public class CampeonatosDisputadosModel {
     private String nome;
 
     private PosicaoEnum posicaoPodium;
+
+
 
     @ManyToOne
     @JoinColumn(name = "atleta_id")

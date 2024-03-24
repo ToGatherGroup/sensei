@@ -1,8 +1,8 @@
 package com.togather.sensei.services.atletaService;
 
 
-import com.togather.sensei.DTO.AtletaDTO;
+import com.togather.sensei.DTO.atleta.AtletaDTO;
 
-public interface AtletaGetByIdService {
+public interface BuscaAtletaByIdService {
     AtletaDTO findAtletaById(Long id);
 }
