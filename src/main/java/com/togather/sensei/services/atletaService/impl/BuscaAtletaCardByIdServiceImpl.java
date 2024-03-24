@@ -32,8 +32,6 @@ public class BuscaAtletaCardByIdServiceImpl implements BuscaCardAtletaByIdServic
 
     @Override
     public AtletaCardDTO findAtletaCardById(Long id) {
-
-
         return gerarCard(id);
     }
 
