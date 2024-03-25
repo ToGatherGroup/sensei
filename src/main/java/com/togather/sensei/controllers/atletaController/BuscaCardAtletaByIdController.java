@@ -13,12 +13,12 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/atleta_card")
+@RequestMapping("/atleta")
 public class BuscaCardAtletaByIdController {
 
     private final BuscaCardAtletaByIdService buscaAtletaByIdService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/ficha/{id}")
     public ResponseEntity<AtletaCardDTO> buscaAtletabyId(@PathVariable Long id){
         try {
             AtletaCardDTO atleta = buscaAtletaByIdService.findAtletaCardById(id);

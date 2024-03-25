@@ -23,7 +23,7 @@ public class BuscaAtletaByNomePaginadaServiceImpl implements BuscaAtletaByNomePa
 
 
     @Override
-    public Page<AtletaModel> buscaNome(String nome,Pageable pageable) {
+    public Page<AtletaIdNomeFotoDTO> buscaNome(String nome,Pageable pageable) {
         List<AtletaIdNomeFotoDTO> listaDto= new ArrayList<>();
         Page<AtletaModel> lista= atletaRepository.buscaPorNome(nome, pageable);
 
