@@ -32,7 +32,7 @@ public class BuscaAtletaByNomePaginadaServiceImpl implements BuscaAtletaByNomePa
             listaDto.add(atletaDto);
         }
 
-        Page page= new PageImpl(listaDto,pageable, listaDto.size());
+        Page page= new PageImpl(listaDto,pageable, lista.getTotalElements());
 
         return page;
     }
