@@ -30,7 +30,7 @@ public class BuscaAtletaPaginadaServiceImpl implements BuscaAtletaPaginadaServic
          atletasDto.add(nomeFotoDTO);
         }
 
-        Page<AtletaIdNomeFotoDTO> atletasPage = new PageImpl<>(atletasDto, pageable, atletasDto.size());
+        Page<AtletaIdNomeFotoDTO> atletasPage = new PageImpl<>(atletasDto, pageable, atletas.getTotalElements());
 
         return atletasPage;
     }
