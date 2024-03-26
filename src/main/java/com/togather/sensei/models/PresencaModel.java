@@ -1,6 +1,5 @@
 package com.togather.sensei.models;
 
-import com.togather.sensei.models.AtletaModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

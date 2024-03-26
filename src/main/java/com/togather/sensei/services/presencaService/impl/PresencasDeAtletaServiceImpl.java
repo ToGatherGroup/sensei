@@ -1,17 +1,15 @@
 package com.togather.sensei.services.presencaService.impl;
 
-import com.togather.sensei.DTO.PresencaAtletaDTO;
+import com.togather.sensei.DTO.presenca.PresencaAtletaDTO;
 import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
-import com.togather.sensei.models.PresencaModel;
+import com.togather.sensei.repositories.AtletaRepository;
 import com.togather.sensei.repositories.PresencaRepository;
 import com.togather.sensei.services.presencaService.PresencasDeAtletaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -21,39 +19,34 @@ public class PresencasDeAtletaServiceImpl implements PresencasDeAtletaService {
     private static final String PORCENTO = "%";
 
     private final PresencaRepository presencaRepository;
+    private final AtletaRepository atletaRepository;
     @Override
-    public PresencaAtletaDTO buscarPresencasPorAtleta(Long idAtleta) {
+    public PresencaAtletaDTO buscarPresencasPorAtleta(Long idAtleta, String inicio, String fim) {
 
-        AtletaModel atletaModel = new AtletaModel();
-        List<LocalDate> datasPresenca = new ArrayList<>();
-
-        List<PresencaModel> list = presencaRepository.buscaPresencasPorAtleta(idAtleta);
-
-        validaListaPresenca(list);
-        for (PresencaModel model : list){
-            atletaModel = model.getAtletaModel();
-            datasPresenca.add(model.getData());
-        }
+        Optional<AtletaModel> optionalAtletaModel = atletaRepository.findById(idAtleta);
+        AtletaModel atletaModel = validaListaPresenca(optionalAtletaModel);
+        Long totalPresenca = presencaRepository.buscaPresenca(idAtleta, inicio, fim);
+        Long totalDias = presencaRepository.buscaTotalDias(inicio, fim);
+        String porcentagemPresenca = getPorcentagemPresenca(totalPresenca, totalDias);
 
         return PresencaAtletaDTO.builder()
                 .id_atleta(atletaModel.getId())
                 .nome(atletaModel.getNome())
-                .porcentagemPresenca(getPorcentagemPresenca(idAtleta))
-                .datasPresenca(datasPresenca)
+                .totalPresenca(totalPresenca)
+                .totalAusencia(totalDias - totalPresenca)
+                .porcentagemPresenca(porcentagemPresenca)
                 .build();
     }
 
-    private void validaListaPresenca(List<PresencaModel> list) {
-        if (list.isEmpty()){
+    private AtletaModel validaListaPresenca(Optional<AtletaModel> atletaModel) {
+        if (atletaModel.isEmpty()){
             throw new NotFoundException("Atleta não encontrado.");
         }
+        return atletaModel.get();
     }
 
-
-    private String getPorcentagemPresenca(Long idAtleta) {
-        Double totalDias = presencaRepository.getTotalDeDias();
-        Double diasDoAtleta = presencaRepository.getDiasDoAtleta(idAtleta);
-        Double porcentagem = (diasDoAtleta / totalDias) * NUMERAL_CEM;
+    private String getPorcentagemPresenca(Long totalPresenca, Long totalDias) {
+        Long porcentagem = Math.round((totalPresenca.doubleValue() / totalDias.doubleValue()) * NUMERAL_CEM);
         return porcentagem.toString().concat(PORCENTO);
     }
 }
