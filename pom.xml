@@ -8,15 +8,13 @@
 		<version>3.2.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.sensei</groupId>
+	<groupId>com.togather</groupId>
 	<artifactId>sensei</artifactId>
-	<version>1.0.0</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>sensei</name>
-	<description>Projeto Voluntário Sensei - Avaliação Física e Acompanhamento de Atletas Mirins.</description>
+	<description>projeto sensei</description>
 	<properties>
 		<java.version>17</java.version>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -88,5 +86,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
