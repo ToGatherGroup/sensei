@@ -21,7 +21,7 @@
 ---
 
 ## Descrição do Projeto
-Projeto de avaliação e monitoramento físico de atletas de judô pertecentes ao Projeto Sensei Divino Budokan, atuante na Zona Norte de São Paulo/SP.
+Projeto voluntário que tem como principal objetivo a avaliação e monitoramento físico de atletas de judô pertecentes ao Projeto Sensei Divino Budokan, atuante na Zona Norte de São Paulo/SP.
 
 ## Tecnologias Utilizadas
 Java; Spring boot; React; Next.
@@ -35,12 +35,11 @@ Java; Spring boot; React; Next.
 
 
 ## Pessoas Contribuidoras
-- [Alex Almeida](link para perfil ou contato)
+- [Alex Almeida]([link para perfil ou contato](https://github.com/alexalmeidaleonardo))
 - [Bruno Amado]([link para perfil ou contato](https://github.com/bruamado/))
 - [Denilson Marcio]([link para perfil ou contato](https://github.com/DenilsonMarcio))
-- [Felipe]([link para perfil ou contato](https://github.com/FelipeMarcelino99))
+- [Felipe Marcelino]([link para perfil ou contato](https://github.com/FelipeMarcelino99))
 - [Karen Boscolo]([link para perfil ou contato](https://github.com/KarenBoscolo))
 - [Maiara Silva]([link para perfil ou contato](https://github.com/MaiaraSilva))
 - [Michel Machado]([link para perfil ou contato](https://github.com/Michel-Machado))
-- [Michel Machado]([link para perfil ou contato](https://github.com/alexalmeidaleonardo))
-- [Michel Machado](link para perfil ou contato)
+- [novo membro](link para perfil ou contato)
