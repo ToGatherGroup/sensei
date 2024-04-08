@@ -9,6 +9,7 @@ import com.togather.sensei.services.presencaService.PresencasDeAtletaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -21,7 +22,7 @@ public class PresencasDeAtletaServiceImpl implements PresencasDeAtletaService {
     private final PresencaRepository presencaRepository;
     private final AtletaRepository atletaRepository;
     @Override
-    public PresencaAtletaDTO buscarPresencasPorAtleta(Long idAtleta, String inicio, String fim) {
+    public PresencaAtletaDTO buscarPresencasPorAtleta(Long idAtleta, LocalDate inicio, LocalDate fim) {
 
         Optional<AtletaModel> optionalAtletaModel = atletaRepository.findById(idAtleta);
         AtletaModel atletaModel = validaListaPresenca(optionalAtletaModel);
