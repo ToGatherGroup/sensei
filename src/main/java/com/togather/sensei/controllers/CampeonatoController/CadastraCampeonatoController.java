@@ -16,8 +16,8 @@ public class CadastraCampeonatoController {
 
 
     @PostMapping()
-    public ResponseEntity<CampeonatosDisputadosModel> cadastraCampeonato(@RequestBody CampeonatosDisputadosModel mdoel){
-        CampeonatosDisputadosModel campeonato = cadastraCampeonatoService.salvaCampeonato(mdoel);
+    public ResponseEntity<CampeonatosDisputadosModel> cadastraCampeonato(@RequestBody CampeonatosDisputadosModel model){
+        CampeonatosDisputadosModel campeonato = cadastraCampeonatoService.salvaCampeonato(model);
         return ResponseEntity.ok(campeonato);
     }
 }
