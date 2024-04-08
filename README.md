@@ -4,6 +4,9 @@
 <p align="center">
   <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=800020&style=for-the-badge" alt="Badge em Desenvolvimento">
 </p>
+![Captura de tela 2024-04-08 193221](https://github.com/ToGatherGroup/sensei/assets/112959006/b6b8c887-c629-4f1e-9ab0-0a1eed02c052)
+
+
 
 ---
 
