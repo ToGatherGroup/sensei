@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.time.LocalDate;
+
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
@@ -19,8 +21,8 @@ public class PresencasDeAtletaController {
     @GetMapping("/{id_atleta}/data_inicio/{inicio}/data_fim/{fim}")
     public ResponseEntity<PresencaAtletaDTO> presencasDeAtleta(
             @PathVariable("id_atleta") Long idAtleta,
-            @PathVariable("inicio") String dataInicio,
-            @PathVariable("fim") String dataFim){
+            @PathVariable("inicio") LocalDate dataInicio,
+            @PathVariable("fim") LocalDate dataFim){
         try {
             PresencaAtletaDTO presencas = presencasDeAtletaService.buscarPresencasPorAtleta(idAtleta, dataInicio, dataFim);
             return ResponseEntity.status(HttpStatus.OK).body(presencas);

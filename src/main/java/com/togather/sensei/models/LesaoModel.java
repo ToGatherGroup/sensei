@@ -18,15 +18,10 @@ public class LesaoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Temporal(TemporalType.DATE)
     private LocalDate data;
-
     private String descricao;
-
-    @Enumerated(EnumType.STRING)
     private RegiaoCorpoEnum regiaoLesao;
-
     @ManyToOne
     @JoinColumn(name = "atleta_id")
     private AtletaModel atletaModel;
