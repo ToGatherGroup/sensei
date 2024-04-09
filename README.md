@@ -1,6 +1,7 @@
 <h1 align="center"><font color="#800020">PROJETO SENSEI</font></h1>
-
-
+<div align="center">
+  <img src ="https://github.com/ToGatherGroup/sensei/assets/112959006/69c81809-883e-4a5d-8610-6c4b6f21112d">
+</div>
 <p align="center">
   <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=800020&style=for-the-badge" alt="Badge em Desenvolvimento">
 </p>
