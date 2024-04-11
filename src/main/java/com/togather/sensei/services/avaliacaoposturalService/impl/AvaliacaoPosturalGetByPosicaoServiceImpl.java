@@ -15,7 +15,8 @@ public class AvaliacaoPosturalGetByPosicaoServiceImpl implements AvaliacaoPostur
 
     private final AvaliacaoPosturalRepository avaliacaoPosturalRepository;
     @Override
-    public AvaliacaoPosturalDTO buscarAvaliacaoPosturalByPosicao(Long atletaId, LocalDate data, PosicaoFotoEnum posicao) {
-        return avaliacaoPosturalRepository.buscarAvaliacaoPosturalByPosicao(atletaId, data, posicao);
+    public String buscarAvaliacaoPosturalByPosicao(Long atletaId, LocalDate data, PosicaoFotoEnum posicao) {
+        Object foto = avaliacaoPosturalRepository.buscarAvaliacaoPosturalByPosicao(atletaId, data, posicao);
+        return foto.toString();
     }
 }

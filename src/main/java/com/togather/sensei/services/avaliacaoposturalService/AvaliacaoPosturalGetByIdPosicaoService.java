@@ -8,5 +8,5 @@ import java.time.LocalDate;
 
 @Service
 public interface AvaliacaoPosturalGetByIdPosicaoService {
-    AvaliacaoPosturalDTO buscarAvaliacaoPosturalByPosicao (Long atletaId, LocalDate data, PosicaoFotoEnum posicao);
+    String buscarAvaliacaoPosturalByPosicao (Long atletaId, LocalDate data, PosicaoFotoEnum posicao);
 }

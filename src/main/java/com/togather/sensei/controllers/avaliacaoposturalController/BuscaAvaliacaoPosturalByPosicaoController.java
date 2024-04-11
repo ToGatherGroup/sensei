@@ -18,7 +18,8 @@ public class BuscaAvaliacaoPosturalByPosicaoController {
     private final AvaliacaoPosturalGetByIdPosicaoService avaliacaoPosturalGetByIdPosicaoService;
 
     @GetMapping("{atletaId}/{data}/{posicao}")
-    public ResponseEntity<AvaliacaoPosturalDTO> buscarAvaliacaoPosturalByPosicao(@PathVariable Long atletaId, @PathVariable LocalDate data, @PathVariable PosicaoFotoEnum posicao){
-        return ResponseEntity.ok().body(avaliacaoPosturalGetByIdPosicaoService.buscarAvaliacaoPosturalByPosicao(atletaId, data, posicao));
+    public ResponseEntity<String> buscarAvaliacaoPosturalByPosicao(@PathVariable Long atletaId, @PathVariable LocalDate data, @PathVariable PosicaoFotoEnum posicao){
+       String foto = avaliacaoPosturalGetByIdPosicaoService.buscarAvaliacaoPosturalByPosicao(atletaId, data, posicao);
+        return ResponseEntity.ok().body(foto);
     }
 }
