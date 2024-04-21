@@ -1,9 +1,8 @@
 package com.togather.sensei.controllers.atletaController;
 
 import com.togather.sensei.DTO.atleta.AtletaIdNomeDTO;
-import com.togather.sensei.services.atletaService.BuscaAtletaIdNomeService;
+import com.togather.sensei.services.atletaService.BuscaListaDeAusentesService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,14 +15,13 @@ import java.util.List;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/atleta/lista")
-public class BuscaAtletaIdNomeController {
+public class BuscaListaDeAusentesController
+{
+    private final BuscaListaDeAusentesService buscaListaDeAusentesService;
 
-    private final BuscaAtletaIdNomeService buscaAtletaIdNomeService;
-
-    @GetMapping
-    public ResponseEntity<List<AtletaIdNomeDTO>> buscaListadeChamada(){
-
-
-        return ResponseEntity.ok().body(buscaAtletaIdNomeService.findAtletaIdNome());
+    @GetMapping()
+    public ResponseEntity<List<AtletaIdNomeDTO>> buscaListadeAusentes()
+    {
+        return ResponseEntity.ok().body( buscaListaDeAusentesService.getListaDeAusentes() );
     }
 }
