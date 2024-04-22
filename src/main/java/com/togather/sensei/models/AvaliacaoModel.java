@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.time.Duration;
 
 @Data
@@ -12,7 +13,7 @@ import java.time.Duration;
 @NoArgsConstructor
 @Entity
 @Table(name = "avaliacao_tb")
-public class AvaliacaoModel {
+public class AvaliacaoModel implements Serializable{
     private double peso;
     private double altura;
     private Duration prancha;
