@@ -13,7 +13,7 @@ import java.time.Duration;
 @NoArgsConstructor
 @Entity
 @Table(name = "avaliacao_tb")
-public class AvaliacaoModel implements Serializable{
+public class AvaliacaoModel {
     private double peso;
     private double altura;
     private Duration prancha;

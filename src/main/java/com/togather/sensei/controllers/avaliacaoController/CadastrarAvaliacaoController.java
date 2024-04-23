@@ -20,7 +20,7 @@ public class CadastrarAvaliacaoController {
     public ResponseEntity<Void> cadastrarAvaliacaoModel(@RequestBody AvaliacaoModel avaliacaoModel) {
         try {
             avaliacaoPostService.saveAvaliacao(avaliacaoModel);
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+            return ResponseEntity.status(HttpStatus.CREATED).build();
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
         }

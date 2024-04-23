@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-public class AvaliacaoModelId {
+public class AvaliacaoModelId implements Serializable {
     @ManyToOne
     @JoinColumn(name = "atleta_id")
     private AtletaModel atletaModel;
