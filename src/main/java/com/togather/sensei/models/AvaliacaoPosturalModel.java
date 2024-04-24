@@ -26,4 +26,6 @@ public class AvaliacaoPosturalModel {
     @ManyToOne
     @JoinColumn(name = "atleta_id")
     private AtletaModel atletaModel;
+    @EmbeddedId
+    private AvaliacaoPosturalPK avaliacaoPosturalPK;
 }
