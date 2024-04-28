@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.avaliacaoposturalController;
 
-import com.togather.sensei.models.AvaliacaoPosturalModel;
+import com.togather.sensei.DTO.avaliacaopostural.AvaliacaoPosturalDTO;
 import com.togather.sensei.services.avaliacaoposturalService.AvaliacoesPosturaisByDataService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +18,7 @@ public class BuscaAvaliacoesPosturaisByDataController {
     private final AvaliacoesPosturaisByDataService avaliacoesPosturaisByDataService;
 
     @GetMapping("{atletaId}/{data}")
-    public ResponseEntity<List<AvaliacaoPosturalModel>> buscarAvaliacoesPosturaisByData(@PathVariable Long atletaId, @PathVariable LocalDate data){
-        List<AvaliacaoPosturalModel> lst = avaliacoesPosturaisByDataService.buscarAvaliacoesPosturalByData(atletaId, data);
-        return ResponseEntity.ok().body(lst);
+    public ResponseEntity<List<AvaliacaoPosturalDTO>> buscarAvaliacoesPosturaisByData(@PathVariable Long atletaId, @PathVariable LocalDate data) {
+        return ResponseEntity.ok().body(avaliacoesPosturaisByDataService.buscarAvaliacoesPosturalByData(atletaId, data));
     }
 }
