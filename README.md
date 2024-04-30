@@ -43,4 +43,7 @@ Java; Spring boot; React; Next.
 - [Karen Boscolo]([link para perfil ou contato](https://github.com/KarenBoscolo))
 - [Maiara Silva]([link para perfil ou contato](https://github.com/MaiaraSilva))
 - [Michel Machado]([link para perfil ou contato](https://github.com/Michel-Machado))
+- [Charles Anderson](https://github.com/charlesanderson25)
+- [Paulo Mota](https://github.com/Roberto-Mota)
+- [Wilson Alves](https://github.com/Wilrrama)
 - [novo membro](link para perfil ou contato)

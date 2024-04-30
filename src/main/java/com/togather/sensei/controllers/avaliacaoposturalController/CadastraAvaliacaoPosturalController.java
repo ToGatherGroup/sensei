@@ -17,10 +17,10 @@ public class CadastraAvaliacaoPosturalController {
     private final AvaliacaoPosturalPostService avaliacaoPosturalPostService;
 
     @PostMapping
-    public ResponseEntity<AvaliacaoPosturalModel> cadastraAvaliacaoPostural(@RequestBody AvaliacaoPosturalModel avaliacaoPosturalModel) {
+    public ResponseEntity<Void> cadastraAvaliacaoPostural(@RequestBody AvaliacaoPosturalModel avaliacaoPosturalModel) {
         try {
-            AvaliacaoPosturalModel avaliacaoModel = avaliacaoPosturalPostService.saveAvaliacaoPostural(avaliacaoPosturalModel);
-            return ResponseEntity.status(HttpStatus.CREATED).body(avaliacaoModel);
+            avaliacaoPosturalPostService.saveAvaliacaoPostural(avaliacaoPosturalModel);
+            return ResponseEntity.status(HttpStatus.CREATED).build();
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
         }

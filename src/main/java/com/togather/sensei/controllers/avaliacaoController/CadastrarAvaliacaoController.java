@@ -17,10 +17,10 @@ public class CadastrarAvaliacaoController {
     private final AvaliacaoPostService avaliacaoPostService;
 
     @PostMapping
-    public ResponseEntity<AvaliacaoModel> cadastrarAvaliacaoModel(@RequestBody AvaliacaoModel avaliacaoModel) {
+    public ResponseEntity<Void> cadastrarAvaliacaoModel(@RequestBody AvaliacaoModel avaliacaoModel) {
         try {
-            avaliacaoModel = avaliacaoPostService.saveAvaliacao(avaliacaoModel);
-            return ResponseEntity.status(HttpStatus.CREATED).body(avaliacaoModel);
+            avaliacaoPostService.saveAvaliacao(avaliacaoModel);
+            return ResponseEntity.status(HttpStatus.CREATED).build();
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
         }
