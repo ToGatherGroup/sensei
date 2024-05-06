@@ -24,4 +24,5 @@ public class AvaliacaoIncompletaDTO {
     private Integer rmTerra;
     private Duration forcaIsometricaMaos;
     private Double testeDeLunge;
+    private Double impulsaoVertical;
 }
