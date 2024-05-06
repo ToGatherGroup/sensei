@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/buscar_avaliacoes_incompletas")
+@RequestMapping("/avaliacoes_incompletas")
 public class BuscarAvaliacoesIncompletasController {
 
     private final AvaliacaoService avaliacaoService;
