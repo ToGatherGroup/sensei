@@ -25,4 +25,5 @@ public class AtletaModel {
     private String faixa;
     private String foto;
     private String email;
+    private Boolean isAtivo = Boolean.TRUE;
 }
