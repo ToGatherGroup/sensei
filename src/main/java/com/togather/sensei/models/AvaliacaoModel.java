@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 import java.time.Duration;
 
 @Data
@@ -24,6 +23,8 @@ public class AvaliacaoModel {
     private Integer rmTerra;
     private Duration forcaIsometricaMaos;
     private Double testeDeLunge;
+    private Double impulsaoVertical;
+
     @EmbeddedId
     private AvaliacaoModelId avaliacaoModelId;
 

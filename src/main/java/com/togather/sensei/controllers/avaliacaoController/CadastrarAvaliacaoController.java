@@ -16,6 +16,7 @@ public class CadastrarAvaliacaoController {
 
     private final AvaliacaoPostService avaliacaoPostService;
 
+
     @PostMapping
     public ResponseEntity<Void> cadastrarAvaliacaoModel(@RequestBody AvaliacaoModel avaliacaoModel) {
         try {
