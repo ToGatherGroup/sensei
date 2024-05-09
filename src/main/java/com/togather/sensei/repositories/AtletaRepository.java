@@ -1,6 +1,7 @@
 package com.togather.sensei.repositories;
 
 import com.togather.sensei.models.AtletaModel;
+import com.togather.sensei.models.AvaliacaoPosturalModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,4 +26,6 @@ public interface AtletaRepository extends JpaRepository<AtletaModel, Long> {
     @Query(nativeQuery = true, value = queryAtletasAusentesPorData)
     List<AtletaModel> buscaAusentesByData(LocalDate data);
 
+    @Query(nativeQuery = true, value = "SELECT * FROM atleta_tb WHERE isAtivo = true")
+    List<AtletaModel> buscaListaAtletaIdAtivo();
 }

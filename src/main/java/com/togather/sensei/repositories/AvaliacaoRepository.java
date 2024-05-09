@@ -32,10 +32,10 @@ public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Long
     List<AvaliacaoModel> getAvaliacoesIncompletas();
 
     String queryLastAvaliacaoByAtletaId = "  SELECT *\n" +
-                                          "    FROM avaliacao_tb \n" +
-                                          "   WHERE atleta_id = :atletaId \n" +
-                                          "ORDER BY data DESC\n" +
-                                          "   LIMIT 1";
+            "    FROM avaliacao_tb \n" +
+            "   WHERE atleta_id = :atletaId \n" +
+            "ORDER BY data DESC\n" +
+            "   LIMIT 1";
     @Query(value = queryLastAvaliacaoByAtletaId, nativeQuery = true)
     AvaliacaoModel getLastAvaliacaoByAtleta(Long atletaId);
 }
