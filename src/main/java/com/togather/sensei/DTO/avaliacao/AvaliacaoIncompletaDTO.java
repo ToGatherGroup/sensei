@@ -1,18 +1,19 @@
-package com.togather.sensei.models;
+package com.togather.sensei.DTO.avaliacao;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.Duration;
+import java.time.LocalDate;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "avaliacao_tb")
-public class AvaliacaoModel {
+@Builder
+@Getter
+@Setter
+public class AvaliacaoIncompletaDTO {
+    private LocalDate dataAvaliacao;
+    private Long idAtleta;
+    private String nomeAtleta;
     private double peso;
     private double altura;
     private Duration prancha;
@@ -24,10 +25,4 @@ public class AvaliacaoModel {
     private Duration forcaIsometricaMaos;
     private Double testeDeLunge;
     private Double impulsaoVertical;
-
-    @EmbeddedId
-    private AvaliacaoModelId avaliacaoModelId;
-
-
 }
-

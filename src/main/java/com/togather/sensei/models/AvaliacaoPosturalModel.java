@@ -15,15 +15,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "avaliacaopostural_tb")
 public class AvaliacaoPosturalModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Temporal(TemporalType.DATE)
-    private LocalDate data;
+    @EmbeddedId
+    private AvaliacaoPosturalPK avaliacaoPosturalPK;
     private String foto;
-    @Enumerated(EnumType.STRING)
-    private PosicaoFotoEnum posicao;
-    @ManyToOne
-    @JoinColumn(name = "atleta_id")
-    private AtletaModel atletaModel;
 }
