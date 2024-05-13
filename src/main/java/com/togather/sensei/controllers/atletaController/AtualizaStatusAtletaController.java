@@ -1,34 +1,28 @@
 package com.togather.sensei.controllers.atletaController;
 
 import com.togather.sensei.models.AtletaModel;
-import com.togather.sensei.repositories.AtletaRepository;
+import com.togather.sensei.services.atletaService.AtualizaAtletatService;
+import com.togather.sensei.services.atletaService.BuscaAtletaByIdService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin("*")
-@RequiredArgsConstructor
 @RequestMapping("/atleta")
+@RequiredArgsConstructor
 public class AtualizaStatusAtletaController {
 
+    private final AtualizaAtletatService atualizaAtletatService;
 
-        @Autowired
-        private AtletaRepository atletaRepository;
+    @PutMapping("/atualizar/{id}/status/{status}")
+    public ResponseEntity<String> atualizarStatus(@PathVariable Long id, @PathVariable Boolean status) {
 
-        @PutMapping("/atualizar/{id}/status/{status}")
-        public ResponseEntity<String> atualizarStatus(@PathVariable Long id, @PathVariable Boolean status) {
-            AtletaModel atleta = atletaRepository.findById(id).orElse(null);
+        atualizaAtletatService.updateStatusAtleta(id,status);
 
-            if (atleta != null) {
-                atleta.setIsAtivo(status);
-                atletaRepository.save(atleta);
-                return ResponseEntity.ok("Status do atleta atualizado com sucesso");
-            } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Atleta não encontrado");
-            }
-        }
+        return ResponseEntity.ok("Status do atleta atualizado com sucesso");
+
     }
 
+}

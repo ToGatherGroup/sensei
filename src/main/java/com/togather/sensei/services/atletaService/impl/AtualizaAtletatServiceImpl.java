@@ -24,4 +24,20 @@ public class AtualizaAtletatServiceImpl implements AtualizaAtletatService {
         }
         return atletaRepository.save(atletaModel);
     }
+
+    @Override
+    public void updateStatusAtleta(Long id, Boolean status) {
+
+        Optional<AtletaModel> model= atletaRepository.findById(id);
+        if (model.isEmpty())
+            throw new NotFoundException("Atleta informado não encontrado.");
+
+        model.get().setIsAtivo(status);
+
+        AtletaModel atletaModel=model.get();
+
+        atletaRepository.save(atletaModel);
+    }
+
+
 }
