@@ -7,4 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface AtualizaAtletatService {
     AtletaModel updateAtleta(AtletaModel atletaModel);
+
+    void updateStatusAtleta(Long id, Boolean status);
+
 }
