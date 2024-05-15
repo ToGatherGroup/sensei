@@ -36,6 +36,7 @@ public class AvaliacaoServiceImpl implements AvaliacaoService {
                             .rmTerra(avaliacaoModel.getRmTerra())
                             .forcaIsometricaMaos(avaliacaoModel.getForcaIsometricaMaos())
                             .testeDeLunge(avaliacaoModel.getTesteDeLunge())
+                            .impulsaoVertical(avaliacaoModel.getImpulsaoVertical())
                             .build());
         }
         return avaliacaoIncompletaDTOList;
