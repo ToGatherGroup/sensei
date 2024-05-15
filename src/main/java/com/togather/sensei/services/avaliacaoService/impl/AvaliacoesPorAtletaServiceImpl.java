@@ -137,6 +137,11 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
                 throw new NotFoundException("Nenhuma avaliação encontrada para o atleta " + atletaId);
 
             LocalDate dataAtual = LocalDate.now();
+
+            if (atleta.getNascimento() == null) {
+                throw new NotFoundException("Data de nascimento do atleta não especificada");
+            }
+
             Period periodoEntreAsDatas = Period.between(atleta.getNascimento(), dataAtual);
             int idadeDoAtleta = periodoEntreAsDatas.getYears();
 
