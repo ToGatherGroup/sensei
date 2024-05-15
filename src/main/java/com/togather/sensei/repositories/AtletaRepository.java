@@ -26,6 +26,6 @@ public interface AtletaRepository extends JpaRepository<AtletaModel, Long> {
     @Query(nativeQuery = true, value = queryAtletasAusentesPorData)
     List<AtletaModel> buscaAusentesByData(LocalDate data);
 
-    @Query(nativeQuery = true, value = "SELECT * FROM atleta_tb WHERE isAtivo = true")
+    @Query(nativeQuery = true, value = "SELECT * FROM atleta_tb WHERE is_ativo = true")
     List<AtletaModel> buscaListaAtletaIdAtivo();
 }
