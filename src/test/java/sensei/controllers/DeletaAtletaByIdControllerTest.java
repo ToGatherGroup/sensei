@@ -14,7 +14,6 @@ import org.springframework.web.client.HttpClientErrorException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.doNothing;
 
 @ExtendWith(SpringExtension.class)
 class DeletaAtletaByIdControllerTest {
@@ -28,7 +27,7 @@ class DeletaAtletaByIdControllerTest {
     @Test
     void dadoIdValido_entaoRetorneNoContent() {
         // Criação de um ID de entrada
-        Long inputId = 1L;
+        long inputId = 1L;
 
         // Configuração do comportamento esperado do serviço
         Mockito.doNothing().when(deletaAtletaByIdService).deleteAtletaById(inputId);
@@ -44,7 +43,7 @@ class DeletaAtletaByIdControllerTest {
     @Test
     void dadoIdInvalido_entaoRetorneHttpClientErrorException() {
         // Criação de um ID de entrada
-        Long inputId = 1L;
+        long inputId = 1L;
 
         // Configuração do comportamento esperado do serviço para lançar uma exceção
         HttpClientErrorException exception = new HttpClientErrorException(HttpStatus.NOT_FOUND, "Not Found");
