@@ -23,20 +23,21 @@ public class AvaliacaoServiceImpl implements AvaliacaoService {
         List<AvaliacaoIncompletaDTO> avaliacaoIncompletaDTOList = new ArrayList<>();
         for (AvaliacaoModel avaliacaoModel : avaliacoesIncompletas){
             avaliacaoIncompletaDTOList.add(AvaliacaoIncompletaDTO.builder()
-                    .dataAvaliacao(avaliacaoModel.getAvaliacaoModelId().getData())
-                    .idAtleta(avaliacaoModel.getAvaliacaoModelId().getAtletaModel().getId())
-                    .nomeAtleta(avaliacaoModel.getAvaliacaoModelId().getAtletaModel().getNome())
-                    .peso(avaliacaoModel.getPeso())
-                    .altura(avaliacaoModel.getAltura())
-                    .prancha(avaliacaoModel.getPrancha())
-                    .flexoes(avaliacaoModel.getFlexoes())
-                    .abdominais(avaliacaoModel.getAbdominais())
-                    .burpees(avaliacaoModel.getBurpees())
-                    .cooper(avaliacaoModel.getCooper())
-                    .rmTerra(avaliacaoModel.getRmTerra())
-                    .forcaIsometricaMaos(avaliacaoModel.getForcaIsometricaMaos())
-                    .testeDeLunge(avaliacaoModel.getTesteDeLunge())
-                    .build());
+                            .dataAvaliacao(avaliacaoModel.getAvaliacaoModelId().getData())
+                            .idAtleta(avaliacaoModel.getAvaliacaoModelId().getAtletaModel().getId())
+                            .nomeAtleta(avaliacaoModel.getAvaliacaoModelId().getAtletaModel().getNome())
+                            .peso(avaliacaoModel.getPeso())
+                            .altura(avaliacaoModel.getAltura())
+                            .prancha(avaliacaoModel.getPrancha())
+                            .flexoes(avaliacaoModel.getFlexoes())
+                            .abdominais(avaliacaoModel.getAbdominais())
+                            .burpees(avaliacaoModel.getBurpees())
+                            .cooper(avaliacaoModel.getCooper())
+                            .rmTerra(avaliacaoModel.getRmTerra())
+                            .forcaIsometricaMaos(avaliacaoModel.getForcaIsometricaMaos())
+                            .testeDeLunge(avaliacaoModel.getTesteDeLunge())
+                            .impulsaoVertical(avaliacaoModel.getImpulsaoVertical())
+                            .build());
         }
         return avaliacaoIncompletaDTOList;
     }
