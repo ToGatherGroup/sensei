@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface AvaliacaoPosturalPostService {
-    AvaliacaoPosturalModel saveAvaliacaoPostural(AvaliacaoPosturalModel avaliacaoPosturalModel);
+    void saveAvaliacaoPostural(AvaliacaoPosturalModel avaliacaoPosturalModel);
 }

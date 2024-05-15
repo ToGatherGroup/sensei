@@ -7,8 +7,5 @@ import java.io.Serializable;
 
 @Service
 public interface AvaliacaoPostService extends Serializable {
-
-    AvaliacaoModel saveAvaliacao(AvaliacaoModel avaliacaoModel);
-
-
+    void saveAvaliacao(AvaliacaoModel avaliacaoModel);
 }

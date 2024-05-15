@@ -16,8 +16,7 @@ public class AvaliacaoPostServiceImpl implements AvaliacaoPostService {
     private final AvaliacaoRepository avaliacaoRepository;
 
     @Override
-    public AvaliacaoModel saveAvaliacao(AvaliacaoModel avaliacaoModel) {
-
-        return avaliacaoRepository.save(avaliacaoModel);
+    public void saveAvaliacao(AvaliacaoModel avaliacaoModel) {
+        avaliacaoRepository.save(avaliacaoModel);
     }
 }
