@@ -12,8 +12,7 @@ public class AvaliacaoPosturalPostServiceImpl implements AvaliacaoPosturalPostSe
 
     private final AvaliacaoPosturalRepository avaliacaoPosturalRepository;
     @Override
-    public AvaliacaoPosturalModel saveAvaliacaoPostural(AvaliacaoPosturalModel avaliacaoPosturalModel) {
-
-        return avaliacaoPosturalRepository.save(avaliacaoPosturalModel);
+    public void saveAvaliacaoPostural(AvaliacaoPosturalModel avaliacaoPosturalModel) {
+        avaliacaoPosturalRepository.save(avaliacaoPosturalModel);
     }
 }

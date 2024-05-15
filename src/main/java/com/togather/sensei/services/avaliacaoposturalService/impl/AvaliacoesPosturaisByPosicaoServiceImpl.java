@@ -1,7 +1,6 @@
 package com.togather.sensei.services.avaliacaoposturalService.impl;
 
 import com.togather.sensei.DTO.avaliacaopostural.AvaliacaoPosturalDTO;
-import com.togather.sensei.enums.PosicaoFotoEnum;
 import com.togather.sensei.models.AvaliacaoPosturalModel;
 import com.togather.sensei.repositories.AvaliacaoPosturalRepository;
 import com.togather.sensei.services.avaliacaoposturalService.AvaliacoesPosturaisByDataService;
@@ -30,12 +29,5 @@ public class AvaliacoesPosturaisByPosicaoServiceImpl implements AvaliacoesPostur
             listaAvaliacoesPosturaisDTO.add(avaliacaoPosturalAtual);
         }
         return listaAvaliacoesPosturaisDTO;
-    }
-
-    private String buscaDescricaoEnum(int index) {
-        PosicaoFotoEnum[] lista = PosicaoFotoEnum.values();
-        String descricao = lista[index].getPosicao();
-
-        return descricao;
     }
 }
