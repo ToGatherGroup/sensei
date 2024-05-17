@@ -11,6 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.Duration;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 
 @ExtendWith(SpringExtension.class)
 class AvaliacaoServiceImplTest {
@@ -28,6 +30,8 @@ class AvaliacaoServiceImplTest {
 
     @InjectMocks
     private AvaliacaoServiceImpl avaliacaoService;
+
+    private static final String EXERCICIO = "prancha";
 
     @Test
     void dadoBuscaAvaliacoesIncompletas_entaoRetorneListaDeAvaliacoesDTO() {
@@ -57,10 +61,10 @@ class AvaliacaoServiceImplTest {
         avaliacoesIncompletas.add(avaliacaoModel);
 
         // Configuração do comportamento esperado do repositório
-        Mockito.when(avaliacaoRepository.getAvaliacoesIncompletas()).thenReturn(avaliacoesIncompletas);
+        Mockito.when(avaliacaoRepository.findAll(any(Specification.class))).thenReturn(avaliacoesIncompletas);
 
         // Chama o método a ser testado
-        List<AvaliacaoIncompletaDTO> result = avaliacaoService.buscaAvaliacoesIncompletas();
+        List<AvaliacaoIncompletaDTO> result = avaliacaoService.buscaAvaliacoesIncompletas(EXERCICIO);
 
         // Verifica se o resultado é o esperado
         assertEquals(1, result.size());
@@ -87,10 +91,10 @@ class AvaliacaoServiceImplTest {
         List<AvaliacaoModel> avaliacoesIncompletas = new ArrayList<>();
 
         // Configuração do comportamento esperado do repositório
-        Mockito.when(avaliacaoRepository.getAvaliacoesIncompletas()).thenReturn(avaliacoesIncompletas);
+        Mockito.when(avaliacaoRepository.findAll(any(Specification.class))).thenReturn(avaliacoesIncompletas);
 
         // Chama o método a ser testado
-        List<AvaliacaoIncompletaDTO> result = avaliacaoService.buscaAvaliacoesIncompletas();
+        List<AvaliacaoIncompletaDTO> result = avaliacaoService.buscaAvaliacoesIncompletas(EXERCICIO);
 
         // Verifica se o resultado é o esperado
         assertEquals(0, result.size());
@@ -99,10 +103,10 @@ class AvaliacaoServiceImplTest {
     @Test
     void dadoErroNoRepositorio_entaoLancaExcecao() {
         // Configuração do comportamento esperado do repositório para lançar uma exceção
-        Mockito.when(avaliacaoRepository.getAvaliacoesIncompletas()).thenThrow(new RuntimeException("Erro no repositório"));
+        Mockito.when(avaliacaoRepository.findAll(any(Specification.class))).thenThrow(new RuntimeException("Erro no repositório"));
 
         // Verifica se o método lança a exceção esperada
-        RuntimeException thrown = org.junit.jupiter.api.Assertions.assertThrows(RuntimeException.class, () -> avaliacaoService.buscaAvaliacoesIncompletas());
+        RuntimeException thrown = org.junit.jupiter.api.Assertions.assertThrows(RuntimeException.class, () -> avaliacaoService.buscaAvaliacoesIncompletas(EXERCICIO));
 
         // Verifica a mensagem da exceção
         assertEquals("Erro no repositório", thrown.getMessage());

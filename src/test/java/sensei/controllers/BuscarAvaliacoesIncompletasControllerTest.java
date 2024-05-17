@@ -27,18 +27,21 @@ class BuscarAvaliacoesIncompletasControllerTest {
     @InjectMocks
     private BuscarAvaliacoesIncompletasController controller;
 
+    private static final String EXERCICIO = "prancha";
+
     @Test
     void dadoBuscaAvaliacoesIncompletas_entaoRetorneListaDeAvaliacoes() {
+
         // Criação de uma lista de avaliações incompletas esperada
         List<AvaliacaoIncompletaDTO> expectedAvaliacoes = new ArrayList<>();
         expectedAvaliacoes.add(new AvaliacaoIncompletaDTO());
         expectedAvaliacoes.add(new AvaliacaoIncompletaDTO());
 
         // Configuração do comportamento esperado do serviço
-        Mockito.when(avaliacaoService.buscaAvaliacoesIncompletas()).thenReturn(expectedAvaliacoes);
+        Mockito.when(avaliacaoService.buscaAvaliacoesIncompletas(EXERCICIO)).thenReturn(expectedAvaliacoes);
 
         // Chama o método a ser testado
-        ResponseEntity<List<AvaliacaoIncompletaDTO>> response = controller.buscaAvaliacoesIncompletas();
+        ResponseEntity<List<AvaliacaoIncompletaDTO>> response = controller.buscaAvaliacoesIncompletas(EXERCICIO);
 
         // Assert
         // Verifica se o status da resposta e o corpo são os esperados
@@ -52,10 +55,10 @@ class BuscarAvaliacoesIncompletasControllerTest {
         List<AvaliacaoIncompletaDTO> expectedAvaliacoes = new ArrayList<>();
 
         // Configuração do comportamento esperado do serviço
-        Mockito.when(avaliacaoService.buscaAvaliacoesIncompletas()).thenReturn(expectedAvaliacoes);
+        Mockito.when(avaliacaoService.buscaAvaliacoesIncompletas(EXERCICIO)).thenReturn(expectedAvaliacoes);
 
         // Chama o método a ser testado
-        ResponseEntity<List<AvaliacaoIncompletaDTO>> response = controller.buscaAvaliacoesIncompletas();
+        ResponseEntity<List<AvaliacaoIncompletaDTO>> response = controller.buscaAvaliacoesIncompletas(EXERCICIO);
 
         // Assert
         // Verifica se o status da resposta e o corpo são os esperados
@@ -66,10 +69,10 @@ class BuscarAvaliacoesIncompletasControllerTest {
     @Test
     void dadoErroNoServico_entaoLancaExcecao() {
         // Configuração do comportamento esperado do serviço para lançar uma exceção
-        Mockito.when(avaliacaoService.buscaAvaliacoesIncompletas()).thenThrow(new RuntimeException("Erro no serviço"));
+        Mockito.when(avaliacaoService.buscaAvaliacoesIncompletas(EXERCICIO)).thenThrow(new RuntimeException("Erro no serviço"));
 
         // Verifica se o método lança a exceção esperada
-        RuntimeException thrown = Assertions.assertThrows(RuntimeException.class, () -> controller.buscaAvaliacoesIncompletas());
+        RuntimeException thrown = Assertions.assertThrows(RuntimeException.class, () -> controller.buscaAvaliacoesIncompletas(EXERCICIO));
 
         // Assert
         assertEquals("Erro no serviço", thrown.getMessage());
