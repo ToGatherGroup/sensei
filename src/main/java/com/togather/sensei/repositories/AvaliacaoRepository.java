@@ -6,30 +6,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Long> {
-    @Query(value = """
-            SELECT data, abdominais, altura, burpees, cooper, flexoes, forca_isometrica_maos, peso, prancha, rm_terra, teste_de_lunge, impulsao_vertical, atleta_id
-            FROM (
-                SELECT\s
-                    data, abdominais, altura, burpees, cooper, flexoes, forca_isometrica_maos, peso, prancha, rm_terra, teste_de_lunge, impulsao_vertical, atleta_id,
-                    ROW_NUMBER() OVER (PARTITION BY atleta_id ORDER BY data DESC) AS row_num
-                FROM avaliacao_tb
-                WHERE\s
-                    abdominais IS NULL OR
-                    altura IS NULL OR
-                    burpees IS NULL OR
-                    cooper IS NULL OR
-                    flexoes IS NULL OR
-                    forca_isometrica_maos IS NULL OR
-                    peso IS NULL OR
-                    prancha IS NULL OR
-                    rm_terra IS NULL OR
-                    teste_de_lunge IS NULL OR
-                    impulsao_vertical IS NULL
-            ) AS sub
-            WHERE row_num = 1""", nativeQuery = true)
+
+
+
+    @Query(nativeQuery = true, value = "SELECT * from avaliacao_tb where abdominais is null or prancha is null or altura is null or burpees is null or cooper is null or flexoes is null or forca_isometrica_maos is null or\n" +
+            "  impulsao_vertical is null or peso is null or prancha is null or rm_terra is null or teste_de_lunge is null ")
     List<AvaliacaoModel> getAvaliacoesIncompletas();
 
     String queryLastAvaliacaoByAtletaId = "  SELECT *\n" +

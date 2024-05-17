@@ -47,7 +47,7 @@ class AvaliacoesPorAtletaServiceImplTest {
         avaliacaoModel.setAltura(1.70);
         avaliacaoModel.setFlexoes(5);
         avaliacaoModel.setCooper(0.5);
-        avaliacaoModel.setPeso(65);
+        avaliacaoModel.setPeso(65.0);
         avaliacaoModel.setForcaIsometricaMaos(Duration.ofMinutes(50));
         avaliacaoModel.setTesteDeLunge(4.0);
         avaliacaoModel.setImpulsaoVertical(5.0);
