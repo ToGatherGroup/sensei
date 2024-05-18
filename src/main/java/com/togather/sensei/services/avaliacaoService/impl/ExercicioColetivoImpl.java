@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -28,17 +29,18 @@ public class ExercicioColetivoImpl implements ExercicioColetivoService {
 
 
     @Override
-    public void atualizarExercicioColetivo(ExercicioColetivoDTO exercicioColetivo) throws InvocationTargetException, IllegalAccessException {
+    public void atualizarExercicioColetivo(List<ExercicioColetivoDTO> listaexercicioColetivo) throws InvocationTargetException, IllegalAccessException {
+        for (ExercicioColetivoDTO exercicioColetivo:listaexercicioColetivo) {
 
-        AtletaModel atleta = validaAtleta(exercicioColetivo.getAtletaId()) ;
-        LocalDate data = avaliacaoRepository.getDataAvaliacoesIncompletas();
-        AvaliacaoModelId id= new AvaliacaoModelId(atleta,data);
+            AtletaModel atleta = validaAtleta(exercicioColetivo.getAtletaId()) ;
+            LocalDate data = avaliacaoRepository.getDataAvaliacoesIncompletas();
+            AvaliacaoModelId id= new AvaliacaoModelId(atleta,data);
 
-        AvaliacaoModel avaliacao= avaliacaoRepository.findById(id).get();
-        System.out.println(avaliacao);
-        nullBeanUtils.copyProperties(avaliacao,exercicioColetivo.getResultado());
-        avaliacaoRepository.save(avaliacao);
-
+            AvaliacaoModel avaliacao= avaliacaoRepository.findById(id).get();
+            System.out.println(avaliacao);
+            nullBeanUtils.copyProperties(avaliacao,exercicioColetivo.getResultado());
+            avaliacaoRepository.save(avaliacao);
+        }
 
     }
 
