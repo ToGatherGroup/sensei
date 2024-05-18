@@ -3,7 +3,7 @@ package com.togather.sensei.services.avaliacaoService.impl;
 import com.togather.sensei.DTO.atleta.AtletaIdNomeDTO;
 import com.togather.sensei.models.AvaliacaoModel;
 import com.togather.sensei.repositories.AvaliacaoRepository;
-import com.togather.sensei.services.avaliacaoService.AvaliacaoService;
+import com.togather.sensei.services.avaliacaoService.AvaliacaoIncompletaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class AvaliacaoServiceImpl implements AvaliacaoService {
+public class AvaliacaoIncompletaServiceImpl implements AvaliacaoIncompletaService {
 
     private final AvaliacaoRepository avaliacaoRepository;
 

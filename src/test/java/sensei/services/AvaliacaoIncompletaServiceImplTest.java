@@ -1,33 +1,22 @@
 package sensei.services;
 
-import com.togather.sensei.DTO.avaliacao.AvaliacaoIncompletaDTO;
-import com.togather.sensei.models.AtletaModel;
-import com.togather.sensei.models.AvaliacaoModel;
-import com.togather.sensei.models.AvaliacaoModelId;
 import com.togather.sensei.repositories.AvaliacaoRepository;
-import com.togather.sensei.services.avaliacaoService.impl.AvaliacaoServiceImpl;
-import org.junit.jupiter.api.Test;
+import com.togather.sensei.services.avaliacaoService.impl.AvaliacaoIncompletaServiceImpl;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import java.time.Duration;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SpringExtension.class)
-class AvaliacaoServiceImplTest {
+class AvaliacaoIncompletaServiceImplTest {
 
     @Mock
     private AvaliacaoRepository avaliacaoRepository;
 
     @InjectMocks
-    private AvaliacaoServiceImpl avaliacaoService;
+    private AvaliacaoIncompletaServiceImpl avaliacaoService;
 
 //    @Test
 //    void dadoBuscaAvaliacoesIncompletas_entaoRetorneListaDeAvaliacoesDTO() {
