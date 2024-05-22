@@ -24,8 +24,10 @@ public class BuscaAtletaIdNomeServiceImpl implements BuscaAtletaIdNomeService {
         List<AtletaIdNomeDTO> listAtletaIdNomeDTO= new ArrayList<>();
 
         for (AtletaModel model: modelList) {
-          AtletaIdNomeDTO atletaDTO = mapper.map(model, AtletaIdNomeDTO.class);
-          listAtletaIdNomeDTO.add(atletaDTO);
+            if (model.getIsAtivo().equals(Boolean.TRUE)){
+              AtletaIdNomeDTO atletaDTO = mapper.map(model, AtletaIdNomeDTO.class);
+              listAtletaIdNomeDTO.add(atletaDTO);
+            }
         }
         return listAtletaIdNomeDTO;
     }

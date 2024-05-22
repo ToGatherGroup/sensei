@@ -34,7 +34,7 @@ class AtualizaAtletatServiceImplTest {
         // Adicionar lógica para configurar outros dados do atleta
 
         // Configuração do comportamento esperado do repositório
-        Mockito.when(atletaRepository.findById(1L)).thenReturn(Optional.of(atletaModel));
+        Mockito.when(atletaRepository.existsById(1L)).thenReturn(Boolean.TRUE);
         Mockito.when(atletaRepository.save(atletaModel)).thenReturn(atletaModel);
 
         // Chama o método a ser testado

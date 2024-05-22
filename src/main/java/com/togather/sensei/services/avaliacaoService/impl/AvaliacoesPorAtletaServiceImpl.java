@@ -3,6 +3,7 @@ package com.togather.sensei.services.avaliacaoService.impl;
 import com.togather.sensei.DTO.geral.MetricaAvaliacao;
 import com.togather.sensei.DTO.geral.SeriesDTO;
 import com.togather.sensei.enums.AvaliacaoEnum;
+import com.togather.sensei.exceptions.BusinessException;
 import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.AvaliacaoModel;
@@ -132,6 +133,10 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
                 throw new NotFoundException("Nenhum atleta encontrado com o id " + atletaId);
 
             AtletaModel atleta = optionalAtletaModel.get();
+            if (atleta.getIsAtivo().equals(Boolean.FALSE)){
+                throw new BusinessException("Atleta inativo");
+            }
+
             AvaliacaoModel avaliacao = avaliacaoRepository.getLastAvaliacaoByAtleta(atletaId);
             if(avaliacao == null)
                 throw new NotFoundException("Nenhuma avaliação encontrada para o atleta " + atletaId);

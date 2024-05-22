@@ -1,7 +1,6 @@
 package com.togather.sensei.repositories;
 
 import com.togather.sensei.models.AtletaModel;
-import com.togather.sensei.models.AvaliacaoPosturalModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,19 +12,21 @@ import java.util.List;
 
 @Repository
 public interface AtletaRepository extends JpaRepository<AtletaModel, Long> {
-    AtletaModel findByNome(String nome);
-
-    @Query( value = "SELECT * from atleta_tb where nome like  %:nome% ", nativeQuery = true)
+    String queryAtletasPorNome =
+            "SELECT * FROM atleta_tb \n" +
+                    "WHERE nome LIKE %:nome% \n" +
+                    "AND is_ativo = TRUE";
+    @Query(nativeQuery = true, value = queryAtletasPorNome)
     Page<AtletaModel> buscaPorNome(String nome, Pageable pageable);
-
     String queryAtletasAusentesPorData =
-            "  SELECT * "
-           +"    FROM atleta_tb a "
-           +"   WHERE a.id NOT IN (SELECT atleta_id FROM presenca_tb WHERE data = :data) "
-           +"ORDER BY a.nome ";
+            "SELECT * FROM atleta_tb a \n" +
+                    "WHERE a.id NOT IN (SELECT atleta_id FROM presenca_tb WHERE data = '2023-12-01')\n" +
+                    "AND a.is_ativo = true\n" +
+                    "ORDER BY a.nome";
     @Query(nativeQuery = true, value = queryAtletasAusentesPorData)
     List<AtletaModel> buscaAusentesByData(LocalDate data);
 
-    @Query(nativeQuery = true, value = "SELECT * FROM atleta_tb WHERE is_ativo = true")
+    String queryAtletasAtivos = "SELECT * FROM atleta_tb WHERE is_ativo = true";
+    @Query(nativeQuery = true, value = queryAtletasAtivos)
     List<AtletaModel> buscaListaAtletaIdAtivo();
 }

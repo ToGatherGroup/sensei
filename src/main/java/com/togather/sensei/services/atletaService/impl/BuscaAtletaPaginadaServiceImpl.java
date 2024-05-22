@@ -19,21 +19,17 @@ public class BuscaAtletaPaginadaServiceImpl implements BuscaAtletaPaginadaServic
     private final AtletaRepository atletaRepository;
     private final ModelMapper modelMapper;
 
-
     @Override
     public Page<AtletaIdNomeFotoDTO> buscaAtletas(Pageable pageable) {
        Page<AtletaModel> atletas= atletaRepository.findAll(pageable);
        List<AtletaIdNomeFotoDTO> atletasDto= new ArrayList<>();
 
         for (AtletaModel atleta: atletas) {
-         AtletaIdNomeFotoDTO nomeFotoDTO= modelMapper.map(atleta, AtletaIdNomeFotoDTO.class);
-         atletasDto.add(nomeFotoDTO);
+            if (atleta.getIsAtivo().equals(Boolean.TRUE)){
+                 AtletaIdNomeFotoDTO nomeFotoDTO= modelMapper.map(atleta, AtletaIdNomeFotoDTO.class);
+                 atletasDto.add(nomeFotoDTO);
+            }
         }
-
-        Page<AtletaIdNomeFotoDTO> atletasPage = new PageImpl<>(atletasDto, pageable, atletas.getTotalElements());
-
-        return atletasPage;
+        return new PageImpl<>(atletasDto, pageable, atletas.getTotalElements());
     }
-
-
 }

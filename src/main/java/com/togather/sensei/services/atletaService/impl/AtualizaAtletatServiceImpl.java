@@ -17,9 +17,8 @@ public class AtualizaAtletatServiceImpl implements AtualizaAtletatService {
 
     @Override
     public AtletaModel updateAtleta(AtletaModel atletaModel) {
-        Optional<AtletaModel> model= atletaRepository.findById(atletaModel.getId());
-
-        if (model.isEmpty()) {
+        boolean exists = atletaRepository.existsById(atletaModel.getId());
+        if (!exists) {
             throw new NotFoundException("Atleta informado não encontrado.");
         }
         return atletaRepository.save(atletaModel);
@@ -28,16 +27,12 @@ public class AtualizaAtletatServiceImpl implements AtualizaAtletatService {
     @Override
     public void updateStatusAtleta(Long id, Boolean status) {
 
-        Optional<AtletaModel> model= atletaRepository.findById(id);
-        if (model.isEmpty())
+        Optional<AtletaModel> model = atletaRepository.findById(id);
+        if (model.isEmpty()) {
             throw new NotFoundException("Atleta informado não encontrado.");
-
-        model.get().setIsAtivo(status);
-
-        AtletaModel atletaModel=model.get();
-
+        }
+        AtletaModel atletaModel = model.get();
+        atletaModel.setIsAtivo(status);
         atletaRepository.save(atletaModel);
     }
-
-
 }

@@ -1,5 +1,7 @@
 package com.togather.sensei.services.presencaService.impl;
 
+import com.togather.sensei.exceptions.BusinessException;
+import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.PresencaModel;
 import com.togather.sensei.repositories.AtletaRepository;
@@ -20,19 +22,19 @@ public class ChamadaDeAtletaServiceImpl implements ChamadaDeAtletaService {
     private final AtletaRepository atletaRepository;
     @Override
     public void chamadaDeAtleta(List<Long> idAtletaList) {
-
         for (Long id: idAtletaList){
-
             Optional<AtletaModel> optionalAtletaModel = atletaRepository.findById(id);
-
-            if (optionalAtletaModel.isPresent()){
-                AtletaModel atletaModel = optionalAtletaModel.get();
-                PresencaModel model = new PresencaModel();
-                model.setData(LocalDate.now());
-                model.setAtletaModel(atletaModel);
-
-                presencaRepository.save(model);
+            if (optionalAtletaModel.isEmpty()){
+                throw new NotFoundException("Atleta não encontrado.");
             }
+            AtletaModel atletaModel = optionalAtletaModel.get();
+            if (atletaModel.getIsAtivo().equals(Boolean.FALSE)){
+                throw new BusinessException("Atleta inativo");
+            }
+            PresencaModel presencaModel = new PresencaModel();
+            presencaModel.setData(LocalDate.now());
+            presencaModel.setAtletaModel(atletaModel);
+            presencaRepository.save(presencaModel);
         }
     }
 }
