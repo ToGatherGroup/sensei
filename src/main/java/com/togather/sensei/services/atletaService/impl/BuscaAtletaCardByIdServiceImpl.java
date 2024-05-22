@@ -2,7 +2,6 @@ package com.togather.sensei.services.atletaService.impl;
 
 import com.togather.sensei.DTO.atleta.AtletaCardDTO;
 import com.togather.sensei.DTO.campeonato.MedalhaDTO;
-import com.togather.sensei.exceptions.BusinessException;
 import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;
@@ -36,11 +35,7 @@ public class BuscaAtletaCardByIdServiceImpl implements BuscaCardAtletaByIdServic
         if (optional.isEmpty()) {
             throw new NotFoundException("Atleta não encontrado");
         }
-        AtletaModel atletaModel = optional.get();
-        if (atletaModel.getIsAtivo().equals(Boolean.FALSE)){
-            throw new BusinessException("Atleta inativo.");
-        }
-        return atletaModel;
+        return optional.get();
     }
 
     private int calculaIdade(LocalDate nascimento){
