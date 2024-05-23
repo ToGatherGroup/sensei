@@ -1,10 +1,9 @@
 package com.togather.sensei.DTO.avaliacao;
 
 import com.togather.sensei.DTO.atleta.AtletaIdNomeDTO;
+import com.togather.sensei.models.AvaliacaoModel;
 import lombok.*;
 
-import java.time.Duration;
-import java.time.LocalDate;
 import java.util.List;
 
 @AllArgsConstructor
@@ -12,9 +11,9 @@ import java.util.List;
 @Builder
 @Getter
 @Setter
-public class AvaliacaoIncompletaDTO {
+public class ExercicioColetivoDTO {
 
-    private String valencia;
-    private List<AtletaIdNomeDTO> atletas;
+    private Long AtletaId;
+    private AvaliacaoModel resultado;
 
 }
