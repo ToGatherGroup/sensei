@@ -62,10 +62,21 @@ public class AvaliacaoIncompletaServiceImpl implements AvaliacaoIncompletaServic
                     }
                 }
                 break;
-            case "impulsao_vertical ":
+            case "impulsao_vertical":
                 for (AvaliacaoModel avaliacao: listaAvaliacoes) {
                     AtletaIdNomeDTO atleta= new AtletaIdNomeDTO();
                     if (avaliacao.getImpulsaoVertical() == null){
+                        atleta.setNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());
+                        atleta.setId(avaliacao.getAvaliacaoModelId().getAtletaModel().getId());
+                        incompletaDTOList.add(atleta);
+                    }
+                }
+                break;
+
+            case "burpees":
+                for (AvaliacaoModel avaliacao: listaAvaliacoes) {
+                    AtletaIdNomeDTO atleta= new AtletaIdNomeDTO();
+                    if (avaliacao.getBurpees() == null){
                         atleta.setNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());
                         atleta.setId(avaliacao.getAvaliacaoModelId().getAtletaModel().getId());
                         incompletaDTOList.add(atleta);
