@@ -1,6 +1,8 @@
 package com.togather.sensei.controllers.avaliacaoController;
 
 import com.togather.sensei.DTO.atleta.AtletaIdNomeDTO;
+import com.togather.sensei.DTO.avaliacao.AvaliacaoDTO;
+import com.togather.sensei.models.AvaliacaoModel;
 import com.togather.sensei.services.avaliacaoService.AvaliacaoIncompletaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +17,10 @@ import java.util.List;
 public class BuscarAvaliacoesIncompletasController {
 
     private final AvaliacaoIncompletaService avaliacaoIncompletaService;
-    @GetMapping("/{exercicio}")
-    public ResponseEntity<List<AtletaIdNomeDTO>> buscaAvaliacoesIncompletas(@PathVariable String exercicio)
+    @GetMapping()
+    public ResponseEntity<List<AvaliacaoDTO>> buscaAvaliacoesIncompletas()
     {
-        List<AtletaIdNomeDTO> avaliacoesIncompletas =  avaliacaoIncompletaService.buscaAvaliacoesIncompletas(exercicio);
+        List<AvaliacaoDTO> avaliacoesIncompletas =  avaliacaoIncompletaService.buscaAvaliacoesIncompletas();
         return ResponseEntity.ok().body(avaliacoesIncompletas);
     }
 }
