@@ -2,7 +2,7 @@ package com.togather.sensei.services.avaliacaoService.impl;
 
 import com.togather.sensei.DTO.avaliacao.AvaliacaoDTO;
 import com.togather.sensei.DTO.avaliacao.ListaExerciciosDTO;
-import com.togather.sensei.DTO.avaliacao.ResponseIncommpletasDTO;
+import com.togather.sensei.DTO.avaliacao.ResponseAvaliacoesIncompletasDTO;
 import com.togather.sensei.models.AvaliacaoModel;
 import com.togather.sensei.repositories.AvaliacaoRepository;
 import com.togather.sensei.services.avaliacaoService.AvaliacaoIncompletaService;
@@ -22,13 +22,13 @@ public class AvaliacaoIncompletaServiceImpl implements AvaliacaoIncompletaServic
     private final ModelMapper mapper;
 
     @Override
-    public ResponseIncommpletasDTO buscaAvaliacoesIncompletas() {
+    public ResponseAvaliacoesIncompletasDTO buscaAvaliacoesIncompletas() {
 
         List<AvaliacaoModel> listaAvaliacaoIncompleta= avaliacaoRepository.getAvaliacoesIncompletas();
 
         List<AvaliacaoDTO> listaAvaliacaoDTO= listarAvaliacoes(listaAvaliacaoIncompleta);
         LocalDate data = avaliacaoRepository.getDataAvaliacoesIncompletas();
-        ResponseIncommpletasDTO response = new ResponseIncommpletasDTO(data, listaAvaliacaoDTO);
+        ResponseAvaliacoesIncompletasDTO response = new ResponseAvaliacoesIncompletasDTO(data, listaAvaliacaoDTO);
         return response;
     }
 

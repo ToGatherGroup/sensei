@@ -1,12 +1,7 @@
 package com.togather.sensei.services.avaliacaoService;
 
-import com.togather.sensei.DTO.atleta.AtletaIdNomeDTO;
-import com.togather.sensei.DTO.avaliacao.AvaliacaoDTO;
-import com.togather.sensei.DTO.avaliacao.ResponseIncommpletasDTO;
-import com.togather.sensei.models.AvaliacaoModel;
-
-import java.util.List;
+import com.togather.sensei.DTO.avaliacao.ResponseAvaliacoesIncompletasDTO;
 
 public interface AvaliacaoIncompletaService {
-    ResponseIncommpletasDTO buscaAvaliacoesIncompletas();
+    ResponseAvaliacoesIncompletasDTO buscaAvaliacoesIncompletas();
 }

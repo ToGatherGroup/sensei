@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @Getter
 @Setter
-public class ResponseIncommpletasDTO {
+public class ResponseAvaliacoesIncompletasDTO {
 
     @Temporal(TemporalType.DATE)
     private LocalDate data;
