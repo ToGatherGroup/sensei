@@ -12,7 +12,4 @@ public class AvaliacaoDTO {
     private Long atletaId;
     private String atletaNome;
     private ListaExerciciosDTO exercicios;
-
-
-
 }
