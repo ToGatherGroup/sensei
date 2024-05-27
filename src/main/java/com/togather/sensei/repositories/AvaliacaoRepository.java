@@ -4,11 +4,11 @@ import com.togather.sensei.models.AvaliacaoModel;
 import com.togather.sensei.models.AvaliacaoModelId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Objects;
 
 @Repository
 public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, AvaliacaoModelId> {
@@ -30,4 +30,7 @@ public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Aval
             "   LIMIT 1";
     @Query(value = queryLastAvaliacaoByAtletaId, nativeQuery = true)
     AvaliacaoModel getLastAvaliacaoByAtleta(Long atletaId);
+
+    @Query(nativeQuery = true, value = "SELECT * FROM avaliacao_tb WHERE data = :data AND atleta_id = :atletaId")
+    AvaliacaoModel buscaListaAvaliacaoAtletaData(@Param("data") LocalDate data, @Param("atletaId") Long atletaId);
 }

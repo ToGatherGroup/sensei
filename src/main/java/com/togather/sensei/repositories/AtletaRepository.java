@@ -1,7 +1,6 @@
 package com.togather.sensei.repositories;
 
 import com.togather.sensei.models.AtletaModel;
-import com.togather.sensei.models.AvaliacaoPosturalModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
