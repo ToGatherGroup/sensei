@@ -1,9 +1,13 @@
 package com.togather.sensei.DTO.avaliacao;
 
+import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.AvaliacaoModel;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.*;
 
 import java.time.Duration;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,5 +27,8 @@ public class AvaliacaoDTO {
     private Duration forcaIsometricaMaos;
     private Double testeDeLunge;
     private Double impulsaoVertical;
+    private Long atletaId;
+    @Temporal(TemporalType.DATE)
+    private LocalDate data;
 
 }
