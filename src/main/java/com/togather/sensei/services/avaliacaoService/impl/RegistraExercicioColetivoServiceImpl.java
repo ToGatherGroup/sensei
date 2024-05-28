@@ -8,9 +8,8 @@ import com.togather.sensei.models.AvaliacaoModel;
 import com.togather.sensei.models.AvaliacaoModelId;
 import com.togather.sensei.repositories.AtletaRepository;
 import com.togather.sensei.repositories.AvaliacaoRepository;
-import com.togather.sensei.services.avaliacaoService.ExercicioColetivoService;
+import com.togather.sensei.services.avaliacaoService.RegistraExercicioColetivoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.InvocationTargetException;
@@ -21,7 +20,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 
-public class ExercicioColetivoImpl implements ExercicioColetivoService {
+public class RegistraExercicioColetivoServiceImpl implements RegistraExercicioColetivoService {
 
     private final AvaliacaoRepository avaliacaoRepository;
     private final AtletaRepository atletaRepository;

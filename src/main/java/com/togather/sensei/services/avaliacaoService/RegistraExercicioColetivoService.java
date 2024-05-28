@@ -5,7 +5,7 @@ import com.togather.sensei.DTO.avaliacao.ExercicioColetivoDTO;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-public interface ExercicioColetivoService {
+public interface RegistraExercicioColetivoService {
 
     void atualizarExercicioColetivo(List<ExercicioColetivoDTO> listaexercicioColetivo) throws InvocationTargetException, IllegalAccessException;
 
