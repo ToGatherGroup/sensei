@@ -23,6 +23,7 @@ public class AtletaModel {
     private Double peso;
     private Double altura;
     private String faixa;
+    @Column(columnDefinition = "LONGTEXT")
     private String foto;
     private String email;
     private Boolean isAtivo = Boolean.TRUE;
