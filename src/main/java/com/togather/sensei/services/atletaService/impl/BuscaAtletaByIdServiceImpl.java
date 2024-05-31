@@ -1,7 +1,6 @@
 package com.togather.sensei.services.atletaService.impl;
 
 import com.togather.sensei.DTO.atleta.AtletaDTO;
-import com.togather.sensei.exceptions.BusinessException;
 import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;
@@ -24,15 +23,11 @@ public class BuscaAtletaByIdServiceImpl implements BuscaAtletaByIdService {
         return mapearAtletaDto(atletaModel);
     }
 
-    private AtletaModel validarAtletaModel(Optional<AtletaModel> model) {
-        if (model.isEmpty()){
+    private AtletaModel validarAtletaModel(Optional<AtletaModel> atletaModel) {
+        if (atletaModel.isEmpty()){
             throw new NotFoundException("Atleta não encontrado.");
         }
-        AtletaModel atletaModel = model.get();
-        if (atletaModel.getIsAtivo().equals(Boolean.FALSE)) {
-            throw new BusinessException("Atleta inativo.");
-        }
-        return atletaModel;
+        return atletaModel.get();
     }
 
     private AtletaDTO mapearAtletaDto(AtletaModel model) {

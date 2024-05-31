@@ -25,10 +25,8 @@ public class BuscaAtletaPaginadaServiceImpl implements BuscaAtletaPaginadaServic
        List<AtletaIdNomeFotoDTO> atletasDto= new ArrayList<>();
 
         for (AtletaModel atleta: atletas) {
-            if (atleta.getIsAtivo().equals(Boolean.TRUE)){
-                 AtletaIdNomeFotoDTO nomeFotoDTO= modelMapper.map(atleta, AtletaIdNomeFotoDTO.class);
-                 atletasDto.add(nomeFotoDTO);
-            }
+            AtletaIdNomeFotoDTO nomeFotoDTO= modelMapper.map(atleta, AtletaIdNomeFotoDTO.class);
+            atletasDto.add(nomeFotoDTO);
         }
         return new PageImpl<>(atletasDto, pageable, atletas.getTotalElements());
     }

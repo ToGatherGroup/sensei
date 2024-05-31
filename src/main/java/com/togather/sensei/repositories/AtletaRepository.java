@@ -14,8 +14,7 @@ import java.util.List;
 public interface AtletaRepository extends JpaRepository<AtletaModel, Long> {
     String queryAtletasPorNome =
             "SELECT * FROM atleta_tb \n" +
-                    "WHERE nome LIKE %:nome% \n" +
-                    "AND is_ativo = TRUE";
+                    "WHERE nome LIKE %:nome%";
     @Query(nativeQuery = true, value = queryAtletasPorNome)
     Page<AtletaModel> buscaPorNome(String nome, Pageable pageable);
     String queryAtletasAusentesPorData =

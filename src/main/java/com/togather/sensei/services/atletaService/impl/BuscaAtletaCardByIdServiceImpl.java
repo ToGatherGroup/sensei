@@ -31,11 +31,11 @@ public class BuscaAtletaCardByIdServiceImpl implements BuscaCardAtletaByIdServic
         return gerarCard(id);
     }
 
-    private AtletaModel validaAtleta(Optional<AtletaModel> optional){
-        if (optional.isEmpty()) {
+    private AtletaModel validaAtleta(Optional<AtletaModel> atletaModel){
+        if (atletaModel.isEmpty()) {
             throw new NotFoundException("Atleta não encontrado");
         }
-        return optional.get();
+        return atletaModel.get();
     }
 
     private int calculaIdade(LocalDate nascimento){

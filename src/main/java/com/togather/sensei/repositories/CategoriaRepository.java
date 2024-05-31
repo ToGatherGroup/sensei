@@ -1,9 +1,6 @@
 package com.togather.sensei.repositories;
 
-import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.CategoriaModel;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
