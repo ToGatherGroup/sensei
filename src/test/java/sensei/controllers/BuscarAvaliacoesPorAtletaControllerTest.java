@@ -1,7 +1,7 @@
 package sensei.controllers;
 
 import com.togather.sensei.DTO.geral.SeriesDTO;
-import com.togather.sensei.controllers.avaliacaoController.AvaliacoesPorAtletaController;
+import com.togather.sensei.controllers.avaliacaoController.BuscarAvaliacoesPorAtletaController;
 import com.togather.sensei.services.avaliacaoService.AvaliacoesPorAtletaService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,13 +17,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(SpringExtension.class)
-class AvaliacoesPorAtletaControllerTest {
+class BuscarAvaliacoesPorAtletaControllerTest {
 
     @Mock
     private AvaliacoesPorAtletaService avaliacoesPorAtletaDataService;
 
     @InjectMocks
-    private AvaliacoesPorAtletaController avaliacoesPorAtletaController;
+    private BuscarAvaliacoesPorAtletaController buscarAvaliacoesPorAtletaController;
 
     @Test
     void dadoAtletaIdValido_entaoRetorneSeriesDTO() {
@@ -35,7 +35,7 @@ class AvaliacoesPorAtletaControllerTest {
         Mockito.when(avaliacoesPorAtletaDataService.getAvaliacoesPorAtleta(inputAtletaId)).thenReturn(expectedDTO);
 
         // Chama o método a ser testado
-        ResponseEntity<SeriesDTO> response = avaliacoesPorAtletaController.buscaAvaliacoesPorAtleta(inputAtletaId);
+        ResponseEntity<SeriesDTO> response = buscarAvaliacoesPorAtletaController.buscaAvaliacoesPorAtleta(inputAtletaId);
 
         // Assert
         // Verifica se o status da resposta e o corpo são os esperados
@@ -53,7 +53,7 @@ class AvaliacoesPorAtletaControllerTest {
         Mockito.when(avaliacoesPorAtletaDataService.getAvaliacoesPorAtleta(inputAtletaId)).thenThrow(exception);
 
         // Verifica se o método lança a exceção esperada
-        HttpClientErrorException thrown = assertThrows(HttpClientErrorException.class, () -> avaliacoesPorAtletaController.buscaAvaliacoesPorAtleta(inputAtletaId));
+        HttpClientErrorException thrown = assertThrows(HttpClientErrorException.class, () -> buscarAvaliacoesPorAtletaController.buscaAvaliacoesPorAtleta(inputAtletaId));
 
         // Verifica a mensagem da exceção
         assertEquals(HttpStatus.NOT_FOUND, thrown.getStatusCode());
