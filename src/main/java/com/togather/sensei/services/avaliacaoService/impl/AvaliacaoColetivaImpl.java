@@ -31,5 +31,4 @@ public class AvaliacaoColetivaImpl implements AvaliacaoColetivaService {
             avaliacaoRepository.save(avaliacaoModel);
         }
     }
-
 }

@@ -22,7 +22,7 @@
 ---
 
 ## Descrição do Projeto
-Projeto voluntário que tem como principal objetivo a avaliação e monitoramento físico de atletas de judô pertecentes ao Projeto Sensei Divino Budokan, atuante na Zona Norte de São Paulo/SP.
+Projeto voluntário que tem como principal objetivo a avaliação e monitoramento físico de atletas pertecentes à ONG's de judô em São Paulo.
 
 ## Tecnologias Utilizadas
 Java; Spring boot; React; Next.
