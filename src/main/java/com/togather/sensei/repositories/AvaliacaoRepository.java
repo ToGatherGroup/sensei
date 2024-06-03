@@ -42,6 +42,9 @@ public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Aval
     @Query(value = queryLastAvaliacaoByAtletaId, nativeQuery = true)
     AvaliacaoModel getLastAvaliacaoByAtleta(Long atletaId);
 
+    @Query(nativeQuery = true, value = "SELECT * FROM avaliacao_tb WHERE data = :data AND atleta_id = :atletaId")
+    AvaliacaoModel buscaAvaliacaoAtletaData(@Param("data") LocalDate data, @Param("atletaId") Long atletaId);
+
     @Query(nativeQuery = true, value = "SELECT * FROM avaliacao_tb WHERE data = :data")
     List<AvaliacaoModel> buscaAvaliacaoMesmaData(@Param("data") LocalDate data);
 }
