@@ -1,16 +1,17 @@
 package com.togather.sensei.repositories;
 
 import com.togather.sensei.models.AvaliacaoModel;
+import com.togather.sensei.models.AvaliacaoModelId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
 public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Long> {
-
-
 
     String queryAvaliacoesIncompletas = """
             SELECT av.*

@@ -50,7 +50,7 @@ public class BuscaAtletaCardByIdServiceImpl implements BuscaCardAtletaByIdServic
     private AtletaCardDTO gerarCard(Long id){
         AtletaModel atleta= validaAtleta(atletaRepository.findById(id));
         List<MedalhaDTO> medalhaDTO= buscaMedalhaService.buscaMedalhas(id);
-        int idade= calculaIdade(atleta.getNascimento());
+        Integer idade= calculaIdade(atleta.getNascimento());
         String categoria= categoriaRepository.gerarCategoria(idade);
 
         AtletaCardDTO card = mapper.map(atleta, AtletaCardDTO.class);

@@ -63,7 +63,7 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
 
         metricaTemp = new MetricaAvaliacao();
         metricaTemp.setTipoAvaliacao( AvaliacaoEnum.MobilidadeDoTornozelo );
-        metricaTemp.setDescricao("Mobilidade do Tornozelo");
+        metricaTemp.setDescricao("Mob Tornozelo");
         metricaTemp.setMinino(12.);
         metricaTemp.setMaximo(0.);
         metricaTemp.setIdadeMinima(0);
@@ -71,7 +71,7 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
 
         metricaTemp = new MetricaAvaliacao();
         metricaTemp.setTipoAvaliacao( AvaliacaoEnum.ResistenciaMuscularLocalizadaAbdominal);
-        metricaTemp.setDescricao("Resistência Muscular Localizada Abdominal");
+        metricaTemp.setDescricao("RML Abdominal");
         metricaTemp.setMinino(0.);
         metricaTemp.setMaximo(60.);
         metricaTemp.setIdadeMinima(0);
@@ -79,7 +79,7 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
 
         metricaTemp = new MetricaAvaliacao();
         metricaTemp.setTipoAvaliacao( AvaliacaoEnum.ResistenciaMuscularLocalizadaMMSS );
-        metricaTemp.setDescricao("Resistência Muscular Localizada MMSS");
+        metricaTemp.setDescricao("RML MMSS");
         metricaTemp.setMinino(0.);
         metricaTemp.setMaximo(50.);
         metricaTemp.setIdadeMinima(0);
@@ -87,7 +87,7 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
 
         metricaTemp = new MetricaAvaliacao();
         metricaTemp.setTipoAvaliacao( AvaliacaoEnum.ResistenciaAnaerobica );
-        metricaTemp.setDescricao("Resistência Anaeróbica");
+        metricaTemp.setDescricao("R. Anaeróbica");
         metricaTemp.setMinino(0.);
         metricaTemp.setMaximo(40.);
         metricaTemp.setIdadeMinima(0);
@@ -95,7 +95,7 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
 
         metricaTemp = new MetricaAvaliacao();
         metricaTemp.setTipoAvaliacao( AvaliacaoEnum.ResistenciaAerobica );
-        metricaTemp.setDescricao("Resistência Aeróbica");
+        metricaTemp.setDescricao("R. Aeróbica");
         metricaTemp.setMinino(0.);
         metricaTemp.setMaximo(3000.);
         metricaTemp.setIdadeMinima(0);
