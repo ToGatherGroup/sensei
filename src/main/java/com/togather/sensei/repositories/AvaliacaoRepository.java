@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -40,4 +41,9 @@ public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Long
                LIMIT 1""";
     @Query(value = queryLastAvaliacaoByAtletaId, nativeQuery = true)
     AvaliacaoModel getLastAvaliacaoByAtleta(Long atletaId);
+
+    @Query(nativeQuery = true, value = "SELECT data FROM avaliacao_tb WHERE atleta_id = :atletaId")
+    List<Date> buscaAvaliacaoPorDataPorAtleta(Long atletaId);
+
+
 }
