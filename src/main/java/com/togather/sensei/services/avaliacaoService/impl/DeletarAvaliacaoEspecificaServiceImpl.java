@@ -16,7 +16,7 @@ public class DeletarAvaliacaoEspecificaServiceImpl implements DeletarAvaliacaoEs
     private final AvaliacaoRepository avaliacaoRepository;
 
     @Override
-    public void deletarAvaliacaoEspecifica(LocalDate data, Long atletaId){
+    public void deletarAvaliacaoEspecifica(LocalDate data, Long atletaId) {
         AvaliacaoModel avaliacaoEspecifica = avaliacaoRepository.buscaAvaliacaoAtletaData(data, atletaId);
 
         if (avaliacaoEspecifica == null) {
@@ -24,6 +24,6 @@ public class DeletarAvaliacaoEspecificaServiceImpl implements DeletarAvaliacaoEs
         }
 
         avaliacaoRepository.delete(avaliacaoEspecifica);
-        }
+    }
 }
 
