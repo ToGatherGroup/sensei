@@ -23,9 +23,7 @@ public class DeletarAvaliacaoMesmaDataImpl implements DeletarAvaliacaoMesmaDataS
             throw new NotFoundException("Nenhuma avaliação encontrada para a data fornecida.");
         }
 
-        for (AvaliacaoModel avaliacaoModel : listaAvaliacaoMesmaData) {
-            avaliacaoRepository.delete(avaliacaoModel);
-        }
+        avaliacaoRepository.deleteAll(listaAvaliacaoMesmaData);
     }
 
 }
