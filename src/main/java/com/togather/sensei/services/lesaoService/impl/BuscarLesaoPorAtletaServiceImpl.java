@@ -26,7 +26,6 @@ public class BuscarLesaoPorAtletaServiceImpl implements BuscarHistoricoLesoesPor
         for (LesaoModel lesao: lesaoList) {
             LesaoDTO responseLesaoDTO = new LesaoDTO();
              responseLesaoDTO = mapper.map(lesao, LesaoDTO.class);
-             responseLesaoDTO.setAtletaId(lesao.getAtletaModel().getId());
              lesaoDTOList.add(responseLesaoDTO);
 
         }

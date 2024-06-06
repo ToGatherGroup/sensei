@@ -17,5 +17,4 @@ public class LesaoDTO {
     private String descricao;
     private RegiaoCorpoEnum regiaoLesao;
 
-    private Long atletaId;
 }
