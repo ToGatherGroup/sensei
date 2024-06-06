@@ -1,6 +1,7 @@
 package com.togather.sensei.services.atletaService.impl;
 
 import com.togather.sensei.DTO.atleta.AtletaIdNomeFotoDTO;
+import com.togather.sensei.DTO.avaliacao.ResponseAvaliacoesIncompletasDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;
 import com.togather.sensei.services.atletaService.BuscaAtletaByNomePaginadaService;
