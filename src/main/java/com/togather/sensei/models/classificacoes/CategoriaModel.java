@@ -1,4 +1,4 @@
-package com.togather.sensei.models;
+package com.togather.sensei.models.classificacoes;
 
 import jakarta.persistence.*;
 

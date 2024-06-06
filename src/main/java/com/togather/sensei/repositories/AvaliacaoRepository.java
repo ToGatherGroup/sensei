@@ -56,4 +56,5 @@ public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Aval
     List<Date> buscaAvaliacaoPorDataPorAtleta(Long atletaId);
 
 
+
 }
