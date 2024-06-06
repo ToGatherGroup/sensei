@@ -37,6 +37,17 @@ public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Aval
               SELECT *
                 FROM avaliacao_tb\s
                WHERE atleta_id = :atletaId\s
+               AND abdominais
+               AND altura is not null\s is not null\s
+               AND burpees is not null\s
+               AND cooper is not null\s
+               AND flexoes is not null\s
+               AND forca_isometrica_maos is not null\s
+               AND impulsao_vertical is not null\s
+               AND peso is not null\s
+               AND prancha is not null\s
+               AND rm_terra is not null\s
+               AND teste_de_lunge is not null\s
             ORDER BY data DESC
                LIMIT 1""";
     @Query(value = queryLastAvaliacaoByAtletaId, nativeQuery = true)
