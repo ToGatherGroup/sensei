@@ -48,18 +48,23 @@ public class AvaliacaoColetivaImpl implements AvaliacaoColetivaService {
 
 
         ListaExerciciosDTO listaExercicios = new ListaExerciciosDTO();
-        AvaliacaoDTO avaliacaoDTO = new AvaliacaoDTO();
+
         List<AvaliacaoDTO> avaliacaoDTOList= new ArrayList<>();
+        ResponseAvaliacoesIncompletasDTO response= new ResponseAvaliacoesIncompletasDTO();
+        response.setData(data);
 
         for (AvaliacaoModel avaliacao: avaliacoesGeradas) {
             listaExercicios = mapper.map(avaliacao, ListaExerciciosDTO.class);
+            AvaliacaoDTO avaliacaoDTO = new AvaliacaoDTO();
             avaliacaoDTO.setExercicios(listaExercicios);
             avaliacaoDTO.setAtletaId(avaliacao.getAvaliacaoModelId().getAtletaModel().getId());
             avaliacaoDTO.setAtletaNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());
             avaliacaoDTOList.add(avaliacaoDTO);
 
+            response.setAvaliacoesIncompletas(avaliacaoDTOList);
+
         }
-             ResponseAvaliacoesIncompletasDTO response= new ResponseAvaliacoesIncompletasDTO(data,avaliacaoDTOList);
+
         return response;
     }
 }
