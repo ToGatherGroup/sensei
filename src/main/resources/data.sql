@@ -9,6 +9,17 @@ CREATE TABLE IF NOT EXISTS classificacao_vo2_tb (
       PRIMARY KEY (id)
 );
 
+CREATE TABLE IF NOT EXISTS classificacao_cooper_tb (
+      id BIGINT NOT NULL,
+      classificacao VARCHAR(255),
+      idade_min INT,
+      idade_max INT,
+      resultado_min DOUBLE PRECISION,
+      resultado_max DOUBLE PRECISION,
+      sexo CHAR(1),
+      PRIMARY KEY (id)
+);
+
 -- Inicia uma transação para garantir a atomicidade das operações
 START TRANSACTION;
 
@@ -89,6 +100,81 @@ INSERT IGNORE INTO classificacao_vo2_tb (id, classificacao, idade_min, idade_max
     (70, 'Boa', 60, 150, 32.4, 36.3, 'M'),
     (71, 'Excelente', 60, 150, 36.4, 44.2, 'M'),
     (72, 'Superior', 60, 150, 44.3, 100, 'M');
+
+-- Dados agrupados por "classificação" (Fraca, Boa, etc)
+INSERT IGNORE INTO classificacao_cooper_tb (id, classificacao, idade_min, idade_max, resultado_min, resultado_max, sexo) VALUES
+( 1, 'I - M. Fraca',  13,  19,    0,  1610, 'F'),
+( 2, 'I - M. Fraca',  13,  19,    0,  2090, 'M'),
+( 3, 'I - M. Fraca',  20,  29,    0,  1550, 'F'),
+( 4, 'I - M. Fraca',  20,  29,    0,  1960, 'M'),
+( 5, 'I - M. Fraca',  30,  39,    0,  1510, 'F'),
+( 6, 'I - M. Fraca',  30,  39,    0,  1900, 'M'),
+( 7, 'I - M. Fraca',  40,  49,    0,  1420, 'F'),
+( 8, 'I - M. Fraca',  40,  49,    0,  1830, 'M'),
+( 9, 'I - M. Fraca',  50,  59,    0,  1350, 'F'),
+(10, 'I - M. Fraca',  50,  59,    0,  1660, 'M'),
+(11, 'I - M. Fraca',  60, 200,    0,  1260, 'F'),
+(12, 'I - M. Fraca',  60, 200,    0,  1400, 'M'),
+(13, 'II - Fraca',    13,  19, 1610,  1900, 'F'),
+(14, 'II - Fraca',    13,  19, 2090,  2200, 'M'),
+(15, 'II - Fraca',    20,  29, 1550,  1790, 'F'),
+(16, 'II - Fraca',    20,  29, 1960,  2110, 'M'),
+(17, 'II - Fraca',    30,  39, 1510,  1690, 'F'),
+(18, 'II - Fraca',    30,  39, 1900,  2090, 'M'),
+(19, 'II - Fraca',    40,  49, 1420,  1580, 'F'),
+(20, 'II - Fraca',    40,  49, 1830,  1990, 'M'),
+(21, 'II - Fraca',    50,  59, 1350,  1500, 'F'),
+(22, 'II - Fraca',    50,  59, 1660,  1870, 'M'),
+(23, 'II - Fraca',    60, 200, 1260,  1390, 'F'),
+(24, 'II - Fraca',    60, 200, 1400,  1640, 'M'),
+(25, 'III - Média',   13,  19, 1910,  2080, 'F'),
+(26, 'III - Média',   13,  19, 2210,  2510, 'M'),
+(27, 'III - Média',   20,  29, 1800,  1970, 'F'),
+(28, 'III - Média',   20,  29, 2120,  2400, 'M'),
+(29, 'III - Média',   30,  39, 1700,  1960, 'F'),
+(30, 'III - Média',   30,  39, 2100,  2400, 'M'),
+(31, 'III - Média',   40,  49, 1590,  1790, 'F'),
+(32, 'III - Média',   40,  49, 2000,  2240, 'M'),
+(33, 'III - Média',   50,  59, 1510,  1690, 'F'),
+(34, 'III - Média',   50,  59, 1880,  2090, 'M'),
+(35, 'III - Média',   60, 200, 1400,  1590, 'F'),
+(36, 'III - Média',   60, 200, 1650,  1930, 'M'),
+(37, 'IV - Boa',      13,  19, 2090,  2300, 'F'),
+(38, 'IV - Boa',      13,  19, 2520,  2770, 'M'),
+(39, 'IV - Boa',      20,  29, 1980,  2160, 'F'),
+(40, 'IV - Boa',      20,  29, 2410,  2640, 'M'),
+(41, 'IV - Boa',      30,  39, 1970,  2080, 'F'),
+(42, 'IV - Boa',      30,  39, 2410,  2510, 'M'),
+(43, 'IV - Boa',      40,  49, 1800,  2000, 'F'),
+(44, 'IV - Boa',      40,  49, 2250,  2460, 'M'),
+(45, 'IV - Boa',      50,  59, 1700,  1900, 'F'),
+(46, 'IV - Boa',      50,  59, 2100,  2320, 'M'),
+(47, 'IV - Boa',      60, 200, 1600,  1750, 'F'),
+(48, 'IV - Boa',      60, 200, 1940,  2120, 'M'),
+(49, 'V - Excelente', 13,  19, 2310,  2430, 'F'),
+(50, 'V - Excelente', 13,  19, 2780,  3000, 'M'),
+(51, 'V - Excelente', 20,  29, 2170,  2330, 'F'),
+(52, 'V - Excelente', 20,  29, 2650,  2830, 'M'),
+(53, 'V - Excelente', 30,  39, 2090,  2240, 'F'),
+(54, 'V - Excelente', 30,  39, 2520,  2720, 'M'),
+(55, 'V - Excelente', 40,  49, 2010,  2160, 'F'),
+(56, 'V - Excelente', 40,  49, 2470,  2660, 'M'),
+(57, 'V - Excelente', 50,  59, 1910,  2090, 'F'),
+(58, 'V - Excelente', 50,  59, 2330,  2540, 'M'),
+(59, 'V - Excelente', 60, 200, 1760,  1900, 'F'),
+(60, 'V - Excelente', 60, 200, 2130,  2490, 'M'),
+(61, 'VI - Superior', 13,  19, 2430, 99999, 'F'),
+(62, 'VI - Superior', 13,  19, 3000, 99999, 'M'),
+(63, 'VI - Superior', 20,  29, 2330, 99999, 'F'),
+(64, 'VI - Superior', 20,  29, 2830, 99999, 'M'),
+(65, 'VI - Superior', 30,  39, 2240, 99999, 'F'),
+(66, 'VI - Superior', 30,  39, 2720, 99999, 'M'),
+(67, 'VI - Superior', 40,  49, 2160, 99999, 'F'),
+(68, 'VI - Superior', 40,  49, 2660, 99999, 'M'),
+(69, 'VI - Superior', 50,  59, 2090, 99999, 'F'),
+(70, 'VI - Superior', 50,  59, 2540, 99999, 'M'),
+(71, 'VI - Superior', 60, 200, 1900, 99999, 'F'),
+(72, 'VI - Superior', 60, 200, 2490, 99999, 'M');
 
 -- Confirma a transação
 COMMIT;
