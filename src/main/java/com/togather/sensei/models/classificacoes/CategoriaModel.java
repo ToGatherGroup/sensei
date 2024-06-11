@@ -9,7 +9,6 @@ import jakarta.persistence.*;
 public class CategoriaModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     int idadeMin;
