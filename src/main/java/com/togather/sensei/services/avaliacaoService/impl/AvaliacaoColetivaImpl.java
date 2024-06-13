@@ -3,6 +3,7 @@ package com.togather.sensei.services.avaliacaoService.impl;
 import com.togather.sensei.DTO.avaliacao.AvaliacaoDTO;
 import com.togather.sensei.DTO.avaliacao.ListaExerciciosDTO;
 import com.togather.sensei.DTO.avaliacao.ResponseAvaliacoesIncompletasDTO;
+import com.togather.sensei.exceptions.BusinessException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.AvaliacaoModel;
 import com.togather.sensei.models.AvaliacaoModelId;
@@ -27,6 +28,7 @@ public class AvaliacaoColetivaImpl implements AvaliacaoColetivaService {
     private final ModelMapper mapper;
     @Override
     public ResponseAvaliacoesIncompletasDTO cadastrarAvaliacaoColetiva() {
+        verificaAvaliacoesEmAndamento();
         List<AtletaModel> listaAtletaIdAtivo = atletaRepository.buscaListaAtletaIdAtivo();
         LocalDate dataAtual = LocalDate.now();
 
@@ -66,5 +68,11 @@ public class AvaliacaoColetivaImpl implements AvaliacaoColetivaService {
         }
 
         return response;
+    }
+
+    private void verificaAvaliacoesEmAndamento(){
+        if(!avaliacaoRepository.getAvaliacoesIncompletas().isEmpty()){
+            throw new BusinessException("Avaliações em andamento devem ser finalizadas antes de iniciar uma nova");
+        }
     }
 }
