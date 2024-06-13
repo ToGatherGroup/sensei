@@ -6,13 +6,18 @@ import com.togather.sensei.services.avaliacaoposturalService.AvaliacaoPosturalPo
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class AvaliacaoPosturalPostServiceImpl implements AvaliacaoPosturalPostService {
 
     private final AvaliacaoPosturalRepository avaliacaoPosturalRepository;
     @Override
-    public void saveAvaliacaoPostural(AvaliacaoPosturalModel avaliacaoPosturalModel) {
-        avaliacaoPosturalRepository.save(avaliacaoPosturalModel);
+    public void saveAvaliacaoPostural(List<AvaliacaoPosturalModel> avaliacaoPosturalList) {
+
+        for (AvaliacaoPosturalModel avaliacaoPostural: avaliacaoPosturalList) {
+            avaliacaoPosturalRepository.save(avaliacaoPostural);
+        }
     }
 }

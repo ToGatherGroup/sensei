@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
@@ -17,9 +19,9 @@ public class CadastraAvaliacaoPosturalController {
     private final AvaliacaoPosturalPostService avaliacaoPosturalPostService;
 
     @PostMapping
-    public ResponseEntity<Void> cadastraAvaliacaoPostural(@RequestBody AvaliacaoPosturalModel avaliacaoPosturalModel) {
+    public ResponseEntity<Void> cadastraAvaliacaoPostural(@RequestBody List<AvaliacaoPosturalModel> avaliacaoPosturalList) {
         try {
-            avaliacaoPosturalPostService.saveAvaliacaoPostural(avaliacaoPosturalModel);
+            avaliacaoPosturalPostService.saveAvaliacaoPostural(avaliacaoPosturalList);
             return ResponseEntity.status(HttpStatus.CREATED).build();
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
