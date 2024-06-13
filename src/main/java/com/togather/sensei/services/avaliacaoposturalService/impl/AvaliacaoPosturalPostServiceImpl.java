@@ -16,8 +16,6 @@ public class AvaliacaoPosturalPostServiceImpl implements AvaliacaoPosturalPostSe
     @Override
     public void saveAvaliacaoPostural(List<AvaliacaoPosturalModel> avaliacaoPosturalList) {
 
-        for (AvaliacaoPosturalModel avaliacaoPostural: avaliacaoPosturalList) {
-            avaliacaoPosturalRepository.save(avaliacaoPostural);
-        }
+        avaliacaoPosturalRepository.saveAll(avaliacaoPosturalList);
     }
 }
