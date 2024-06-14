@@ -13,6 +13,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -28,7 +31,7 @@ class CadastraAvaliacaoPosturalControllerTest {
     @Test
     void dadoAvaliacaoPosturalModelValido_entaoRetorneCreated() {
         // Criação de um AvaliacaoPosturalModel de entrada
-        AvaliacaoPosturalModel avaliacaoPosturalModel = new AvaliacaoPosturalModel();
+       List<AvaliacaoPosturalModel> avaliacaoPosturalModel = new ArrayList<>();
 
         // Configuração do comportamento esperado do serviço
         Mockito.doNothing().when(avaliacaoPosturalPostService).saveAvaliacaoPostural(avaliacaoPosturalModel);
@@ -44,7 +47,7 @@ class CadastraAvaliacaoPosturalControllerTest {
     @Test
     void dadoAvaliacaoPosturalModelInvalido_entaoRetorneHttpClientErrorException() {
         // Criação de um AvaliacaoPosturalModel inválido
-        AvaliacaoPosturalModel avaliacaoPosturalModel = new AvaliacaoPosturalModel();
+        List<AvaliacaoPosturalModel> avaliacaoPosturalModel = new ArrayList<>();
 
         // Configuração do comportamento esperado do serviço para lançar uma exceção
         HttpClientErrorException exception = new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Bad Request");
