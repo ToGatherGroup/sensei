@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -67,12 +68,14 @@ public class AvaliacaoColetivaImpl implements AvaliacaoColetivaService {
             response.setAvaliacoesIncompletas(avaliacaoDTOList);
 
         }
-
         return response;
     }
 
     public void verificaAvaliacoesEmAndamento(){
-        if(!avaliacaoRepository.getAvaliacoesIncompletas().isEmpty()){
+
+        List<AvaliacaoModel> avaliacaoModelList = avaliacaoRepository.getAvaliacoesIncompletas();
+
+        if(!avaliacaoModelList.isEmpty()){
             throw new BusinessException("Avaliações em andamento devem ser finalizadas antes de iniciar uma nova");
         }
     }
