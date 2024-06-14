@@ -22,10 +22,11 @@ import java.util.List;
 @RequiredArgsConstructor
 
 public class AvaliacaoColetivaImpl implements AvaliacaoColetivaService {
-    private final AvaliacaoRepository avaliacaoRepository;
 
+    private final AvaliacaoRepository avaliacaoRepository;
     private final AtletaRepository atletaRepository;
     private final ModelMapper mapper;
+
     @Override
     public ResponseAvaliacoesIncompletasDTO cadastrarAvaliacaoColetiva() {
         verificaAvaliacoesEmAndamento();
@@ -70,7 +71,7 @@ public class AvaliacaoColetivaImpl implements AvaliacaoColetivaService {
         return response;
     }
 
-    private void verificaAvaliacoesEmAndamento(){
+    public void verificaAvaliacoesEmAndamento(){
         if(!avaliacaoRepository.getAvaliacoesIncompletas().isEmpty()){
             throw new BusinessException("Avaliações em andamento devem ser finalizadas antes de iniciar uma nova");
         }
