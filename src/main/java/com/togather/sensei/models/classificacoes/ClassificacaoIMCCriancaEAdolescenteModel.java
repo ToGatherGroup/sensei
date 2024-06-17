@@ -5,14 +5,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "classificacao_vo2_tb")
-public class ClassificacaoVo2Model {
-
+@Table(name = "classificacao_imc_adolescente_tb")
+public class ClassificacaoIMCCriancaEAdolescenteModel {
     @Id
     private Long id;
     private String classificacao;
-    private Integer idadeMin;
-    private Integer idadeMax;
+    private Integer idade;
     private Double  resultadoMin;
     private Double resultadoMax;
     private Character sexo;
