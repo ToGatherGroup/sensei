@@ -9,6 +9,24 @@ CREATE TABLE IF NOT EXISTS classificacao_vo2_tb (
       PRIMARY KEY (id)
 );
 
+CREATE TABLE IF NOT EXISTS classificacao_imc_adolescente_tb (
+        id BIGINT NOT NULL,
+        classificacao VARCHAR(255),
+        idade INT,
+        resultado_min DOUBLE PRECISION,
+        resultado_max DOUBLE PRECISION,
+        sexo CHAR(1),
+        PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS classificacao_imc_tb (
+    id BIGINT NOT NULL,
+    classificacao VARCHAR(255),
+    resultado_min DOUBLE PRECISION,
+    resultado_max DOUBLE PRECISION,
+    PRIMARY KEY (id)
+);
+
 CREATE TABLE IF NOT EXISTS classificacao_abdominais_tb (
     id BIGINT NOT NULL,
     classificacao VARCHAR(255),
@@ -157,10 +175,7 @@ INSERT IGNORE INTO classificacao_vo2_tb (id, classificacao, idade_min, idade_max
     (33, 'Regular', 60, 150, 20.2, 24.4, 'F'),
     (34, 'Boa', 60, 150, 24.5, 30.2, 'F'),
     (35, 'Excelente', 60, 150, 30.3, 31.4, 'F'),
-    (36, 'Superior', 60, 150, 31.5, 100, 'F');
-
--- Dados para Homens (sexo = 'M')
-INSERT IGNORE INTO classificacao_vo2_tb (id, classificacao, idade_min, idade_max, resultado_min, resultado_max, sexo) VALUES
+    (36, 'Superior', 60, 150, 31.5, 100, 'F'),
     (37, 'Muito Fraca', 13, 19, 0, 35.0, 'M'),
     (38, 'Fraca', 13, 19, 35.1, 38.3, 'M'),
     (39, 'Regular', 13, 19, 38.4, 45.1, 'M'),
@@ -199,75 +214,62 @@ INSERT IGNORE INTO classificacao_vo2_tb (id, classificacao, idade_min, idade_max
     (72, 'Superior', 60, 150, 44.3, 100, 'M');
 
 -- Tabela classificacao Abdominais
--- Dados para Homens (sexo = 'M')
 INSERT IGNORE INTO classificacao_abdominais_tb (id, classificacao, idade_min, idade_max, resultado_min, resultado_max, sexo) VALUES
 	(1, 'Excelente', 15, 19, 48, 100, 'M'),
 	(2, 'Acima da média', 15, 19, 42, 47, 'M'),
 	(3, 'Média', 15, 19, 38, 41, 'M'),
 	(4, 'Abaixo da média', 15, 19, 33, 37, 'M'),
 	(5, 'Fraco', 15, 19, 0, 32, 'M'),
-
 	(6, 'Excelente', 20, 29, 43, 100, 'M'),
 	(7, 'Acima da média', 20, 29, 37, 42, 'M'),
 	(8, 'Média', 20, 29, 33, 36, 'M'),
 	(9, 'Abaixo da média', 20, 29, 29, 32, 'M'),
 	(10, 'Fraco', 20, 29, 0, 28, 'M'),
-
 	(11, 'Excelente', 30, 39, 36, 100, 'M'),
 	(12, 'Acima da média', 30, 39, 31, 35, 'M'),
 	(13, 'Média', 30, 39, 27, 30, 'M'),
 	(14, 'Abaixo da média', 30, 39, 22, 26, 'M'),
 	(15, 'Fraco', 30, 39, 0, 21, 'M'),
-
 	(16, 'Excelente', 40, 49, 31, 100, 'M'),
 	(17, 'Acima da média', 40, 49, 26, 30, 'M'),
 	(18, 'Média', 40, 49, 22, 25, 'M'),
 	(19, 'Abaixo da média', 40, 49, 17, 21, 'M'),
 	(20, 'Fraco', 40, 49, 0, 16, 'M'),
-
 	(21, 'Excelente', 50, 59, 26, 100, 'M'),
 	(22, 'Acima da média', 50, 59, 22, 25, 'M'),
 	(23, 'Média', 50, 59, 18, 21, 'M'),
 	(24, 'Abaixo da média', 50, 59, 13, 17, 'M'),
 	(25, 'Fraco', 50, 59, 0, 12, 'M'),
-
 	(26, 'Excelente', 60, 69, 23, 100, 'M'),
 	(27, 'Acima da média', 60, 69, 17, 22, 'M'),
 	(28, 'Média', 60, 69, 12, 16, 'M'),
 	(29, 'Abaixo da média', 60, 69, 7, 11, 'M'),
 	(30, 'Fraco', 60, 69, 0, 6, 'M'),
-
--- Dados para Mulheres (sexo = 'F')
 	(31, 'Excelente', 15, 19, 42, 100, 'F'),
 	(32, 'Acima da média', 15, 19, 36, 41, 'F'),
 	(33, 'Média', 15, 19, 32, 35, 'F'),
 	(34, 'Abaixo da média', 15, 19, 27, 31, 'F'),
 	(35, 'Fraco', 15, 19, 0, 26, 'F'),
-
 	(36, 'Excelente', 20, 29, 36, 100, 'F'),
 	(37, 'Acima da média', 20, 29, 31, 35, 'F'),
 	(38, 'Média', 20, 29, 25, 30, 'F'),
 	(39, 'Abaixo da média', 20, 29, 21, 24, 'F'),
 	(40, 'Fraco', 20, 29, 0, 20, 'F'),
-
 	(41, 'Excelente', 30, 39, 29, 100, 'F'),
 	(42, 'Acima da média', 30, 39, 24, 28, 'F'),
 	(43, 'Média', 30, 39, 20, 23, 'F'),
 	(44, 'Abaixo da média', 30, 39, 15, 19, 'F'),
 	(45, 'Fraco', 30, 39, 0, 14, 'F'),
-
 	(46, 'Excelente', 40, 49, 25, 100, 'F'),
 	(47, 'Acima da média', 40, 49, 20, 24, 'F'),
 	(48, 'Média', 40, 49, 15, 19, 'F'),
 	(49, 'Abaixo da média', 40, 49, 7, 14, 'F'),
 	(50, 'Fraco', 40, 49, 0, 6, 'F'),
-
 	(51, 'Excelente', 50, 59, 19, 100, 'F'),
 	(52, 'Acima da média', 50, 59, 12, 18, 'F'),
 	(53, 'Média', 50, 59, 5, 11, 'F'),
 	(54, 'Abaixo da média', 50, 59, 3, 4, 'F'),
 	(55, 'Fraco', 50, 59, 0, 2, 'F'),
-
 	(56, 'Excelente', 60, 69, 16, 100, 'F'),
 	(57, 'Acima da média', 60, 69, 12, 15, 'F'),
 	(58, 'Média', 60, 69, 4, 11, 'F'),
@@ -336,6 +338,112 @@ INSERT IGNORE INTO classificacao_flexoes_tb (id, classificacao, idade_min, idade
     (59, 'Abaixo da Média', 60, 69, 02, 04, 'F'),
     (60, 'Fraco',60, 69, 0, 01, 'F');
 
+
+INSERT IGNORE INTO classificacao_imc_adolescente_tb (id, classificacao, idade, resultado_min, resultado_max, sexo) VALUES
+    (1, 'Baixo Peso', 6, 0, 13, 'M'),
+    (2, 'Normal', 6, 13.1, 17.6, 'M'),
+    (3, 'Sobrepeso', 6, 17.7, 21, 'M'),
+    (4, 'Obesidade', 6, 21.1, 100, 'M'),
+    (5, 'Baixo Peso', 6, 0, 13.2, 'F'),
+    (6, 'Normal', 6, 13.3, 16.9, 'F'),
+    (7, 'Sobrepeso', 6, 17.0, 19.2, 'F'),
+    (8, 'Obesidade', 6, 19.3, 100, 'F'),
+    (9, 'Baixo Peso', 7, 0, 12.9, 'M'),
+    (10, 'Normal', 7, 13, 17.7, 'M'),
+    (11, 'Sobrepeso', 7, 17.8, 21.7, 'M'),
+    (12, 'Obesidade', 7, 21.8, 100, 'M'),
+    (13, 'Baixo Peso', 7, 0, 13.1, 'F'),
+    (14, 'Normal', 7, 13.2, 17.1, 'F'),
+    (15, 'Sobrepeso', 7, 17.2, 19.7, 'F'),
+    (16, 'Obesidade', 7, 19.8, 100, 'F'),
+    (17, 'Baixo Peso', 8, 0, 12.9, 'M'),
+    (18, 'Normal', 8, 13, 18, 'M'),
+    (19, 'Sobrepeso', 8, 18.1, 22.5, 'M'),
+    (20, 'Obesidade', 8, 22.6, 100, 'M'),
+    (21, 'Baixo Peso', 8, 0, 13.1, 'F'),
+    (22, 'Normal', 8, 13.2, 17.3, 'F'),
+    (23, 'Sobrepeso', 8, 17.4, 20.3, 'F'),
+    (24, 'Obesidade', 8, 20.4, 100, 'F'),
+    (25, 'Baixo Peso', 9, 0, 12.9, 'M'),
+    (26, 'Normal', 9, 13, 18.4, 'M'),
+    (27, 'Sobrepeso', 9, 18.5, 23.5, 'M'),
+    (28, 'Obesidade', 9, 23.6, 100, 'M'),
+    (29, 'Baixo Peso', 9, 0, 13.1, 'F'),
+    (30, 'Normal', 9, 13.2, 17.8, 'F'),
+    (31, 'Sobrepeso', 9, 17.9, 21.1, 'F'),
+    (32, 'Obesidade', 9, 21.2, 100, 'F'),
+    (33, 'Baixo Peso', 10, 0, 12.9, 'M'),
+    (34, 'Normal', 10, 13, 18.9, 'M'),
+    (35, 'Sobrepeso', 10, 19, 24.5, 'M'),
+    (36, 'Obesidade', 10, 24.6, 100, 'M'),
+    (37, 'Baixo Peso', 10, 0, 13.4, 'F'),
+    (38, 'Normal', 10, 13.5, 18.5, 'F'),
+    (39, 'Sobrepeso', 10, 18.6, 22.2, 'F'),
+    (40, 'Obesidade', 10, 22.3, 100, 'F'),
+    (41, 'Baixo Peso', 11, 0, 13.3, 'M'),
+    (42, 'Normal', 11, 13.4, 19.5, 'M'),
+    (43, 'Sobrepeso', 11, 19.6, 25.4, 'M'),
+    (44, 'Obesidade', 11, 25.5, 100, 'M'),
+    (45, 'Baixo Peso', 11, 0, 13.8, 'F'),
+    (46, 'Normal', 11, 13.9, 19.4, 'F'),
+    (47, 'Sobrepeso', 11, 19.5, 23.4, 'F'),
+    (48, 'Obesidade', 11, 23.5, 100, 'F'),
+    (49, 'Baixo Peso', 12, 0, 13.6, 'M'),
+    (50, 'Normal', 12, 13.7, 20.2, 'M'),
+    (51, 'Sobrepeso', 12, 20.3, 26.2, 'M'),
+    (52, 'Obesidade', 12, 26.3, 100, 'M'),
+    (53, 'Baixo Peso', 12, 0, 14.3, 'F'),
+    (54, 'Normal', 12, 14.4, 20.4, 'F'),
+    (55, 'Sobrepeso', 12, 20.5, 24.7, 'F'),
+    (56, 'Obesidade', 12, 24.8, 100, 'F'),
+    (57, 'Baixo Peso', 13, 0, 14, 'M'),
+    (58, 'Normal', 13, 14.1, 20.8, 'M'),
+    (59, 'Sobrepeso', 13, 20.9, 26.8, 'M'),
+    (60, 'Obesidade', 13, 26.9, 100, 'M'),
+    (61, 'Baixo Peso', 13, 0, 15, 'F'),
+    (62, 'Normal', 13, 15.1, 21.5, 'F'),
+    (63, 'Sobrepeso', 13, 21.6, 26.1, 'F'),
+    (64, 'Obesidade', 13, 26.2, 100, 'F'),
+    (65, 'Baixo Peso', 14, 0, 14.4, 'M'),
+    (66, 'Normal', 14, 14.5, 21.5, 'M'),
+    (67, 'Sobrepeso', 14, 21.6, 27.4, 'M'),
+    (68, 'Obesidade', 14, 27.5, 100, 'M'),
+    (69, 'Baixo Peso', 14, 0, 15.7, 'F'),
+    (70, 'Normal', 14, 15.8, 22.6, 'F'),
+    (71, 'Sobrepeso', 14, 22.7, 27.4, 'F'),
+    (72, 'Obesidade', 14, 27.5, 100, 'F'),
+    (73, 'Baixo Peso', 15, 0, 15, 'M'),
+    (74, 'Normal', 15, 15.1, 22.2, 'M'),
+    (75, 'Sobrepeso', 15, 22.3, 27.8, 'M'),
+    (76, 'Obesidade', 15, 27.9, 100, 'M'),
+    (77, 'Baixo Peso', 15, 0, 16.3, 'F'),
+    (78, 'Normal', 15, 16.4, 23.6, 'F'),
+    (79, 'Sobrepeso', 15, 23.7, 28.4, 'F'),
+    (80, 'Obesidade', 15, 28.5, 100, 'F'),
+    (81, 'Baixo Peso', 16, 0, 15.5, 'M'),
+    (82, 'Normal', 16, 15.6, 22.8, 'M'),
+    (83, 'Sobrepeso', 16, 22.9, 28.2, 'M'),
+    (84, 'Obesidade', 16, 28.3, 100, 'M'),
+    (85, 'Baixo Peso', 16, 0, 16.8, 'F'),
+    (86, 'Normal', 16, 16.9, 24.3, 'F'),
+    (87, 'Sobrepeso', 16, 24.4, 29.1, 'F'),
+    (88, 'Obesidade', 16, 29.2, 100, 'F'),
+    (89, 'Baixo Peso', 17, 0, 16.1, 'M'),
+    (90, 'Normal', 17, 16.2, 23.4, 'M'),
+    (91, 'Sobrepeso', 17, 23.5, 28.6, 'M'),
+    (92, 'Obesidade', 17, 28.7, 100, 'M'),
+    (93, 'Baixo Peso', 17, 0, 17.2, 'F'),
+    (94, 'Normal', 17, 17.3, 24.7, 'F'),
+    (95, 'Sobrepeso', 17, 24.8, 29.4, 'F'),
+    (96, 'Obesidade', 17, 29.5, 100, 'F');
+
+INSERT IGNORE INTO classificacao_imc_tb (id, classificacao, resultado_min, resultado_max) VALUES
+    (1, 'Abaixo do peso', 0, 18.49),
+    (2, 'Peso normal', 18.5, 24.9),
+    (3, 'Sobrepeso', 25.0, 29.9),
+    (4, 'Obesidade grau I', 30.0, 34.9),
+    (5, 'Obesidade grau II', 35.0, 39.9),
+    (6, 'Obesidade grau III', 40.0, 100);
 
 -- Confirma a transação
 COMMIT;
