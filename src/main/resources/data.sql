@@ -20,6 +20,17 @@ CREATE TABLE IF NOT EXISTS classificacao_abdominais_tb (
     PRIMARY KEY (id)
 );
 
+CREATE TABLE IF NOT EXISTS classificacao_flexoes_tb (
+      id BIGINT NOT NULL,
+      classificacao VARCHAR(255),
+      idade_min INT,
+      idade_max INT,
+      resultado_min INT,
+      resultado_max INT,
+      sexo CHAR(1),
+      PRIMARY KEY (id)
+);
+
 -- Inicia uma transação para garantir a atomicidade das operações
 START TRANSACTION;
 
@@ -176,6 +187,69 @@ INSERT IGNORE INTO classificacao_abdominais_tb (id, classificacao, idade_min, id
 	(58, 'Média', 60, 69, 4, 11, 'F'),
 	(59, 'Abaixo da média', 60, 69, 2, 3, 'F'),
 	(60, 'Fraco', 60, 69, 0, 1, 'F');
+
+INSERT IGNORE INTO classificacao_flexoes_tb (id, classificacao, idade_min, idade_max, resultado_min, resultado_max, sexo) VALUES
+    (1, 'Excelente', 15, 19, 39, 150, 'M'),
+    (2, 'Acima Da Media', 15, 19, 29, 38, 'M'),
+    (3, 'Média',15, 19, 23, 28, 'M'),
+    (4, 'Abaixo da Média', 15, 19, 18, 22, 'M'),
+    (5, 'Fraco', 15, 19, 0, 17, 'M'),
+    (6, 'Excelente', 20, 29, 36, 150, 'M'),
+    (7, 'Acima Da Media', 20, 29, 29, 35, 'M'),
+    (8, 'Média', 20, 29, 22, 28, 'M'),
+    (9, 'Abaixo da Média', 20, 29, 17, 21, 'M'),
+    (10, 'Fraco', 20, 29, 0, 16, 'M'),
+    (11, 'Excelente', 30, 39, 30, 150, 'M'),
+    (12, 'Acima Da Media', 30, 39, 22, 29, 'M'),
+    (13, 'Média', 30, 39, 17, 21, 'M'),
+    (14, 'Abaixo da Média', 30, 39, 12, 16, 'M'),
+    (15, 'Fraco', 30, 39, 0, 11, 'M'),
+    (16, 'Excelente', 40, 49, 22, 150, 'M'),
+    (17, 'Acima Da Media', 40, 49, 17, 21, 'M'),
+    (18, 'Média', 40, 49, 13, 16, 'M'),
+    (19, 'Abaixo da Média', 40, 49, 10, 12, 'M'),
+    (20, 'Fraco', 40, 49, 0, 9, 'M'),
+    (21, 'Excelente', 50, 59, 21, 150, 'M'),
+    (22, 'Acima Da Media', 50, 59, 13, 20, 'M'),
+    (23, 'Média', 50, 59, 10, 12, 'M'),
+    (24, 'Abaixo da Média', 50, 59, 07, 09, 'M'),
+    (25, 'Fraco', 50, 59, 0, 6, 'M'),
+    (26, 'Excelente', 60, 69, 18, 150, 'M'),
+    (27, 'Acima Da Media', 60, 69, 11, 17, 'M'),
+    (28, 'Média', 60, 69, 08, 10, 'M'),
+    (29, 'Abaixo da Média', 60, 69, 05, 07, 'M'),
+    (30, 'Fraco', 60, 69, 0, 04, 'M'),
+    (31, 'Excelente', 15, 19, 33, 150, 'F'),
+    (32, 'Acima Da Media', 15, 19, 25, 32, 'F'),
+    (33, 'Média', 15, 19, 18, 24, 'F'),
+    (34, 'Abaixo da Média', 15, 19, 12, 17, 'F'),
+    (35, 'Fraco', 15, 19, 0, 11, 'F'),
+    (36, 'Excelente', 20, 29, 30, 150, 'F'),
+    (37, 'Acima Da Media', 20, 29, 21, 29, 'F'),
+    (38, 'Média', 20, 29, 15, 20, 'F'),
+    (39, 'Abaixo da Média', 20, 29, 10, 14, 'F'),
+    (40, 'Fraco', 20, 29, 0, 09, 'F'),
+    (41, 'Excelente', 30, 39, 27, 150, 'F'),
+    (42, 'Acima Da Media', 30, 39, 20, 26, 'F'),
+    (43, 'Média', 30, 39, 13, 19, 'F'),
+    (44, 'Abaixo da Média', 30, 39, 08, 12, 'F'),
+    (45, 'Fraco', 30, 39, 0, 07, 'F'),
+    (46, 'Excelente', 40, 49, 24, 150, 'F'),
+    (47, 'Acima Da Media', 40, 49, 15, 23, 'F'),
+    (48, 'Média', 40, 49, 11, 14, 'F'),
+    (49, 'Abaixo da Média', 40, 49, 05, 10, 'F'),
+    (50, 'Fraco', 50, 59, 0, 04, 'F'),
+    (51, 'Excelente', 50, 59, 21, 150, 'F'),
+    (52, 'Acima Da Media', 50, 59, 11, 22, 'F'),
+    (53, 'Média', 50, 59, 07, 10, 'F'),
+    (54, 'Abaixo da Média', 50, 59, 02, 06, 'F'),
+    (55, 'Fraco', 50, 59, 0, 01, 'F'),
+    (56, 'Excelente', 60, 69, 17, 150, 'F'),
+    (57, 'Acima Da Media', 60, 69, 12, 16, 'F'),
+    (58, 'Média', 60, 69, 05, 11, 'F'),
+    (59, 'Abaixo da Média', 60, 69, 02, 04, 'F'),
+    (60, 'Fraco',60, 69, 0, 01, 'F');
+
 
 -- Confirma a transação
 COMMIT;
