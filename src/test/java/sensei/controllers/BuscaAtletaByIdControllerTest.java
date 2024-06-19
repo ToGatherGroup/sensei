@@ -2,6 +2,7 @@ package sensei.controllers;
 
 import com.togather.sensei.DTO.atleta.AtletaDTO;
 import com.togather.sensei.controllers.atletaController.BuscaAtletaByIdController;
+import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.services.atletaService.BuscaAtletaByIdService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,7 +30,7 @@ class BuscaAtletaByIdControllerTest {
     void dadoIdValido_entaoRetorneAtletaDTO() {
         // Criação de um ID de entrada e um modelo de resultado esperado
         Long inputId = 1L;
-        AtletaDTO expectedResult = new AtletaDTO();
+        AtletaModel expectedResult = new AtletaModel();
 //        expectedResult.set(1L);
         expectedResult.setNome("Atleta 1");
 
@@ -37,7 +38,7 @@ class BuscaAtletaByIdControllerTest {
         Mockito.when(buscaAtletaByIdService.findAtletaById(inputId)).thenReturn(expectedResult);
 
         // Chama o método a ser testado
-        ResponseEntity<AtletaDTO> response = buscaAtletaByIdController.buscaAtletabyId(inputId);
+        ResponseEntity<AtletaModel> response = buscaAtletaByIdController.buscaAtletabyId(inputId);
 
         // Assert
         // Verifica se o status da resposta e o corpo são os esperados
