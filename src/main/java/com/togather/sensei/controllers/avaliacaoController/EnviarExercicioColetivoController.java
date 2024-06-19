@@ -17,13 +17,9 @@ import java.util.List;
 public class EnviarExercicioColetivoController {
 
     private final RegistraExercicioColetivoService registraExercicioColetivoService;
-
     @PatchMapping()
-
-    public ResponseEntity<Void> atualizarExercicioColetivo(@RequestBody List<ExercicioColetivoDTO> listaexercicioColetivo) throws InvocationTargetException, IllegalAccessException {
-            registraExercicioColetivoService.atualizarExercicioColetivo(listaexercicioColetivo);
+    public ResponseEntity<Void> atualizarExercicioColetivo(@RequestBody List<ExercicioColetivoDTO> listaExercicioColetivo) throws InvocationTargetException, IllegalAccessException {
+            registraExercicioColetivoService.atualizarExercicioColetivo(listaExercicioColetivo);
         return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
-
 }

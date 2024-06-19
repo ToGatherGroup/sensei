@@ -6,7 +6,5 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public interface RegistraExercicioColetivoService {
-
-    void atualizarExercicioColetivo(List<ExercicioColetivoDTO> listaexercicioColetivo) throws InvocationTargetException, IllegalAccessException;
-
+    void atualizarExercicioColetivo(List<ExercicioColetivoDTO> listaExercicioColetivo) throws InvocationTargetException, IllegalAccessException;
 }
