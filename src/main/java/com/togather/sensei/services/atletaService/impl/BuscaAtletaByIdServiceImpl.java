@@ -40,6 +40,7 @@ public class BuscaAtletaByIdServiceImpl implements BuscaAtletaByIdService {
                 .faixa((model.getFaixa() != null ? model.getFaixa() : null))
                 .foto((model.getFoto() != null ? model.getFoto() : null))
                 .email((model.getEmail() != null ? model.getEmail() : null))
+                .isAtivo((model.getIsAtivo() != null ? model.getIsAtivo() : null))
                 .build();
     }
 }

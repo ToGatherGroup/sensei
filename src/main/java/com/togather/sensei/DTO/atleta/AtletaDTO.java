@@ -18,5 +18,6 @@ public class AtletaDTO {
     private String faixa;
     private String foto;
     private String email;
+    private Boolean isAtivo;
 
 }
