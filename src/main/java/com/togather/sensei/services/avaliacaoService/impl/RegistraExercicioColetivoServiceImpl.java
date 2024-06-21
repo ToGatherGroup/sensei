@@ -1,6 +1,7 @@
 package com.togather.sensei.services.avaliacaoService.impl;
 
 import com.togather.sensei.DTO.avaliacao.ExercicioColetivoDTO;
+import com.togather.sensei.DTO.avaliacao.PossuiAvaliacaoIncompletaDTO;
 import com.togather.sensei.helper.NullBeanUtils;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.AvaliacaoModel;
@@ -12,11 +13,10 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
+
+import static java.util.Objects.*;
 
 @Service
 @RequiredArgsConstructor
@@ -28,8 +28,13 @@ public class RegistraExercicioColetivoServiceImpl implements RegistraExercicioCo
     private final NullBeanUtils nullBeanUtils;
 
     @Override
-    public void atualizarExercicioColetivo(List<ExercicioColetivoDTO> listaExercicioColetivo) throws InvocationTargetException, IllegalAccessException {
+    public PossuiAvaliacaoIncompletaDTO atualizarExercicioColetivo(List<ExercicioColetivoDTO> listaExercicioColetivo) throws InvocationTargetException, IllegalAccessException {
+
         LocalDate data = avaliacaoRepository.getDataAvaliacoesIncompletas();
+
+        if (isNull(data)){
+            return PossuiAvaliacaoIncompletaDTO.builder().avaliacaoEstaCompleta(Boolean.TRUE).build();
+        }
 
         List<AvaliacaoModel> avaliacoesAtualizada = new ArrayList<>();
 
@@ -57,5 +62,16 @@ public class RegistraExercicioColetivoServiceImpl implements RegistraExercicioCo
             avaliacoesAtualizada.add(avaliacao);
         }
         avaliacaoRepository.saveAll(avaliacoesAtualizada);
+
+        LocalDate dataAposSalvar = avaliacaoRepository.getDataAvaliacoesIncompletas();
+
+        return verificarAvaliacoesIncompletas(dataAposSalvar);
+    }
+
+    private PossuiAvaliacaoIncompletaDTO verificarAvaliacoesIncompletas(LocalDate data) {
+        if (isNull(data)){
+            return PossuiAvaliacaoIncompletaDTO.builder().avaliacaoEstaCompleta(Boolean.TRUE).build();
+        }
+        return PossuiAvaliacaoIncompletaDTO.builder().avaliacaoEstaCompleta(Boolean.FALSE).build();
     }
 }

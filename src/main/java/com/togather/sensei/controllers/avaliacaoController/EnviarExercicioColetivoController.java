@@ -1,6 +1,7 @@
 package com.togather.sensei.controllers.avaliacaoController;
 
 import com.togather.sensei.DTO.avaliacao.ExercicioColetivoDTO;
+import com.togather.sensei.DTO.avaliacao.PossuiAvaliacaoIncompletaDTO;
 import com.togather.sensei.services.avaliacaoService.RegistraExercicioColetivoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,8 +19,8 @@ public class EnviarExercicioColetivoController {
 
     private final RegistraExercicioColetivoService registraExercicioColetivoService;
     @PatchMapping()
-    public ResponseEntity<Void> atualizarExercicioColetivo(@RequestBody List<ExercicioColetivoDTO> listaExercicioColetivo) throws InvocationTargetException, IllegalAccessException {
-            registraExercicioColetivoService.atualizarExercicioColetivo(listaExercicioColetivo);
-        return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    public ResponseEntity<PossuiAvaliacaoIncompletaDTO> atualizarExercicioColetivo(@RequestBody List<ExercicioColetivoDTO> listaExercicioColetivo) throws InvocationTargetException, IllegalAccessException {
+        PossuiAvaliacaoIncompletaDTO result = registraExercicioColetivoService.atualizarExercicioColetivo(listaExercicioColetivo);
+        return  ResponseEntity.status(HttpStatus.ACCEPTED).body(result);
     }
 }
