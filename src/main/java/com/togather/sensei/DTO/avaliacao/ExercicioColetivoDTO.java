@@ -14,6 +14,6 @@ import java.util.List;
 public class ExercicioColetivoDTO {
 
     private Long AtletaId;
-    private AvaliacaoModel resultado;
+    private ListaExerciciosDTO resultado;
 
 }
