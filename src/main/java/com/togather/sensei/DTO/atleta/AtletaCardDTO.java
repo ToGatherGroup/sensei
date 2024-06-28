@@ -16,6 +16,6 @@ public class AtletaCardDTO {
     private String foto;
     private String faixa;
     private String categoria;
-    private int idade;
+    private Integer idade;
     private List<MedalhaDTO> medalhaDTO;
 }

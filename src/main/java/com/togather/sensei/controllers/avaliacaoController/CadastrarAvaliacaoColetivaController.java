@@ -1,5 +1,6 @@
 package com.togather.sensei.controllers.avaliacaoController;
 
+import com.togather.sensei.DTO.avaliacao.ResponseAvaliacoesIncompletasDTO;
 import com.togather.sensei.services.avaliacaoService.AvaliacaoColetivaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,10 +17,10 @@ public class CadastrarAvaliacaoColetivaController {
     private final AvaliacaoColetivaService avaliacaoColetivaService;
 
     @PostMapping
-    public ResponseEntity<Void> cadastrarAvaliacaoColetiva(){
+    public ResponseEntity<ResponseAvaliacoesIncompletasDTO> cadastrarAvaliacaoColetiva(){
         try {
-            avaliacaoColetivaService.cadastrarAvaliacaoColetiva();
-            return ResponseEntity.status(HttpStatus.CREATED).build();
+           ResponseAvaliacoesIncompletasDTO response=  avaliacaoColetivaService.cadastrarAvaliacaoColetiva();
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
         }

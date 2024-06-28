@@ -39,7 +39,7 @@ class BuscaAtletaByIdServiceImplTest {
         Mockito.when(atletaRepository.findById(id)).thenReturn(Optional.of(atletaModel));
 
         // Chama o método a ser testado
-        AtletaDTO result = buscaAtletaByIdService.findAtletaById(id);
+        AtletaModel result = buscaAtletaByIdService.findAtletaById(id);
 
         // Assert
         // Verifica se o DTO do atleta retornado possui os mesmos valores que o atleta model configurado

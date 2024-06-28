@@ -1,5 +1,6 @@
 package sensei.controllers;
 
+import com.togather.sensei.DTO.lesao.LesaoDTO;
 import com.togather.sensei.controllers.lesaoController.BuscarLesaoPorAtletaController;
 import com.togather.sensei.models.LesaoModel;
 import com.togather.sensei.services.lesaoService.BuscarHistoricoLesoesPorAtletaService;
@@ -32,13 +33,13 @@ class BuscarLesaoPorAtletaControllerTest {
     void historicoDeLesoesPorAtleta_DeveRetornarListaDeLesoes() {
         // Criação de um ID de atleta de entrada e uma lista de lesões de resultado esperado
         long inputAtletaId = 1L;
-        List<LesaoModel> expectedLesoes = new ArrayList<>();
+        List<LesaoDTO> expectedLesoes = new ArrayList<>();
 
         // Configuração do comportamento esperado do serviço
         Mockito.when(buscarHistoricoLesoesPorAtletaService.buscaHistoricoLesoes(inputAtletaId)).thenReturn(expectedLesoes);
 
         // Chama o método a ser testado
-        ResponseEntity<List<LesaoModel>> response = buscarLesaoPorAtletaController.historicoDeLesoesPorAtleta(inputAtletaId);
+        ResponseEntity<List<LesaoDTO>> response = buscarLesaoPorAtletaController.historicoDeLesoesPorAtleta(inputAtletaId);
 
         // Assert
         // Verifica se o status da resposta e o corpo são os esperados

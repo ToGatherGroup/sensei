@@ -11,7 +11,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/avaliacao")
-public class AvaliacoesPorAtletaController {
+public class BuscarAvaliacoesPorAtletaController {
 
     private final AvaliacoesPorAtletaService avaliacoesPorAtletaDataService;
 

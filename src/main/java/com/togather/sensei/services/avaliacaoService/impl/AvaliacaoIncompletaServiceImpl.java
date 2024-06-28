@@ -1,12 +1,16 @@
 package com.togather.sensei.services.avaliacaoService.impl;
 
-import com.togather.sensei.DTO.atleta.AtletaIdNomeDTO;
+import com.togather.sensei.DTO.avaliacao.AvaliacaoDTO;
+import com.togather.sensei.DTO.avaliacao.ListaExerciciosDTO;
+import com.togather.sensei.DTO.avaliacao.ResponseAvaliacoesIncompletasDTO;
 import com.togather.sensei.models.AvaliacaoModel;
 import com.togather.sensei.repositories.AvaliacaoRepository;
 import com.togather.sensei.services.avaliacaoService.AvaliacaoIncompletaService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,126 +19,35 @@ import java.util.List;
 public class AvaliacaoIncompletaServiceImpl implements AvaliacaoIncompletaService {
 
     private final AvaliacaoRepository avaliacaoRepository;
+    private final ModelMapper mapper;
 
     @Override
-    public List<AtletaIdNomeDTO> buscaAvaliacoesIncompletas(String exercicio) {
+    public ResponseAvaliacoesIncompletasDTO buscaAvaliacoesIncompletas() {
 
-        List<AvaliacaoModel> listaAvaliacoes= avaliacaoRepository.getAvaliacoesIncompletas();
-        List<AtletaIdNomeDTO> listaAvaliacaoIncompleta = compilarAtletas(listaAvaliacoes,exercicio);
+        List<AvaliacaoModel> listaAvaliacaoIncompleta= avaliacaoRepository.getAvaliacoesIncompletas();
 
-        return listaAvaliacaoIncompleta;
+        List<AvaliacaoDTO> listaAvaliacaoDTO= listarAvaliacoes(listaAvaliacaoIncompleta);
+        LocalDate data = avaliacaoRepository.getDataAvaliacoesIncompletas();
+        ResponseAvaliacoesIncompletasDTO response = new ResponseAvaliacoesIncompletasDTO(data, listaAvaliacaoDTO);
+        return response;
     }
 
-    private List<AtletaIdNomeDTO> compilarAtletas(List<AvaliacaoModel> listaAvaliacoes, String coluna){
+
+    private List<AvaliacaoDTO> listarAvaliacoes(List<AvaliacaoModel> listaAvaliacaoIncompleta){
+
+        List<AvaliacaoDTO> listaAvaliacaoDTO= new ArrayList<>();
+
+        for (AvaliacaoModel avaliacao: listaAvaliacaoIncompleta) {
+            AvaliacaoDTO avaliacaoDTO= mapper.map(avaliacao,AvaliacaoDTO.class);
+            ListaExerciciosDTO listaExerciciosDTO= mapper.map(avaliacao,ListaExerciciosDTO.class);
 
 
-        List<AtletaIdNomeDTO> incompletaDTOList= new ArrayList<>();
-        switch (coluna){
-            case "prancha":
-                for (AvaliacaoModel avaliacao: listaAvaliacoes) {
-                    AtletaIdNomeDTO atleta= new AtletaIdNomeDTO();
-                    if (avaliacao.getPrancha() == null){
-                        atleta.setNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());
-                        atleta.setId(avaliacao.getAvaliacaoModelId().getAtletaModel().getId());
-                        incompletaDTOList.add(atleta);
-                    }
-                }
-                break;
-
-            case "abdominais":
-                for (AvaliacaoModel avaliacao: listaAvaliacoes) {
-                    AtletaIdNomeDTO atleta= new AtletaIdNomeDTO();
-                    if (avaliacao.getAbdominais() == null){
-                        atleta.setNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());
-                        atleta.setId(avaliacao.getAvaliacaoModelId().getAtletaModel().getId());
-                        incompletaDTOList.add(atleta);
-                    }
-                }
-                break;
-
-            case "altura":
-                for (AvaliacaoModel avaliacao: listaAvaliacoes) {
-                    AtletaIdNomeDTO atleta= new AtletaIdNomeDTO();
-                    if (avaliacao.getAltura() == null){
-                        atleta.setNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());
-                        atleta.setId(avaliacao.getAvaliacaoModelId().getAtletaModel().getId());
-                        incompletaDTOList.add(atleta);
-                    }
-                }
-                break;
-            case "impulsao_vertical ":
-                for (AvaliacaoModel avaliacao: listaAvaliacoes) {
-                    AtletaIdNomeDTO atleta= new AtletaIdNomeDTO();
-                    if (avaliacao.getImpulsaoVertical() == null){
-                        atleta.setNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());
-                        atleta.setId(avaliacao.getAvaliacaoModelId().getAtletaModel().getId());
-                        incompletaDTOList.add(atleta);
-                    }
-                }
-                break;
-
-            case "flexoes":
-                for (AvaliacaoModel avaliacao: listaAvaliacoes) {
-                    AtletaIdNomeDTO atleta= new AtletaIdNomeDTO();
-                    if (avaliacao.getFlexoes() == null){
-                        atleta.setNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());
-                        atleta.setId(avaliacao.getAvaliacaoModelId().getAtletaModel().getId());
-                        incompletaDTOList.add(atleta);
-                    }
-                }
-                break;
-            case "forca_isometrica_maos":
-                for (AvaliacaoModel avaliacao: listaAvaliacoes) {
-                    AtletaIdNomeDTO atleta= new AtletaIdNomeDTO();
-                    if (avaliacao.getForcaIsometricaMaos() == null){
-                        atleta.setNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());
-                        atleta.setId(avaliacao.getAvaliacaoModelId().getAtletaModel().getId());
-                        incompletaDTOList.add(atleta);
-                    }
-                }
-                break;
-            case "peso":
-                for (AvaliacaoModel avaliacao: listaAvaliacoes) {
-                    AtletaIdNomeDTO atleta= new AtletaIdNomeDTO();
-                    if (avaliacao.getPeso() == null){
-                        atleta.setNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());
-                        atleta.setId(avaliacao.getAvaliacaoModelId().getAtletaModel().getId());
-                        incompletaDTOList.add(atleta);
-                    }
-                }
-                break;
-            case "rm_terra":
-                for (AvaliacaoModel avaliacao: listaAvaliacoes) {
-                    AtletaIdNomeDTO atleta= new AtletaIdNomeDTO();
-                    if (avaliacao.getRmTerra() == null){
-                        atleta.setNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());
-                        atleta.setId(avaliacao.getAvaliacaoModelId().getAtletaModel().getId());
-                        incompletaDTOList.add(atleta);
-                    }
-                }
-                break;
-            case "teste_de_lunge":
-                for (AvaliacaoModel avaliacao: listaAvaliacoes) {
-                    AtletaIdNomeDTO atleta= new AtletaIdNomeDTO();
-                    if (avaliacao.getTesteDeLunge() == null){
-                        atleta.setNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());
-                        atleta.setId(avaliacao.getAvaliacaoModelId().getAtletaModel().getId());
-                        incompletaDTOList.add(atleta);
-                    }
-                }
-                break;
-            case "cooper":
-                for (AvaliacaoModel avaliacao: listaAvaliacoes) {
-                    AtletaIdNomeDTO atleta= new AtletaIdNomeDTO();
-                    if (avaliacao.getCooper() == null){
-                        atleta.setNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());
-                        atleta.setId(avaliacao.getAvaliacaoModelId().getAtletaModel().getId());
-                        incompletaDTOList.add(atleta);
-                    }
-                }
-                break;
+            avaliacaoDTO.setAtletaNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());
+            avaliacaoDTO.setExercicios(listaExerciciosDTO);
+            listaAvaliacaoDTO.add(avaliacaoDTO);
         }
 
-        return incompletaDTOList;
+        return listaAvaliacaoDTO;
     }
+
 }

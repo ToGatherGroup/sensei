@@ -1,4 +1,4 @@
-package com.togather.sensei.models;
+package com.togather.sensei.models.classificacoes;
 
 import jakarta.persistence.*;
 
@@ -9,7 +9,6 @@ import jakarta.persistence.*;
 public class CategoriaModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     int idadeMin;

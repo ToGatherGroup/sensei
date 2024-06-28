@@ -3,6 +3,7 @@ package sensei.services;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import com.togather.sensei.DTO.lesao.LesaoDTO;
 import com.togather.sensei.models.LesaoModel;
 import com.togather.sensei.repositories.LesaoRepository;
 import com.togather.sensei.services.lesaoService.impl.BuscarLesaoPorAtletaServiceImpl;
@@ -35,7 +36,7 @@ class BuscarLesaoPorAtletaServiceImplTest {
         when(lesaoRepository.buscarHistoricoDeLesoesPorAtletaId(atletaId)).thenReturn(lesaoModels);
 
         // Chame o método a ser testado
-        List<LesaoModel> resultado = buscarLesaoPorAtletaService.buscaHistoricoLesoes(atletaId);
+        List<LesaoDTO> resultado = buscarLesaoPorAtletaService.buscaHistoricoLesoes(atletaId);
 
         // Verifique se o resultado retornado não é nulo
         assertNotNull(resultado);
