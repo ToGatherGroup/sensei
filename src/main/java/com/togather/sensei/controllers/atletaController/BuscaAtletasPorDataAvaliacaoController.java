@@ -14,7 +14,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/atleta/avaliacao")
-public class BuscaAtletasPorDataAvaliacao {
+public class BuscaAtletasPorDataAvaliacaoController {
 
     private final BuscaAtletaPorDataAvaliacaoService buscaAtletaPorDataAvaliacaoService;
 
