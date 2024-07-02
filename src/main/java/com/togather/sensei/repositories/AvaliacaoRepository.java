@@ -68,4 +68,20 @@ public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Aval
 
     @Query(nativeQuery = true, value = "SELECT * FROM avaliacao_tb av WHERE av.data = :data AND av.atleta_id IN (:atletaIds)")
     List<AvaliacaoModel> findAllByDataAndAtletaIdIn(LocalDate data, List<Long> atletaIds);
+
+    @Query(nativeQuery = true, value = "SELECT DISTINCT av.data\n" +
+            "FROM defaultdb.avaliacao_tb AS av  \n" +
+            "WHERE\n" +
+            "    abdominais IS NULL OR\n" +
+            "    altura IS NULL OR\n" +
+            "    burpees IS NULL OR\n" +
+            "    cooper IS NULL OR\n" +
+            "    flexoes IS NULL OR\n" +
+            "    forca_isometrica_maos IS NULL OR\n" +
+            "    impulsao_vertical IS NULL OR\n" +
+            "    peso IS NULL OR\n" +
+            "    prancha IS NULL OR\n" +
+            "    rm_terra IS NULL OR\n" +
+            "    teste_de_lunge IS NULL;")
+    List<String> getAvaliacoesPorData();
 }
