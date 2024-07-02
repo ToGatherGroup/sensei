@@ -16,17 +16,12 @@ public class BuscarAvaliacoesPorAtletaController {
     private final AvaliacoesPorAtletaService avaliacoesPorAtletaDataService;
 
     @GetMapping("/{atletaId}")
-    public ResponseEntity<SeriesDTO> buscaAvaliacoesPorAtleta(@PathVariable Long atletaId)
-    {
-        try
-        {
+    public ResponseEntity<SeriesDTO> buscaAvaliacoesPorAtleta(@PathVariable Long atletaId) {
+        try {
             SeriesDTO dto = avaliacoesPorAtletaDataService.getAvaliacoesPorAtleta(atletaId);
             return ResponseEntity.ok().body(dto);
-        }
-        catch (HttpClientErrorException e)
-        {
+        } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
         }
     }
-
 }
