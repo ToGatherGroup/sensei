@@ -21,7 +21,7 @@ public class BuscaAtletasPorDataAvaliacaoController {
     @GetMapping("/{dataAvaliacao}")
     public ResponseEntity<List<AtletaIdNomeDTO>> buscaAtletasbyData(@PathVariable LocalDate dataAvaliacao){
         try {
-            List<AtletaIdNomeDTO> atletas = buscaAtletaPorDataAvaliacaoService.findAtletasbyData(dataAvaliacao);
+            List<AtletaIdNomeDTO> atletas = buscaAtletaPorDataAvaliacaoService.findAllAtletasbyData(dataAvaliacao);
             return ResponseEntity.ok(atletas);
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());

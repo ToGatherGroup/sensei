@@ -34,7 +34,7 @@ class BuscaAtletasPorDataAvaliacaoControllerTest {
         expectedList.add(new AtletaIdNomeDTO(1L,"Maico"));
         expectedList.add(new AtletaIdNomeDTO(2L,"Michel"));
 
-        Mockito.when(buscaAtletaPorDataAvaliacaoService.findAtletasbyData(LocalDate.parse("2024-05-21"))).thenReturn(expectedList);
+        Mockito.when(buscaAtletaPorDataAvaliacaoService.findAllAtletasbyData(LocalDate.parse("2024-05-21"))).thenReturn(expectedList);
 
         ResponseEntity<List<AtletaIdNomeDTO>> response = buscaAtletasPorDataAvaliacaoController.buscaAtletasbyData(LocalDate.parse("2024-05-21"));
 

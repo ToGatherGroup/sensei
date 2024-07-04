@@ -4,10 +4,8 @@ import com.togather.sensei.DTO.atleta.AtletaIdNomeDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.AvaliacaoModel;
 import com.togather.sensei.models.AvaliacaoModelId;
-import com.togather.sensei.repositories.AtletaRepository;
 import com.togather.sensei.repositories.AvaliacaoRepository;
 import com.togather.sensei.services.atletaService.impl.BuscaAtletaPorDataAvaliacaoServiceImpl;
-import com.togather.sensei.services.atletaService.impl.BuscaListaDeAusentesServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -56,7 +54,7 @@ class BuscaAtletasPorDataAvaliacaoImplTest {
 
         when(avaliacaoRepository.buscaAvaliacaoMesmaData(data)).thenReturn(avaliacoesNaData);
 
-        List<AtletaIdNomeDTO> result = buscaAtletaPorDataAvaliacaoService.findAtletasbyData(data);
+        List<AtletaIdNomeDTO> result = buscaAtletaPorDataAvaliacaoService.findAllAtletasbyData(data);
 
         assertEquals(avaliacoesNaData.size(), result.size());
         assertEquals("Wilson", result.get(0).getNome());

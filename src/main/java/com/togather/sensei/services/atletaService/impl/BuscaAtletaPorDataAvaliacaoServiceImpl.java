@@ -23,7 +23,7 @@ public class BuscaAtletaPorDataAvaliacaoServiceImpl implements BuscaAtletaPorDat
     private final AvaliacaoRepository avaliacaoRepository;
 
     @Override
-    public List<AtletaIdNomeDTO> findAtletasbyData(LocalDate dataAvaliacao) {
+    public List<AtletaIdNomeDTO> findAllAtletasbyData(LocalDate dataAvaliacao) {
 
         List<AvaliacaoModel> listaAvaliacoes = avaliacaoRepository.buscaAvaliacaoMesmaData(dataAvaliacao);
         List<AtletaIdNomeDTO> listaAtletasPorData = new ArrayList<>();
