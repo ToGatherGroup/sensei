@@ -353,13 +353,13 @@ INSERT IGNORE INTO classificacao_flexoes_tb (id, classificacao, idade_min, idade
     (52, 'Excelente', 50, 59, 11, 22, 'F'),
     (53, 'Bom', 50, 59, 07, 10, 'F'),
     (54, 'Regular', 50, 59, 02, 06, 'F'),
-    (55, 'Fraco', 50, 59, 0, 01, 'F'),
+    (55, 'Fraco', 50, 59, 1, 1, 'F'),
     (71, 'M. Fraco', 50, 59, 0, 0, 'F'),
     (56, 'Superior', 60, 69, 17, 150, 'F'),
     (57, 'Excelente', 60, 69, 12, 16, 'F'),
     (58, 'Bom', 60, 69, 05, 11, 'F'),
     (59, 'Regular', 60, 69, 02, 04, 'F'),
-    (60, 'Fraco',60, 69, 0, 01, 'F'),
+    (60, 'Fraco',60, 69, 01, 01, 'F'),
     (72, 'M. Fraco',60, 69, 0, 0, 'F');
 
 
