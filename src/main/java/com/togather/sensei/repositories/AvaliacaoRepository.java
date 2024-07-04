@@ -68,4 +68,57 @@ public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Aval
 
     @Query(nativeQuery = true, value = "SELECT * FROM avaliacao_tb av WHERE av.data = :data AND av.atleta_id IN (:atletaIds)")
     List<AvaliacaoModel> findAllByDataAndAtletaIdIn(LocalDate data, List<Long> atletaIds);
+
+    @Query(nativeQuery = true, value = "SELECT classificacao\n" +
+            "FROM avaliacao_tb avaliacao \n" +
+            "INNER JOIN atleta_vw atleta ON atleta.id = avaliacao.atleta_id\n" +
+            "INNER JOIN classificacao_cooper_tb ccooper ON \n" +
+            "atleta.idade BETWEEN ccooper.idade_min AND ccooper.idade_max AND ccooper.sexo = atleta.sexo \n" +
+            "AND avaliacao.cooper BETWEEN ccooper.resultado_min AND ccooper.resultado_max \n" +
+            "WHERE atleta.id = :atleta_id ORDER BY data DESC LIMIT 1")
+    String resultadoClassifcacaoCooperPorAtleta(Long atleta_id);
+
+    @Query(nativeQuery = true, value = "SELECT classificacao\n" +
+            "FROM avaliacao_tb avaliacao \n" +
+            "INNER JOIN atleta_vw atleta ON atleta.id = avaliacao.atleta_id\n" +
+            "INNER JOIN classificacao_vo2_tb cvo2 ON \n" +
+            "atleta.idade BETWEEN cvo2.idade_min AND cvo2.idade_max AND cvo2.sexo = atleta.sexo \n" +
+            "AND ((avaliacao.cooper - 504) / 45) BETWEEN cvo2.resultado_min AND cvo2.resultado_max \n" +
+            "WHERE atleta.id = :atleta_id ORDER BY data DESC LIMIT 1")
+    String resultadoClassificacaoVO2PorAtleta(Long atleta_id);
+
+    @Query(nativeQuery = true, value = "SELECT classificacao\n" +
+            "FROM avaliacao_tb avaliacao \n" +
+            "INNER JOIN atleta_vw atleta ON atleta.id = avaliacao.atleta_id\n" +
+            "INNER JOIN classificacao_abdominais_tb classificacao ON \n" +
+            "atleta.idade BETWEEN classificacao.idade_min AND classificacao.idade_max AND classificacao.sexo = atleta.sexo \n" +
+            "AND avaliacao.abdominais  BETWEEN classificacao.resultado_min AND classificacao.resultado_max \n" +
+            "WHERE atleta.id = :atleta_id ORDER BY data DESC LIMIT 1")
+    String resultadoClassificacaoAbdominaisPorAtleta(Long atleta_id);
+
+    @Query(nativeQuery = true, value = "SELECT classificacao\n" +
+            "FROM avaliacao_tb avaliacao \n" +
+            "INNER JOIN atleta_vw atleta ON atleta.id = avaliacao.atleta_id\n" +
+            "INNER JOIN classificacao_flexoes_tb classificacao ON \n" +
+            "atleta.idade BETWEEN classificacao.idade_min AND classificacao.idade_max AND classificacao.sexo = atleta.sexo \n" +
+            "AND avaliacao.flexoes  BETWEEN classificacao.resultado_min AND classificacao.resultado_max \n" +
+            "WHERE atleta.id = :atleta_id ORDER BY data DESC LIMIT 1")
+    String resultadoClassificacaoFlexoesPorAtleta(Long atleta_id);
+
+    @Query(nativeQuery = true, value = "SELECT classificacao\n" +
+            "FROM avaliacao_tb avaliacao \n" +
+            "INNER JOIN atleta_vw atleta ON atleta.id = avaliacao.atleta_id\n" +
+            "INNER JOIN classificacao_imc_adolescente_tb classificacaoadolescente \n" +
+            "ON atleta.idade = classificacaoadolescente.idade  AND classificacaoadolescente.sexo = atleta.sexo \n" +
+            "AND (avaliacao.peso / (power(avaliacao.altura / 100,2))) BETWEEN classificacaoadolescente.resultado_min AND classificacaoadolescente.resultado_max \n" +
+            "WHERE atleta.id = :atleta_id ORDER BY data DESC LIMIT 1")
+    String resultadoClassificacaoIMCAdolescentePorAtleta(Long atleta_id);
+
+    @Query(nativeQuery = true, value = "SELECT classificacao\n" +
+            "FROM avaliacao_tb avaliacao \n" +
+            "INNER JOIN atleta_vw atleta ON atleta.id = avaliacao.atleta_id\n" +
+            "INNER JOIN classificacao_imc_tb classificacao\n" +
+            "ON (avaliacao.peso / (power(avaliacao.altura / 100,2))) BETWEEN classificacao.resultado_min AND classificacao.resultado_max \n" +
+            "WHERE atleta.id = :atleta_id ORDER BY data DESC LIMIT 1")
+    String resultadoClassificacaoIMCPorAtleta(Long atleta_id);
 }
