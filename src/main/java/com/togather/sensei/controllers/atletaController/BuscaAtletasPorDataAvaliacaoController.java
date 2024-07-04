@@ -19,7 +19,7 @@ public class BuscaAtletasPorDataAvaliacaoController {
     private final BuscaAtletaPorDataAvaliacaoService buscaAtletaPorDataAvaliacaoService;
 
     @GetMapping("/{dataAvaliacao}")
-    ResponseEntity<List<AtletaIdNomeDTO>> buscaAtletasbyData(@PathVariable LocalDate dataAvaliacao){
+    public ResponseEntity<List<AtletaIdNomeDTO>> buscaAtletasbyData(@PathVariable LocalDate dataAvaliacao){
         try {
             List<AtletaIdNomeDTO> atletas = buscaAtletaPorDataAvaliacaoService.findAtletasbyData(dataAvaliacao);
             return ResponseEntity.ok(atletas);
