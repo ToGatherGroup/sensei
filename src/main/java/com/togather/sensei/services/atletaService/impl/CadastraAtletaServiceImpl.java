@@ -21,8 +21,6 @@ public class CadastraAtletaServiceImpl implements AtletaPostService {
         atletaModel.setNome(atletaDTO.getNome());
         atletaModel.setNascimento(atletaDTO.getNascimento());
         atletaModel.setSexo(atletaDTO.getSexo());
-        atletaModel.setPeso(atletaDTO.getPeso());
-        atletaModel.setAltura(atletaDTO.getAltura());
         atletaModel.setFaixa(atletaDTO.getFaixa());
         atletaModel.setFoto(atletaDTO.getFoto());
         atletaModel.setEmail(atletaDTO.getEmail());
