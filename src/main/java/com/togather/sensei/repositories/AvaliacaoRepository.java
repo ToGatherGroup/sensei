@@ -84,4 +84,24 @@ public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Aval
             "    av.rm_terra IS NOT NULL AND " +
             "    av.teste_de_lunge IS NOT NULL;")
     List<String> getAvaliacoesPorData();
+
+    String queryAvaliacaoIncompletaByAtleta = """
+              SELECT *
+                FROM avaliacao_tb\s
+               WHERE atleta_id = :atletaId\s
+               AND( abdominais is  null\s
+               OR altura is null\s
+               OR burpees is null\s
+               OR cooper is null\s
+               OR flexoes is null\s
+               OR forca_isometrica_maos is null\s
+               OR impulsao_vertical is null\s
+               OR peso is  null\s
+               OR prancha is  null\s
+               OR rm_terra is  null\s
+               OR teste_de_lunge is null)\s
+            ORDER BY data DESC
+               LIMIT 1""";
+    @Query(value = queryAvaliacaoIncompletaByAtleta, nativeQuery = true)
+    AvaliacaoModel getAvaliacaoIncompletaByAtleta(Long atletaId);
 }
