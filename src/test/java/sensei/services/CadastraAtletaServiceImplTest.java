@@ -32,8 +32,6 @@ class CadastraAtletaServiceImplTest {
         atletaDTO.setNome("João");
         atletaDTO.setNascimento(LocalDate.of(1990, 5, 15));
         atletaDTO.setSexo('M');
-        atletaDTO.setPeso(70.5);
-        atletaDTO.setAltura(175.0);
         atletaDTO.setFaixa("Faixa Azul");
         atletaDTO.setFoto("foto.jpg");
         atletaDTO.setEmail("joao@example.com");
@@ -43,8 +41,6 @@ class CadastraAtletaServiceImplTest {
         atletaModel.setNome(atletaDTO.getNome());
         atletaModel.setNascimento(atletaDTO.getNascimento());
         atletaModel.setSexo(atletaDTO.getSexo());
-        atletaModel.setPeso(atletaDTO.getPeso());
-        atletaModel.setAltura(atletaDTO.getAltura());
         atletaModel.setFaixa(atletaDTO.getFaixa());
         atletaModel.setFoto(atletaDTO.getFoto());
         atletaModel.setEmail(atletaDTO.getEmail());
@@ -59,8 +55,6 @@ class CadastraAtletaServiceImplTest {
         assertEquals(atletaDTO.getNome(), result.getNome());
         assertEquals(atletaDTO.getNascimento(), result.getNascimento());
         assertEquals(atletaDTO.getSexo(), result.getSexo());
-        assertEquals(atletaDTO.getPeso(), result.getPeso());
-        assertEquals(atletaDTO.getAltura(), result.getAltura());
         assertEquals(atletaDTO.getFaixa(), result.getFaixa());
         assertEquals(atletaDTO.getFoto(), result.getFoto());
         assertEquals(atletaDTO.getEmail(), result.getEmail());
