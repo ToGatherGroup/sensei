@@ -3,7 +3,6 @@ package com.togather.sensei.services.dadosqualitativosService.impl;
 import com.togather.sensei.DTO.dadosqualitativos.DadosQualitativosDTO;
 import com.togather.sensei.DTO.dadosqualitativos.DadosQualitativosResponseDTO;
 import com.togather.sensei.models.AtletaModel;
-import com.togather.sensei.models.AvaliacaoModel;
 import com.togather.sensei.repositories.AtletaRepository;
 import com.togather.sensei.repositories.AvaliacaoRepository;
 import com.togather.sensei.services.dadosqualitativosService.BuscarDadosQualitativosService;
@@ -24,7 +23,6 @@ public class BuscarDadosQualitativosImpl implements BuscarDadosQualitativosServi
 
     @Override
     public DadosQualitativosResponseDTO buscaDadosQualitativos(long atleta_id) {
-        AvaliacaoModel ultimaAvaliacao = avaliacaoRepository.getLastAvaliacaoByAtleta(atleta_id);
         DadosQualitativosResponseDTO resultado = new DadosQualitativosResponseDTO();
         String dadoCooper = avaliacaoRepository.resultadoClassifcacaoCooperPorAtleta(atleta_id);
         String dadoFlexao = avaliacaoRepository.resultadoClassificacaoFlexoesPorAtleta(atleta_id);
@@ -32,7 +30,7 @@ public class BuscarDadosQualitativosImpl implements BuscarDadosQualitativosServi
         String dadoAbdominal = avaliacaoRepository.resultadoClassificacaoAbdominaisPorAtleta(atleta_id);
 
         AtletaModel atletaModel = atletaRepository.getReferenceById(atleta_id);
-        int idade = calculateAge(atletaModel.getNascimento());
+        int idade = calcularIdade(atletaModel.getNascimento());
 
         String dadoIMC = (idade <= 17) ? avaliacaoRepository.resultadoClassificacaoIMCAdolescentePorAtleta(atleta_id) : avaliacaoRepository.resultadoClassificacaoIMCPorAtleta(atleta_id);
 
@@ -52,7 +50,7 @@ public class BuscarDadosQualitativosImpl implements BuscarDadosQualitativosServi
         return resultado;
     }
 
-    public int calculateAge(LocalDate dataNascimento) {
+    public int calcularIdade(LocalDate dataNascimento) {
         return Period.between(dataNascimento, LocalDate.now()).getYears();
     }
 }
