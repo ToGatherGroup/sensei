@@ -9,7 +9,7 @@ public class ClassificacaoFlexoesModel {
 
     @Id
     Long id;
-    String classificação;
+    String classificacao;
     int idadeMin;
     int idadeMax;
     int resultadoMin;
