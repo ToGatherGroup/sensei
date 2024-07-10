@@ -1,7 +1,7 @@
 package sensei.controllers;
 
 import com.togather.sensei.DTO.campeonato.MedalhaDTO;
-import com.togather.sensei.controllers.CampeonatoController.BuscaMedalhaController;
+import com.togather.sensei.controllers.campeonatoController.BuscaMedalhaController;
 import com.togather.sensei.services.campeonatosService.BuscaMedalhaService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

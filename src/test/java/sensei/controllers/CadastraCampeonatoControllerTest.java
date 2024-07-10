@@ -1,6 +1,6 @@
 package sensei.controllers;
 
-import com.togather.sensei.controllers.CampeonatoController.CadastraCampeonatoController;
+import com.togather.sensei.controllers.campeonatoController.CadastraCampeonatoController;
 import com.togather.sensei.models.CampeonatosDisputadosModel;
 import com.togather.sensei.services.campeonatosService.CadastraCampeonatoService;
 import org.junit.jupiter.api.Test;

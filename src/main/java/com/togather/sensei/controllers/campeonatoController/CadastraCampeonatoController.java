@@ -1,4 +1,4 @@
-package com.togather.sensei.controllers.CampeonatoController;
+package com.togather.sensei.controllers.campeonatoController;
 
 import com.togather.sensei.models.CampeonatosDisputadosModel;
 import com.togather.sensei.services.campeonatosService.CadastraCampeonatoService;
