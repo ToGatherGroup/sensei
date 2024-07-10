@@ -33,6 +33,6 @@ public interface AtletaRepository extends JpaRepository<AtletaModel, Long> {
     @Query(nativeQuery = true, value = queryAtletasAtivos)
     List<AtletaModel> buscaListaAtletaIdAtivo();
 
-    @Query(nativeQuery = true, value = "SELECT sexo, nascimento FROM atleta_tb WHERE atleta_id = :atletaId")
+    @Query(nativeQuery = true, value = "SELECT sexo, nascimento FROM atleta_tb WHERE id = :atletaId")
     List<Object[]> buscaSexoNascimentoPorAtleta(@Param("atletaId") Long atletaId);
 }
