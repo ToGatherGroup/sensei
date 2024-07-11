@@ -57,13 +57,14 @@ class AvaliacaoPorAtletaDataServiceImplTest {
         ResponseBuscaAvaliacaoDTO expectedResponse = new ResponseBuscaAvaliacaoDTO(atletaId, data, listaExercicios);
 
         // Mock do comportamento do atletaRepository
-        when(atletaRepository.findById(atletaId)).thenReturn(Optional.of(atleta));
+        when(atletaRepository.existsById(atletaId)).thenReturn(true);
 
         // Mock do comportamento do avaliacaoRepository
         when(avaliacaoRepository.buscaAvaliacaoAtletaData(data, atletaId)).thenReturn(avaliacao);
 
         // Mock do comportamento do modelMapper
         when(modelMapper.map(avaliacao, ListaExerciciosDTO.class)).thenReturn(listaExercicios);
+
 
         // Chamada do método a ser testado
         ResponseBuscaAvaliacaoDTO result = avaliacaoPorAtletaDataService.findAvaliacao(atletaId, data);
@@ -81,7 +82,7 @@ class AvaliacaoPorAtletaDataServiceImplTest {
         LocalDate data = LocalDate.now();
 
         // Mock do comportamento do atletaRepository para retornar vazio
-        when(atletaRepository.findById(atletaId)).thenReturn(Optional.empty());
+        when(atletaRepository.existsById(atletaId)).thenReturn(false);
 
         // Verificação de que a exceção é lançada
         assertThrows(BusinessException.class, () -> {

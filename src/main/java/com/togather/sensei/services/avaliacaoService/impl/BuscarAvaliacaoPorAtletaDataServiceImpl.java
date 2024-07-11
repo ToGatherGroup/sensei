@@ -35,8 +35,10 @@ public class BuscarAvaliacaoPorAtletaDataServiceImpl implements BuscarAvaliacaoP
 
     private void validarAtleta(Long atletaId){
 
-        Optional<AtletaModel> atleta= atletaRepository.findById(atletaId);
-        if (atleta.isEmpty()) throw new BusinessException("Atleta não encontrado");
-
+        boolean atleta= atletaRepository.existsById(atletaId);
+        if (atleta){
+            return;
+        }
+        throw new BusinessException("Atleta não encontrado");
     }
 }
