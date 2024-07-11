@@ -26,19 +26,17 @@ public class BuscarAvaliacaoPorAtletaDataServiceImpl implements BuscarAvaliacaoP
 
     @Override
     public ResponseBuscaAvaliacaoDTO findAvaliacao(Long atletaId, LocalDate data) {
-        AtletaModel atleta = validarAtleta(atletaId);
+        validarAtleta(atletaId);
         AvaliacaoModel avaliacao= avaliacaoRepository.buscaAvaliacaoAtletaData(data,atletaId);
         ListaExerciciosDTO exercicios = modelMapper.map(avaliacao, ListaExerciciosDTO.class);
         ResponseBuscaAvaliacaoDTO responseAvaliacao = new ResponseBuscaAvaliacaoDTO(atletaId,data,exercicios);
         return responseAvaliacao;
     }
 
-    private AtletaModel validarAtleta(Long atletaId){
+    private void validarAtleta(Long atletaId){
 
         Optional<AtletaModel> atleta= atletaRepository.findById(atletaId);
         if (atleta.isEmpty()) throw new BusinessException("Atleta não encontrado");
-
-        return atleta.get();
 
     }
 }
