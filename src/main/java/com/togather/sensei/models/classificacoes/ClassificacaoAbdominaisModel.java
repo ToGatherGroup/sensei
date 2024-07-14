@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "classificacao_abdominais_tb")
-
 public class ClassificacaoAbdominaisModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
