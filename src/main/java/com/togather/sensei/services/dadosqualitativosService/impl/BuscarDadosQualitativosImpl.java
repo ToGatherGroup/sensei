@@ -48,7 +48,7 @@ public class BuscarDadosQualitativosImpl implements BuscarDadosQualitativosServi
     private List<DadosQualitativosDTO> verificarNulos(List<DadosQualitativosDTO> listaQualitativos){
 
         for (DadosQualitativosDTO dado: listaQualitativos) {
-            if (dado.getResult()==null) dado.setResult("Não se aplica");
+            if (dado.getResult()==null) dado.setResult("Não Aplicável");
         }
         return listaQualitativos;
     }
