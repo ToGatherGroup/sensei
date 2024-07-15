@@ -35,19 +35,22 @@ public class BuscarDadosQualitativosImpl implements BuscarDadosQualitativosServi
         String dadoIMC = (idade <= 17) ? avaliacaoRepository.resultadoClassificacaoIMCAdolescentePorAtleta(atleta_id) : avaliacaoRepository.resultadoClassificacaoIMCPorAtleta(atleta_id);
 
         List<DadosQualitativosDTO> listaDadosQualitativos = new ArrayList<>();
-        if (dadoCooper != null && !dadoCooper.isBlank())
             listaDadosQualitativos.add(new DadosQualitativosDTO("Cooper", dadoCooper));
-        if (dadoFlexao != null && !dadoFlexao.isBlank())
             listaDadosQualitativos.add(new DadosQualitativosDTO("Classificação Flexões", dadoFlexao));
-        if (dadoVO2 != null && !dadoVO2.isBlank())
             listaDadosQualitativos.add(new DadosQualitativosDTO("Resultado VO2", dadoVO2));
-        if (dadoAbdominal != null && !dadoAbdominal.isBlank())
             listaDadosQualitativos.add(new DadosQualitativosDTO("Classificação Abdominal", dadoAbdominal));
-        if (dadoIMC != null && !dadoIMC.isBlank())
             listaDadosQualitativos.add(new DadosQualitativosDTO("Classificação IMC", dadoIMC));
 
-        resultado.setDados(listaDadosQualitativos);
+        resultado.setDados(verificarNulos(listaDadosQualitativos));
         return resultado;
+    }
+
+    private List<DadosQualitativosDTO> verificarNulos(List<DadosQualitativosDTO> listaQualitativos){
+
+        for (DadosQualitativosDTO dado: listaQualitativos) {
+            if (dado.getResult()==null) dado.setResult("Não se aplica");
+        }
+        return listaQualitativos;
     }
 
     public int calcularIdade(LocalDate dataNascimento) {
