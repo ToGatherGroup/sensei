@@ -62,8 +62,16 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
         lstMetricas.add(metricaTemp);
 
         metricaTemp = new MetricaAvaliacao();
-        metricaTemp.setTipoAvaliacao( AvaliacaoEnum.MobilidadeDoTornozelo );
-        metricaTemp.setDescricao("Mob Tornozelo");
+        metricaTemp.setTipoAvaliacao(AvaliacaoEnum.MobilidadeDoTornozeloDireito);
+        metricaTemp.setDescricao("Mob Tornozelo Dir");
+        metricaTemp.setMinino(12.);
+        metricaTemp.setMaximo(0.);
+        metricaTemp.setIdadeMinima(0);
+        lstMetricas.add(metricaTemp);
+
+        metricaTemp = new MetricaAvaliacao();
+        metricaTemp.setTipoAvaliacao(AvaliacaoEnum.MobilidadeDoTornozeloEsquerdo);
+        metricaTemp.setDescricao("Mob Tornozelo Esq");
         metricaTemp.setMinino(12.);
         metricaTemp.setMaximo(0.);
         metricaTemp.setIdadeMinima(0);
@@ -168,9 +176,14 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
             valorTemporario = getPercentual(metrica.getMinino(), metrica.getMaximo(), avaliacao.getForcaIsometricaMaos().toMinutes());
             values.add(valorTemporario);
 
-            metrica = lstMetricas.get( AvaliacaoEnum.MobilidadeDoTornozelo.ordinal() );
+            metrica = lstMetricas.get( AvaliacaoEnum.MobilidadeDoTornozeloDireito.ordinal() );
             labels.add(metrica.getDescricao());
-            valorTemporario = getPercentualInvertido(metrica.getMinino(), metrica.getMaximo(), avaliacao.getTesteDeLunge());
+            valorTemporario = getPercentualInvertido(metrica.getMinino(), metrica.getMaximo(), avaliacao.getTesteDeLungeJoelhoDireito());
+            values.add(valorTemporario);
+
+            metrica = lstMetricas.get( AvaliacaoEnum.MobilidadeDoTornozeloEsquerdo.ordinal() );
+            labels.add(metrica.getDescricao());
+            valorTemporario = getPercentualInvertido(metrica.getMinino(), metrica.getMaximo(), avaliacao.getTesteDeLungeJoelhoEsquerdo());
             values.add(valorTemporario);
 
             metrica = lstMetricas.get( AvaliacaoEnum.ResistenciaMuscularLocalizadaAbdominal.ordinal() );

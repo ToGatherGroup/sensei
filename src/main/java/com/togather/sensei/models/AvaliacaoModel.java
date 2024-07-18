@@ -22,12 +22,11 @@ public class AvaliacaoModel {
     private Double cooper;
     private Integer rmTerra;
     private Duration forcaIsometricaMaos;
-    private Double testeDeLunge;
+    private Double testeDeLungeJoelhoDireito;
+    private Double testeDeLungeJoelhoEsquerdo;
     private Double impulsaoVertical;
 
     @EmbeddedId
     private AvaliacaoModelId avaliacaoModelId;
-
-
 }
 
