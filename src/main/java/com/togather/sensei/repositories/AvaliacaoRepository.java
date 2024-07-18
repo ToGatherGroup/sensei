@@ -30,7 +30,8 @@ public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Aval
                OR av.impulsao_vertical IS NULL
                OR av.peso IS NULL
                OR av.rm_terra IS NULL
-               OR av.teste_de_lunge IS NULL)
+               OR av.teste_de_lunge_joelho_direito IS NULL
+               OR av.teste_de_lunge_joelho_esquerdo IS NULL)
                AND a.is_ativo = TRUE""";
     @Query(nativeQuery = true, value = queryAvaliacoesIncompletas)
     List<AvaliacaoModel> getAvaliacoesIncompletas();
@@ -49,14 +50,15 @@ public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Aval
                AND peso is not null\s
                AND prancha is not null\s
                AND rm_terra is not null\s
-               AND teste_de_lunge is not null\s
+               AND teste_de_lunge_joelho_direito is not null\s
+               AND teste_de_lunge_joelho_esquerdo is not null\s
             ORDER BY data DESC
                LIMIT 1""";
     @Query(value = queryLastAvaliacaoByAtletaId, nativeQuery = true)
     AvaliacaoModel getLastAvaliacaoByAtleta(Long atletaId);
 
     @Query(nativeQuery = true, value = "SELECT DISTINCT data from avaliacao_tb where abdominais is null or prancha is null or altura is null or burpees is null or cooper is null or flexoes is null or forca_isometrica_maos is null or\n" +
-            "  impulsao_vertical is null or peso is null or prancha is null or rm_terra is null or teste_de_lunge is null ")
+            "  impulsao_vertical is null or peso is null or prancha is null or rm_terra is null or teste_de_lunge_joelho_direito is null or teste_de_lunge_joelho_esquerdo is null ")
     LocalDate getDataAvaliacoesIncompletas();
 
     @Query(nativeQuery = true, value = "SELECT * FROM avaliacao_tb WHERE data = :data")
@@ -84,7 +86,8 @@ public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Aval
             "    av.peso IS NOT NULL AND " +
             "    av.prancha IS NOT NULL AND " +
             "    av.rm_terra IS NOT NULL AND " +
-            "    av.teste_de_lunge IS NOT NULL;")
+            "    av.teste_de_lunge_joelho_direito IS NOT NULL AND" +
+            "    av.teste_de_lunge_joelho_esquerdo IS NOT NULL;")
     List<String> getAvaliacoesPorData();
 
     String queryAvaliacaoIncompletaByAtleta = """
@@ -101,7 +104,8 @@ public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Aval
                OR peso is  null\s
                OR prancha is  null\s
                OR rm_terra is  null\s
-               OR teste_de_lunge is null)\s
+               OR teste_de_lunge_joelho_direito is null)\s
+               OR teste_de_lunge_joelho_esquerdo is null)\s
             ORDER BY data DESC
                LIMIT 1""";
     @Query(value = queryAvaliacaoIncompletaByAtleta, nativeQuery = true)
