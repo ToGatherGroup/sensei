@@ -49,7 +49,8 @@ class AvaliacoesPorAtletaServiceImplTest {
         avaliacaoModel.setCooper(0.5);
         avaliacaoModel.setPeso(65.0);
         avaliacaoModel.setForcaIsometricaMaos(Duration.ofMinutes(50));
-        avaliacaoModel.setTesteDeLunge(4.0);
+        avaliacaoModel.setTesteDeLungeJoelhoEsquerdo(4.0);
+        avaliacaoModel.setTesteDeLungeJoelhoDireito(4.0);
         avaliacaoModel.setImpulsaoVertical(5.0);
 
         when(atletaRepository.findById(1L)).thenReturn(Optional.of(atletaModel)); // Simula um atleta existente
@@ -64,8 +65,8 @@ class AvaliacoesPorAtletaServiceImplTest {
         // Verifique se os labels e valores foram configurados corretamente
         assertNotNull(seriesDTO.labels);
         assertNotNull(seriesDTO.values);
-        assertEquals(9, seriesDTO.labels.length);
-        assertEquals(9, seriesDTO.values.length);
+        assertEquals(10, seriesDTO.labels.length);
+        assertEquals(10, seriesDTO.values.length);
         // Aqui você pode adicionar mais asserções para garantir que os valores retornados são os esperados
     }
 }

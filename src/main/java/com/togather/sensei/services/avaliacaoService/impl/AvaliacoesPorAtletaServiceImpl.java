@@ -61,8 +61,16 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
         lstMetricas.add(metricaTemp);
 
         metricaTemp = new MetricaAvaliacao();
-        metricaTemp.setTipoAvaliacao(AvaliacaoEnum.MobilidadeDoTornozelo);
-        metricaTemp.setDescricao("Mob Tornozelo");
+        metricaTemp.setTipoAvaliacao(AvaliacaoEnum.MobilidadeDoTornozeloDireito);
+        metricaTemp.setDescricao("Mob Tornozelo Dir");
+        metricaTemp.setMinino(12.);
+        metricaTemp.setMaximo(0.);
+        metricaTemp.setIdadeMinima(0);
+        lstMetricas.add(metricaTemp);
+
+        metricaTemp = new MetricaAvaliacao();
+        metricaTemp.setTipoAvaliacao(AvaliacaoEnum.MobilidadeDoTornozeloEsquerdo);
+        metricaTemp.setDescricao("Mob Tornozelo Esq");
         metricaTemp.setMinino(12.);
         metricaTemp.setMaximo(0.);
         metricaTemp.setIdadeMinima(0);
@@ -141,9 +149,20 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
 
         LocalDate dataAtual = LocalDate.now();
 
-        if (atleta.getNascimento() == null) {
-            throw new BusinessException("Data de nascimento do atleta não especificada");
-        }
+        metrica = lstMetricas.get( AvaliacaoEnum.MobilidadeDoTornozeloDireito.ordinal() );
+        labels.add(metrica.getDescricao());
+        valorTemporario = getPercentualInvertido(metrica.getMinino(), metrica.getMaximo(), avaliacao.getTesteDeLungeJoelhoDireito());
+        values.add(valorTemporario);
+
+        metrica = lstMetricas.get( AvaliacaoEnum.MobilidadeDoTornozeloEsquerdo.ordinal() );
+        labels.add(metrica.getDescricao());
+        valorTemporario = getPercentualInvertido(metrica.getMinino(), metrica.getMaximo(), avaliacao.getTesteDeLungeJoelhoEsquerdo());
+        values.add(valorTemporario);
+
+        metrica = lstMetricas.get( AvaliacaoEnum.ResistenciaMuscularLocalizadaAbdominal.ordinal() );
+        labels.add(metrica.getDescricao());
+        valorTemporario = getPercentual(metrica.getMinino(), metrica.getMaximo(), avaliacao.getAbdominais());
+        values.add(valorTemporario);
 
         Period periodoEntreAsDatas = Period.between(atleta.getNascimento(), dataAtual);
         int idadeDoAtleta = periodoEntreAsDatas.getYears();
