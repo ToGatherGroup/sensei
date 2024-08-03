@@ -20,8 +20,6 @@ public class AtletaModel {
     @Temporal(TemporalType.DATE)
     private LocalDate nascimento;
     private Character sexo;
-    private Double peso;
-    private Double altura;
     private String faixa;
     @Column(columnDefinition = "LONGTEXT")
     private String foto;

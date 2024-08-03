@@ -1,6 +1,8 @@
 package com.togather.sensei.models;
 
-import jakarta.persistence.*;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,12 +24,11 @@ public class AvaliacaoModel {
     private Double cooper;
     private Integer rmTerra;
     private Duration forcaIsometricaMaos;
-    private Double testeDeLunge;
+    private Double testeDeLungeJoelhoDireito;
+    private Double testeDeLungeJoelhoEsquerdo;
     private Double impulsaoVertical;
 
     @EmbeddedId
     private AvaliacaoModelId avaliacaoModelId;
-
-
 }
 
