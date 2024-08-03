@@ -104,12 +104,12 @@ public interface AvaliacaoRepository extends JpaRepository <AvaliacaoModel, Aval
                OR peso is  null\s
                OR prancha is  null\s
                OR rm_terra is  null\s
-               OR teste_de_lunge_joelho_direito is null)\s
+               OR teste_de_lunge_joelho_direito is null\s
                OR teste_de_lunge_joelho_esquerdo is null)\s
             ORDER BY data DESC
                LIMIT 1""";
     @Query(value = queryAvaliacaoIncompletaByAtleta, nativeQuery = true)
-    AvaliacaoModel getAvaliacaoIncompletaByAtleta(Long atletaId);
+    Optional<AvaliacaoModel> getAvaliacaoIncompletaByAtleta(Long atletaId);
 
     @Query(nativeQuery = true, value = "SELECT classificacao\n" +
             "FROM avaliacao_tb avaliacao \n" +

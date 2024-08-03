@@ -21,8 +21,8 @@ public class AtualizaAtletatServiceImpl implements AtualizaAtletatService {
     @Override
     public AtletaModel updateAtleta(AtletaModel atletaModel) {
         if (!atletaModel.getIsAtivo()){
-           AvaliacaoModel avaliacao= avaliacaoRepository.getAvaliacaoIncompletaByAtleta(atletaModel.getId());
-           avaliacaoRepository.delete(avaliacao);
+           Optional<AvaliacaoModel> avaliacao= avaliacaoRepository.getAvaliacaoIncompletaByAtleta(atletaModel.getId());
+            avaliacao.ifPresent(avaliacaoRepository::delete);
         }
         Optional<AtletaModel> model= atletaRepository.findById(atletaModel.getId());
 
