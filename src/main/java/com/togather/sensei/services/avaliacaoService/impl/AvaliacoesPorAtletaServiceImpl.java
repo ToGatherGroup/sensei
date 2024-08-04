@@ -111,11 +111,20 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
     }
 
     private double getPercentual(double min, double max, double valor) {
+        if(valor > max)
+            valor = max;
+        
         double valorMaximo = max - min;
         return (valor / valorMaximo) * 100;
     }
 
     private double getPercentualInvertido(double min, double max, double valor) {
+        if(valor > min)
+            valor = min;
+        
+        if(valor < max)
+            valor = max;
+        
         double valorMinimo = min - max;
         return (1 - (valor / valorMinimo)) * 100;
     }
