@@ -60,6 +60,10 @@ CREATE TABLE IF NOT EXISTS classificacao_cooper_tb (
     PRIMARY KEY (id)
 );
 
+CREATE VIEW IF NOT EXISTS atleta_vw AS
+SELECT *, TIMESTAMPDIFF(YEAR, nascimento, CURDATE()) AS idade
+  FROM atleta_tb;
+
 -- Inicia uma transação para garantir a atomicidade das operações
 START TRANSACTION;
 
