@@ -2,7 +2,6 @@ package com.togather.sensei.enums;
 
 import lombok.Data;
 
-
 public enum PosicaoEnum {
 
     PARTICIPACAO("Participação"),
@@ -12,14 +11,11 @@ public enum PosicaoEnum {
 
     private final String descricao;
 
-
-    PosicaoEnum(String descricao) {this.descricao = descricao;}
+    PosicaoEnum(String descricao) {
+        this.descricao = descricao;
+    }
 
     public String getDescricao() {
         return descricao;
     }
-
-
-
-
 }
