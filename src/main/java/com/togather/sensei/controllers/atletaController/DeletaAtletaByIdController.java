@@ -11,13 +11,11 @@ import org.springframework.web.client.HttpClientErrorException;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/atleta")
-public class DeletaAtletaByIdController
-{
+public class DeletaAtletaByIdController {
     private final DeletaAtletaByIdService deletaAtletaByIdService;
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> apagaAtletaById(@PathVariable Long id)
-    {
+    public ResponseEntity<Void> apagaAtletaById(@PathVariable Long id) {
         try {
             deletaAtletaByIdService.deleteAtletaById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

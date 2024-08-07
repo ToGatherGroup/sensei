@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -18,9 +19,14 @@ import java.util.List;
 public class EnviarExercicioColetivoController {
 
     private final RegistraExercicioColetivoService registraExercicioColetivoService;
+
     @PatchMapping()
     public ResponseEntity<PossuiAvaliacaoIncompletaDTO> atualizarExercicioColetivo(@RequestBody List<ExercicioColetivoDTO> listaExercicioColetivo) throws InvocationTargetException, IllegalAccessException {
-        PossuiAvaliacaoIncompletaDTO result = registraExercicioColetivoService.atualizarExercicioColetivo(listaExercicioColetivo);
-        return  ResponseEntity.status(HttpStatus.ACCEPTED).body(result);
+        try {
+            PossuiAvaliacaoIncompletaDTO result = registraExercicioColetivoService.atualizarExercicioColetivo(listaExercicioColetivo);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(result);
+        } catch (HttpClientErrorException e) {
+            throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
+        }
     }
 }

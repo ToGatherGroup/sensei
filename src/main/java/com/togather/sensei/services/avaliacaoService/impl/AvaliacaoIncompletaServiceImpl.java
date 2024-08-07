@@ -24,22 +24,21 @@ public class AvaliacaoIncompletaServiceImpl implements AvaliacaoIncompletaServic
     @Override
     public ResponseAvaliacoesIncompletasDTO buscaAvaliacoesIncompletas() {
 
-        List<AvaliacaoModel> listaAvaliacaoIncompleta= avaliacaoRepository.getAvaliacoesIncompletas();
+        List<AvaliacaoModel> listaAvaliacaoIncompleta = avaliacaoRepository.getAvaliacoesIncompletas();
 
-        List<AvaliacaoDTO> listaAvaliacaoDTO= listarAvaliacoes(listaAvaliacaoIncompleta);
+        List<AvaliacaoDTO> listaAvaliacaoDTO = listarAvaliacoes(listaAvaliacaoIncompleta);
         LocalDate data = avaliacaoRepository.getDataAvaliacoesIncompletas();
-        ResponseAvaliacoesIncompletasDTO response = new ResponseAvaliacoesIncompletasDTO(data, listaAvaliacaoDTO);
-        return response;
+        return new ResponseAvaliacoesIncompletasDTO(data, listaAvaliacaoDTO);
     }
 
 
-    private List<AvaliacaoDTO> listarAvaliacoes(List<AvaliacaoModel> listaAvaliacaoIncompleta){
+    private List<AvaliacaoDTO> listarAvaliacoes(List<AvaliacaoModel> listaAvaliacaoIncompleta) {
 
-        List<AvaliacaoDTO> listaAvaliacaoDTO= new ArrayList<>();
+        List<AvaliacaoDTO> listaAvaliacaoDTO = new ArrayList<>();
 
-        for (AvaliacaoModel avaliacao: listaAvaliacaoIncompleta) {
-            AvaliacaoDTO avaliacaoDTO= mapper.map(avaliacao,AvaliacaoDTO.class);
-            ListaExerciciosDTO listaExerciciosDTO= mapper.map(avaliacao,ListaExerciciosDTO.class);
+        for (AvaliacaoModel avaliacao : listaAvaliacaoIncompleta) {
+            AvaliacaoDTO avaliacaoDTO = mapper.map(avaliacao, AvaliacaoDTO.class);
+            ListaExerciciosDTO listaExerciciosDTO = mapper.map(avaliacao, ListaExerciciosDTO.class);
 
 
             avaliacaoDTO.setAtletaNome(avaliacao.getAvaliacaoModelId().getAtletaModel().getNome());

@@ -5,6 +5,7 @@ import com.togather.sensei.services.avaliacaoposturalService.AvaliacoesPosturais
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -19,6 +20,10 @@ public class BuscaAvaliacoesPosturaisByDataController {
 
     @GetMapping("{atletaId}/{data}")
     public ResponseEntity<List<AvaliacaoPosturalDTO>> buscarAvaliacoesPosturaisByData(@PathVariable Long atletaId, @PathVariable LocalDate data) {
-        return ResponseEntity.ok().body(avaliacoesPosturaisByDataService.buscarAvaliacoesPosturalByData(atletaId, data));
+        try {
+            return ResponseEntity.ok().body(avaliacoesPosturaisByDataService.buscarAvaliacoesPosturalByData(atletaId, data));
+        } catch (HttpClientErrorException e) {
+            throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
+        }
     }
 }

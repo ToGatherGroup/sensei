@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 
@@ -15,13 +16,15 @@ import java.util.List;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/atleta/lista")
-public class BuscaListaDeAusentesController
-{
+public class BuscaListaDeAusentesController {
     private final BuscaListaDeAusentesService buscaListaDeAusentesService;
 
     @GetMapping()
-    public ResponseEntity<List<AtletaIdNomeDTO>> buscaListadeAusentes()
-    {
-        return ResponseEntity.ok().body( buscaListaDeAusentesService.getListaDeAusentes() );
+    public ResponseEntity<List<AtletaIdNomeDTO>> buscaListadeAusentes() {
+        try {
+            return ResponseEntity.ok().body(buscaListaDeAusentesService.getListaDeAusentes());
+        } catch (HttpClientErrorException e) {
+            throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
+        }
     }
 }
