@@ -1,7 +1,7 @@
 package com.togather.sensei.controllers.campeonatoController;
 
 import com.togather.sensei.DTO.campeonato.ListaCampeonatoDTO;
-import com.togather.sensei.services.campeonatosService.ListaCampeonatoPorAtletaIdService;
+import com.togather.sensei.services.campeonatosService.BuscaListaCampeonatoPorAtletaIdService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,11 +12,11 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/listacampeonato")
-public class ListaCampeonatoPorAtletaIdController {
+@RequestMapping("/campeonato/lista")
+public class BuscaListaCampeonatoPorAtletaIdController {
 
     @Autowired
-    private ListaCampeonatoPorAtletaIdService listaCampeonatoPorAtletaIdService;
+    private BuscaListaCampeonatoPorAtletaIdService listaCampeonatoPorAtletaIdService;
 
     @GetMapping("/{atleta_id}")
     public ResponseEntity<List<ListaCampeonatoDTO>> listaCampeonatos(@PathVariable Long atleta_id) {

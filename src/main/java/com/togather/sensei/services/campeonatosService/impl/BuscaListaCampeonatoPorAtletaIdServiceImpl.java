@@ -4,7 +4,7 @@ import com.togather.sensei.DTO.campeonato.ListaCampeonatoDTO;
 import com.togather.sensei.enums.PosicaoEnum;
 import com.togather.sensei.models.CampeonatosDisputadosModel;
 import com.togather.sensei.repositories.CampeonatosRepository;
-import com.togather.sensei.services.campeonatosService.ListaCampeonatoPorAtletaIdService;
+import com.togather.sensei.services.campeonatosService.BuscaListaCampeonatoPorAtletaIdService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ListaCampeonatoPorAtletaIdServiceImpl implements ListaCampeonatoPorAtletaIdService {
+public class BuscaListaCampeonatoPorAtletaIdServiceImpl implements BuscaListaCampeonatoPorAtletaIdService {
 
     private final CampeonatosRepository campeonatosRepository;
 

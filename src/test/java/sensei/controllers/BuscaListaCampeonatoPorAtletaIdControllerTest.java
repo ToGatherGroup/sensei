@@ -1,9 +1,9 @@
 package sensei.controllers;
 
 import com.togather.sensei.DTO.campeonato.ListaCampeonatoDTO;
-import com.togather.sensei.controllers.campeonatoController.ListaCampeonatoPorAtletaIdController;
+import com.togather.sensei.controllers.campeonatoController.BuscaListaCampeonatoPorAtletaIdController;
 import com.togather.sensei.enums.PosicaoEnum;
-import com.togather.sensei.services.campeonatosService.ListaCampeonatoPorAtletaIdService;
+import com.togather.sensei.services.campeonatosService.BuscaListaCampeonatoPorAtletaIdService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -20,13 +20,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)
-class ListaCampeonatoPorAtletaIdControllerTest {
+class BuscaListaCampeonatoPorAtletaIdControllerTest {
 
     @Mock
-    private ListaCampeonatoPorAtletaIdService listaCampeonatoPorAtletaIdService;
+    private BuscaListaCampeonatoPorAtletaIdService listaCampeonatoPorAtletaIdService;
 
     @InjectMocks
-    private ListaCampeonatoPorAtletaIdController listaCampeonatoPorAtletaIdController;
+    private BuscaListaCampeonatoPorAtletaIdController listaCampeonatoPorAtletaIdController;
 
     @Test
     void listaCampeonatos_DeveRetornarListaDeCampeonatos() {

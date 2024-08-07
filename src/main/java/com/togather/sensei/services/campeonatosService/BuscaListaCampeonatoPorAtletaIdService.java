@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface ListaCampeonatoPorAtletaIdService {
+public interface BuscaListaCampeonatoPorAtletaIdService {
     List<ListaCampeonatoDTO> listaCampeonatosPorAtletaId(Long atleta_id);
 }

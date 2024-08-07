@@ -4,7 +4,7 @@ import com.togather.sensei.DTO.campeonato.ListaCampeonatoDTO;
 import com.togather.sensei.enums.PosicaoEnum;
 import com.togather.sensei.models.CampeonatosDisputadosModel;
 import com.togather.sensei.repositories.CampeonatosRepository;
-import com.togather.sensei.services.campeonatosService.impl.ListaCampeonatoPorAtletaIdServiceImpl;
+import com.togather.sensei.services.campeonatosService.impl.BuscaListaCampeonatoPorAtletaIdServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -19,13 +19,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class ListaCampeonatoPorAtletaImplTest {
+class BuscaListaCampeonatoPorAtletaImplTest {
 
     @Mock
     private CampeonatosRepository campeonatosRepository;
 
     @InjectMocks
-    private ListaCampeonatoPorAtletaIdServiceImpl listaCampeonatoPorAtletaIdService;
+    private BuscaListaCampeonatoPorAtletaIdServiceImpl listaCampeonatoPorAtletaIdService;
 
     @Test
     void listaCampeonatosPorAtletaId_DeveRetornarListaDeCampeonatosCorretamente() {
