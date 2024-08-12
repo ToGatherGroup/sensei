@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class AtletaDTO {
+    private Long id;
     private String nome;
     private LocalDate nascimento;
     private Character sexo;
