@@ -8,4 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface BuscaAtletaPaginadaService {
     Page<AtletaIdNomeFotoDTO> buscaAtletas(Pageable pageable);
+
+    Page<AtletaIdNomeFotoDTO> buscaAtletasFotosCache(Pageable pageable);
 }

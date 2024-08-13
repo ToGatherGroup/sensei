@@ -26,4 +26,14 @@ public class BuscaAtletaPaginadaController {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
         }
     }
+
+    @GetMapping("/new")
+    public ResponseEntity<Page<AtletaIdNomeFotoDTO>> findAllAtletaNew(Pageable pageable) {
+        try {
+            Page<AtletaIdNomeFotoDTO> atletaModelList = buscaAtletaPaginadaService.buscaAtletasFotosCache(pageable);
+            return ResponseEntity.ok(atletaModelList);
+        } catch (HttpClientErrorException e) {
+            throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
+        }
+    }
 }

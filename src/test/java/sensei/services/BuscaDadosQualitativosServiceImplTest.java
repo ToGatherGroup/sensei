@@ -17,6 +17,7 @@ import org.mockito.quality.Strictness;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -43,7 +44,7 @@ class BuscaDadosQualitativosServiceImplTest {
         atletaModel.setNascimento(dataNascimento);
 
         // Mock do atletaRepository
-        Mockito.when(atletaRepository.getReferenceById(atletaId)).thenReturn(atletaModel);
+        Mockito.when(atletaRepository.findById(atletaId)).thenReturn(Optional.of(atletaModel));
 
         // Mock dos resultados dos métodos do avaliacaoRepository
         Mockito.when(avaliacaoRepository.resultadoClassifcacaoCooperPorAtleta(atletaId)).thenReturn("M. Fraco");
