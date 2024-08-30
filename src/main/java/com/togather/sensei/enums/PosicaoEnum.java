@@ -1,7 +1,8 @@
 package com.togather.sensei.enums;
 
-import lombok.Data;
+import lombok.Getter;
 
+@Getter
 public enum PosicaoEnum {
 
     PARTICIPACAO("Participação"),
@@ -15,7 +16,4 @@ public enum PosicaoEnum {
         this.descricao = descricao;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
 }

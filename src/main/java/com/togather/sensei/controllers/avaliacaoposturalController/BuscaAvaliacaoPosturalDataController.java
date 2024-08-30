@@ -20,7 +20,8 @@ public class BuscaAvaliacaoPosturalDataController {
     @GetMapping("/datas/{atletaId}")
     public ResponseEntity<List<LocalDate>> buscaAvaliacaoDataId(@PathVariable Long atletaId) {
         try {
-            return ResponseEntity.ok().body(avaliacaoPosturalGetDataService.buscarDatasDeAvaliacoesPorAtletaId(atletaId));
+            List<LocalDate> localDates = avaliacaoPosturalGetDataService.buscarDatasDeAvaliacoesPorAtletaId(atletaId);
+            return ResponseEntity.ok().body(localDates);
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
         }

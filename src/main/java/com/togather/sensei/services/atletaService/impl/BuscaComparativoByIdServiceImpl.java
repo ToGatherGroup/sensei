@@ -51,7 +51,7 @@ public class BuscaComparativoByIdServiceImpl implements BuscaComparativoAtletaBy
          Double altura = avaliacao.getAltura();
          Integer idade = calculaIdade(atleta.getNascimento());
          String faixa = atleta.getFaixa();
-         List<MedalhaDTO> medalhaDTO = buscaMedalhaService.buscaMedalhas(id);
+         List<MedalhaDTO> medalhaDTO = buscaMedalhaService.buscaMedalhasComparativo(id);
          SeriesDTO valencia = avaliacoesService.getAvaliacoesPorAtleta(id);
 
         return new AtletaCardComparativoDTO(nome,peso,altura, idade, faixa, medalhaDTO,valencia, foto);
