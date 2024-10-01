@@ -31,7 +31,7 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
         metricaTemp.setTipoAvaliacao(AvaliacaoEnum.Core);
         metricaTemp.setDescricao("Core");
         metricaTemp.setMinino(0.);
-        metricaTemp.setMaximo(8.);
+        metricaTemp.setMaximo(4.);
         metricaTemp.setIdadeMinima(0);
         lstMetricas.add(metricaTemp);
 
@@ -111,11 +111,20 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
     }
 
     private double getPercentual(double min, double max, double valor) {
+        if(valor > max)
+            valor = max;
+
         double valorMaximo = max - min;
         return (valor / valorMaximo) * 100;
     }
 
     private double getPercentualInvertido(double min, double max, double valor) {
+        if(valor > min)
+            valor = min;
+
+        if(valor < max)
+            valor = max;
+
         double valorMinimo = min - max;
         return (1 - (valor / valorMinimo)) * 100;
     }
