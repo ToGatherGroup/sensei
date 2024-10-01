@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -45,6 +46,8 @@ public class AvaliacaoIncompletaServiceImpl implements AvaliacaoIncompletaServic
             avaliacaoDTO.setExercicios(listaExerciciosDTO);
             listaAvaliacaoDTO.add(avaliacaoDTO);
         }
+
+        listaAvaliacaoDTO.sort(Comparator.comparing(AvaliacaoDTO::getAtletaNome));
 
         return listaAvaliacaoDTO;
     }
