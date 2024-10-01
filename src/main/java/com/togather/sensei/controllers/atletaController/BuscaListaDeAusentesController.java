@@ -22,7 +22,8 @@ public class BuscaListaDeAusentesController {
     @GetMapping()
     public ResponseEntity<List<AtletaIdNomeDTO>> buscaListadeAusentes() {
         try {
-            return ResponseEntity.ok().body(buscaListaDeAusentesService.getListaDeAusentes());
+            List<AtletaIdNomeDTO> ausentes = buscaListaDeAusentesService.getListaDeAusentes();
+            return ResponseEntity.ok().body(ausentes);
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
         }

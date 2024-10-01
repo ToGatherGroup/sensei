@@ -1,11 +1,11 @@
 package com.togather.sensei.controllers.campeonatoController;
 
 import com.togather.sensei.DTO.campeonato.ListaCampeonatoDTO;
-import com.togather.sensei.services.campeonatosService.BuscaListaCampeonatoPorAtletaIdService;
+import com.togather.sensei.services.campeonatosService.impl.BuscaListaCampeonatoPorAtletaIdServiceImpl;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 
@@ -15,12 +15,15 @@ import java.util.List;
 @RequestMapping("/campeonato/lista")
 public class BuscaListaCampeonatoPorAtletaIdController {
 
-    @Autowired
-    private BuscaListaCampeonatoPorAtletaIdService listaCampeonatoPorAtletaIdService;
+    private final BuscaListaCampeonatoPorAtletaIdServiceImpl listaCampeonatoPorAtletaIdService;
 
     @GetMapping("/{atleta_id}")
     public ResponseEntity<List<ListaCampeonatoDTO>> listaCampeonatos(@PathVariable Long atleta_id) {
-        List<ListaCampeonatoDTO> campeonatos = listaCampeonatoPorAtletaIdService.listaCampeonatosPorAtletaId(atleta_id);
-        return ResponseEntity.ok(campeonatos);
+        try {
+            List<ListaCampeonatoDTO> campeonatos = listaCampeonatoPorAtletaIdService.listaCampeonatosPorAtletaId(atleta_id);
+            return ResponseEntity.ok(campeonatos);
+        } catch (HttpClientErrorException e) {
+            throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
+        }
     }
 }

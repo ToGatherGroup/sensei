@@ -21,7 +21,8 @@ public class BuscaAvaliacoesPosturaisByDataController {
     @GetMapping("{atletaId}/{data}")
     public ResponseEntity<List<AvaliacaoPosturalDTO>> buscarAvaliacoesPosturaisByData(@PathVariable Long atletaId, @PathVariable LocalDate data) {
         try {
-            return ResponseEntity.ok().body(avaliacoesPosturaisByDataService.buscarAvaliacoesPosturalByData(atletaId, data));
+            List<AvaliacaoPosturalDTO> avaliacaoPosturalDTOS = avaliacoesPosturaisByDataService.buscarAvaliacoesPosturalByData(atletaId, data);
+            return ResponseEntity.ok().body(avaliacaoPosturalDTOS);
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
         }

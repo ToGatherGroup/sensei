@@ -3,7 +3,7 @@ package sensei.controllers;
 import com.togather.sensei.DTO.campeonato.ListaCampeonatoDTO;
 import com.togather.sensei.controllers.campeonatoController.BuscaListaCampeonatoPorAtletaIdController;
 import com.togather.sensei.enums.PosicaoEnum;
-import com.togather.sensei.services.campeonatosService.BuscaListaCampeonatoPorAtletaIdService;
+import com.togather.sensei.services.campeonatosService.impl.BuscaListaCampeonatoPorAtletaIdServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 class BuscaListaCampeonatoPorAtletaIdControllerTest {
 
     @Mock
-    private BuscaListaCampeonatoPorAtletaIdService listaCampeonatoPorAtletaIdService;
+    private BuscaListaCampeonatoPorAtletaIdServiceImpl listaCampeonatoPorAtletaIdService;
 
     @InjectMocks
     private BuscaListaCampeonatoPorAtletaIdController listaCampeonatoPorAtletaIdController;
@@ -57,14 +57,13 @@ class BuscaListaCampeonatoPorAtletaIdControllerTest {
 
         ResponseEntity<List<ListaCampeonatoDTO>> response = listaCampeonatoPorAtletaIdController.listaCampeonatos(inputAtletaId);
 
-        // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(expectedCampeonatos, response.getBody());
     }
 
     @Test
     void listaCampeonatos_DeveRetornarListaVaziaQuandoIdInvalido() {
-        Long inputAtletaId = -1L; // ID inválido ou não encontrado
+        Long inputAtletaId = -1L;
         List<ListaCampeonatoDTO> expectedCampeonatos = new ArrayList<>();
 
         when(listaCampeonatoPorAtletaIdService.listaCampeonatosPorAtletaId(inputAtletaId))

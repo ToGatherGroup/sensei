@@ -30,7 +30,7 @@ public class FotosAtletaServiceImpl implements FotosAtletaService {
     }
 
     @Override
-    @Cacheable(value = "foto_by_id", key = "#id")
+    @Cacheable(value = "foto", key = "#id")
     public FotoAtletaModel getFotoAtleta(Long id) {
         Optional<FotoAtletaModel> optionalFotoAtletaModel = fotoAtletaRepository.findById(id);
         return optionalFotoAtletaModel.orElse(null);

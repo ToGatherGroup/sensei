@@ -15,19 +15,15 @@ import java.util.Map;
 @ControllerAdvice
 @RequiredArgsConstructor
 public class ExceptionAdvice extends ResponseEntityExceptionHandler {
+    public static final String STATUS_CODE = "StatusCode";
     public static final String MESSAGE = "Message";
-    public static final String CODE = "Código";
-    public static final String BAD_REQUEST_CODE = "400";
-    public static final String NOT_FOUND_CODE = "404";
-    public static final String UNAUTHORIZED = "401";
-    public static final String BAD_GATEWAY = "502";
 
     //Faz o tratamento das exceções do tipo "Não encontrado".
     @ExceptionHandler(value = {NotFoundException.class})
     public ResponseEntity<Object> tratarExcecaoNotFoundException(final NotFoundException ex) {
         Map<String, String> body = new HashMap<>();
 
-        body.put(CODE, NOT_FOUND_CODE);
+        body.put(STATUS_CODE, HttpStatus.NOT_FOUND.getReasonPhrase());
         body.put(MESSAGE, ex.getMessage());
 
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
@@ -38,7 +34,7 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
     public ResponseEntity<Object> tratarExcecaoHttpClientErrorException(final HttpClientErrorException ex) {
         Map<String, String> body = new HashMap<>();
 
-        body.put(CODE, UNAUTHORIZED);
+        body.put(STATUS_CODE, HttpStatus.UNAUTHORIZED.getReasonPhrase());
         body.put(MESSAGE, ex.getMessage());
 
         return new ResponseEntity<>(body, HttpStatus.UNAUTHORIZED);
@@ -49,7 +45,7 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
     public ResponseEntity<Object> tratarExcecaoIllegalArgumentException(final IllegalArgumentException ex) {
         Map<String, String> body = new HashMap<>();
 
-        body.put(CODE, BAD_REQUEST_CODE);
+        body.put(STATUS_CODE, HttpStatus.BAD_REQUEST.getReasonPhrase());
         body.put(MESSAGE, ex.getMessage());
 
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
@@ -60,9 +56,9 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
     public ResponseEntity<Object> tratarExcecaoRuntimeException(final RuntimeException ex) {
         Map<String, String> body = new HashMap<>();
 
-        body.put(CODE, BAD_GATEWAY);
+        body.put(STATUS_CODE, HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase());
         body.put(MESSAGE, ex.getMessage());
 
-        return new ResponseEntity<>(body, HttpStatus.BAD_GATEWAY);
+        return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
