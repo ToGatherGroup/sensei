@@ -100,4 +100,5 @@ class BuscaComparativoByIdServiceImplTest {
 
         assertEquals("Atleta não encontrado", thrown.getMessage());
     }
+
 }
