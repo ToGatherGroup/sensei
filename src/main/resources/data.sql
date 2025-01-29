@@ -64,6 +64,14 @@ CREATE OR REPLACE VIEW atleta_vw AS
 SELECT *, TIMESTAMPDIFF(YEAR, nascimento, CURDATE()) AS idade
   FROM atleta_tb;
 
+CREATE TABLE IF NOT EXISTS classificacao_grip_tb (
+    id BIGINT NOT NULL,
+    classificacao VARCHAR(255),
+    resultado_min DOUBLE PRECISION,
+    resultado_max DOUBLE PRECISION,
+    PRIMARY KEY (id)
+);
+
 -- Inicia uma transação para garantir a atomicidade das operações
 START TRANSACTION;
 
@@ -464,7 +472,6 @@ INSERT IGNORE INTO classificacao_imc_adolescente_tb (id, classificacao, idade, r
     (94, 'Peso Normal', 17, 17.3, 24.7, 'F'),
     (95, 'Sobrepeso', 17, 24.8, 29.4, 'F'),
     (96, 'Obesidade', 17, 29.5, 100, 'F');
-
 INSERT IGNORE INTO classificacao_imc_tb (id, classificacao, resultado_min, resultado_max) VALUES
     (1, 'Baixo Peso', 0, 18.49),
     (2, 'Peso Normal', 18.5, 24.9),
@@ -473,5 +480,14 @@ INSERT IGNORE INTO classificacao_imc_tb (id, classificacao, resultado_min, resul
     (5, 'Obesidade grau 2', 35.0, 39.9),
     (6, 'Obesidade grau 3', 40.0, 100);
 
+INSERT IGNORE INTO classificacao_grip_tb (id, classificacao, resultado_min, resultado_max) VALUES
+    (1, 'Fraco', 0, 243),
+    (2, 'Regular', 244, 1232),
+    (3, 'Bom', 1233, 3216),
+    (4, 'Excelente', 3217, 3933),
+    (5, 'Superior', 3934, 7000);
+
+
 -- Confirma a transação
+
 COMMIT;

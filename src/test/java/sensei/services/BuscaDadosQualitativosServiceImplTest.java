@@ -78,8 +78,9 @@ class BuscaDadosQualitativosServiceImplTest {
 
         // Chama o método a ser testado
         int idade = buscarDadosQualitativosService.calcularIdade(dataNascimento);
+        int idadeEsperada = LocalDate.now().getYear() - dataNascimento.getYear();
 
         // Assert
-        assertEquals(24, idade);
+        assertEquals(idadeEsperada, idade);
     }
 }
