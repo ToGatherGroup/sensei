@@ -19,6 +19,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
+import java.time.Year;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -73,17 +74,19 @@ class BuscaComparativoByIdServiceImplTest {
     @Test
     void dadoIdValido_entaoRetorneAtletaCardComparativoDTO() {
 
+
         when(avaliacaoRepository.getLastAvaliacaoByAtleta(anyLong())).thenReturn(avaliacaoModel);
         when(buscaMedalhaService.buscaMedalhasComparativo(anyLong())).thenReturn(medalhas);
         when(avaliacoesService.getAvaliacoesPorAtleta(anyLong())).thenReturn(seriesDTO);
 
         AtletaCardComparativoDTO result = buscaComparativoByIdService.findAtletaCardById(1L);
+        int idadeEsperada = LocalDate.now().getYear() - LocalDate.of(1990, 1, 1).getYear();
 
         assertEquals("Atleta 1", result.getNome());
         assertEquals(75.0, result.getPeso());
         assertEquals(1.80, result.getAltura());
         assertEquals("Preta", result.getFaixa());
-        assertEquals(34, result.getIdade());
+        assertEquals(idadeEsperada, result.getIdade());
         assertEquals(Collections.emptyList(), result.getMedalhaDTO());
     }
 
@@ -97,4 +100,6 @@ class BuscaComparativoByIdServiceImplTest {
 
         assertEquals("Atleta não encontrado", thrown.getMessage());
     }
+
+
 }
