@@ -31,12 +31,12 @@ class BuscarTodosOsGruposControllerTest {
         GrupoModel grupo1 = new GrupoModel();
         grupo1.setId(1L);
         grupo1.setNome("Grupo 1");
-        grupo1.setAtivo(true);
+        grupo1.setIsAtivo(true);
 
         GrupoModel grupo2 = new GrupoModel();
         grupo2.setId(2L);
         grupo2.setNome("Grupo 2");
-        grupo2.setAtivo(true);
+        grupo2.setIsAtivo(true);
 
         List<GrupoModel> grupos = Arrays.asList(grupo1, grupo2);
 

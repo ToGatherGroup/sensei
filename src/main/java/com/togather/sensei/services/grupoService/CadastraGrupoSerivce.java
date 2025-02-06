@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface CadastraGrupoSerivce {
 
-    GrupoModel cadastrarGrupo(GrupoModel grupo);
+    GrupoModel cadastrarGrupo(String nomeGrupo);
 
 }

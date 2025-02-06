@@ -18,6 +18,6 @@ public class GrupoModel {
 
     private String nome;
 
-    private boolean isAtivo;
+    private Boolean isAtivo = Boolean.TRUE;
 
 }
