@@ -32,7 +32,7 @@ public class EditaGrupoServiceImpl implements EditaGrupoService {
         if (model.isEmpty())
             throw new NotFoundException("Grupo informado não encontrado.");
 
-        model.get().setAtivo(status);
+        model.get().setIsAtivo(status);
 
         GrupoModel grupoModel = model.get();
 

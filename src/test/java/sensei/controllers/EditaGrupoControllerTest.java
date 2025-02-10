@@ -29,7 +29,7 @@ class EditaGrupoControllerTest {
         GrupoModel grupoInput = new GrupoModel();
         grupoInput.setId(1L);
         grupoInput.setNome("Grupo Atualizado");
-        grupoInput.setAtivo(true);
+        grupoInput.setIsAtivo(true);
 
         Mockito.when(editaGrupoService.updateGrupo(grupoInput)).thenReturn(grupoInput);
 

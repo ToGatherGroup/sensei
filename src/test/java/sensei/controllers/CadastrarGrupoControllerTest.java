@@ -24,16 +24,16 @@ class CadastrarGrupoControllerTest {
     @Test
     void cadastrarGrupo() {
         // Criacao de um modelo de entrada
-        GrupoModel inputGrupoModel = new GrupoModel();
+        GrupoModel grupoModel = new GrupoModel();
 
         // Configuração do comportamento esperado do serviço
-        Mockito.when(cadastraGrupoSerivce.cadastrarGrupo(inputGrupoModel)).thenReturn(inputGrupoModel);
+        Mockito.when(cadastraGrupoSerivce.cadastrarGrupo(Mockito.anyString())).thenReturn(grupoModel);
 
         // Chama o método a ser testado
-        GrupoModel returnedGrupoModel = cadastraGrupoController.cadastrarGrupo(inputGrupoModel);
+        GrupoModel returnedGrupoModel = cadastraGrupoController.cadastrarGrupo(Mockito.anyString()).getBody();
 
         //Assert
         // Verifica se o resultado é o esperado
-        assertEquals(inputGrupoModel, returnedGrupoModel);
+        assertEquals(grupoModel, returnedGrupoModel);
     }
 }
