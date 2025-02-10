@@ -55,7 +55,7 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
         metricaTemp.setTipoAvaliacao(AvaliacaoEnum.ForcaIsometrica);
         metricaTemp.setDescricao("Força Isométrica");
         metricaTemp.setMinino(0.);
-        metricaTemp.setMaximo(5.);
+        metricaTemp.setMaximo(4000.);
         metricaTemp.setIdadeMinima(0);
         lstMetricas.add(metricaTemp);
 
@@ -175,7 +175,7 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
 
             metrica = lstMetricas.get(AvaliacaoEnum.ForcaIsometrica.ordinal());
             labels.add(metrica.getDescricao());
-            valorTemporario = getPercentual(metrica.getMinino(), metrica.getMaximo(), avaliacao.getForcaIsometricaMaos().toMinutes());
+            valorTemporario = getPercentual(metrica.getMinino(), metrica.getMaximo(), avaliacao.getForcaIsometricaMaos().toSeconds() * avaliacao.getPeso());
             values.add(valorTemporario);
 
             metrica = lstMetricas.get(AvaliacaoEnum.MobilidadeDoTornozeloDireito.ordinal());
