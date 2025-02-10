@@ -2,7 +2,6 @@ package sensei.services;
 
 import com.togather.sensei.DTO.dadosqualitativos.DadosQualitativosDTO;
 import com.togather.sensei.DTO.dadosqualitativos.DadosQualitativosResponseDTO;
-import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;
 import com.togather.sensei.repositories.AvaliacaoRepository;
@@ -18,12 +17,13 @@ import org.mockito.quality.Strictness;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-class BuscarDadosQualitativosImplTest {
+class BuscaDadosQualitativosServiceImplTest {
 
     @Mock
     private AtletaRepository atletaRepository;
@@ -44,7 +44,7 @@ class BuscarDadosQualitativosImplTest {
         atletaModel.setNascimento(dataNascimento);
 
         // Mock do atletaRepository
-        Mockito.when(atletaRepository.getReferenceById(atletaId)).thenReturn(atletaModel);
+        Mockito.when(atletaRepository.findById(atletaId)).thenReturn(Optional.of(atletaModel));
 
         // Mock dos resultados dos métodos do avaliacaoRepository
         Mockito.when(avaliacaoRepository.resultadoClassifcacaoCooperPorAtleta(atletaId)).thenReturn("M. Fraco");
@@ -78,8 +78,9 @@ class BuscarDadosQualitativosImplTest {
 
         // Chama o método a ser testado
         int idade = buscarDadosQualitativosService.calcularIdade(dataNascimento);
+        int idadeEsperada = LocalDate.now().getYear() - dataNascimento.getYear();
 
         // Assert
-        assertEquals(24, idade);
+        assertEquals(idadeEsperada, idade);
     }
 }

@@ -10,5 +10,6 @@ import lombok.*;
 public class AtletaIdNomeFotoDTO {
     private Long id;
     private String nome;
+    private Boolean isAtivo;
     private String foto;
 }

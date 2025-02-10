@@ -9,4 +9,6 @@ import java.util.List;
 public interface BuscaMedalhaService {
 
     List<MedalhaDTO> buscaMedalhas(Long atletaId);
+
+    List<MedalhaDTO> buscaMedalhasComparativo(Long atletaId);
 }

@@ -4,6 +4,7 @@ import com.togather.sensei.models.LesaoModel;
 import com.togather.sensei.services.lesaoService.CadastraLesaoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
 @RestController
 @CrossOrigin("*")
@@ -14,8 +15,12 @@ public class CadastraLesaoController {
     private final CadastraLesaoService cadastraLesaoService;
 
     @PostMapping
-    public LesaoModel cadastraLesao(@RequestBody LesaoModel lesaoModel){
-     cadastraLesaoService.savehistoricoLesoes(lesaoModel);
-        return lesaoModel;
+    public LesaoModel cadastraLesao(@RequestBody LesaoModel lesaoModel) {
+        try {
+            cadastraLesaoService.savehistoricoLesoes(lesaoModel);
+            return lesaoModel;
+        } catch (HttpClientErrorException e) {
+            throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
+        }
     }
 }

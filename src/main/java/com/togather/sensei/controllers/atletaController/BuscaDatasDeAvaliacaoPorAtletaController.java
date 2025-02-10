@@ -4,8 +4,8 @@ import com.togather.sensei.services.avaliacaoService.DatasDeAvaliacaoPorAtletaSe
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -18,9 +18,12 @@ public class BuscaDatasDeAvaliacaoPorAtletaController {
     private final DatasDeAvaliacaoPorAtletaService datasDeAvaliacaoPorAtletaService;
 
     @GetMapping("{atletaId}")
-    public ResponseEntity<List<Date>> buscaPorDataPorAtleta(@PathVariable Long atletaId){
-        return ResponseEntity.ok().body(datasDeAvaliacaoPorAtletaService.buscarDatasAvaliacoesPorAtleta(atletaId));
+    public ResponseEntity<List<Date>> buscaPorDataPorAtleta(@PathVariable Long atletaId) {
+        try {
+            List<Date> datasAvaliacoesPorAtleta = datasDeAvaliacaoPorAtletaService.buscarDatasAvaliacoesPorAtleta(atletaId);
+            return ResponseEntity.ok().body(datasAvaliacoesPorAtleta);
+        } catch (HttpClientErrorException e) {
+            throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
+        }
     }
-
-
 }

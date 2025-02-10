@@ -1,7 +1,6 @@
 package com.togather.sensei.repositories;
 
 import com.togather.sensei.models.AtletaModel;
-import com.togather.sensei.models.AvaliacaoModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -29,10 +28,11 @@ public interface AtletaRepository extends JpaRepository<AtletaModel, Long> {
     @Query(nativeQuery = true, value = queryAtletasAusentesPorData)
     List<AtletaModel> buscaAusentesByData(LocalDate data);
 
-    String queryAtletasAtivos = "SELECT * FROM atleta_tb WHERE is_ativo = true";
+    String queryAtletasAtivos = "SELECT * FROM atleta_tb WHERE is_ativo = true ORDER BY nome";
     @Query(nativeQuery = true, value = queryAtletasAtivos)
     List<AtletaModel> buscaListaAtletaIdAtivo();
 
-    @Query(nativeQuery = true, value = "SELECT sexo, nascimento FROM atleta_tb WHERE id = :atletaId")
+    String querySexoNascimentoAtletasAtivos = "SELECT sexo, nascimento FROM atleta_tb WHERE id = :atletaId";
+    @Query(nativeQuery = true, value = querySexoNascimentoAtletasAtivos)
     List<Object[]> buscaSexoNascimentoPorAtleta(@Param("atletaId") Long atletaId);
 }

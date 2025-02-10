@@ -17,5 +17,6 @@ import java.time.LocalDate;
 public class AvaliacaoPosturalModel {
     @EmbeddedId
     private AvaliacaoPosturalPK avaliacaoPosturalPK;
+    @Column(columnDefinition = "LONGTEXT")
     private String foto;
 }
