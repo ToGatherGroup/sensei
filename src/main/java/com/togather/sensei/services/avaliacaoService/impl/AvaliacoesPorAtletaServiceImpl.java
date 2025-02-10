@@ -31,7 +31,7 @@ public class AvaliacoesPorAtletaServiceImpl implements AvaliacoesPorAtletaServic
         metricaTemp.setTipoAvaliacao(AvaliacaoEnum.Core);
         metricaTemp.setDescricao("Core");
         metricaTemp.setMinino(0.);
-        metricaTemp.setMaximo(8.);
+        metricaTemp.setMaximo(4.);
         metricaTemp.setIdadeMinima(0);
         lstMetricas.add(metricaTemp);
 
