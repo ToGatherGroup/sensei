@@ -1,5 +1,6 @@
 package com.togather.sensei.DTO.atleta;
 
+import com.togather.sensei.models.classificacoes.GrupoModel;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -18,5 +19,6 @@ public class AtletaDTO {
     private String foto;
     private String email;
     private Boolean isAtivo;
+    private GrupoModel grupo;
 
 }

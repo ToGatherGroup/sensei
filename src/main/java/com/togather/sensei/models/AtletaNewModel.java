@@ -31,5 +31,7 @@ public class AtletaNewModel {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "foto_id", referencedColumnName = "id")
     private FotoAtletaModel foto;
+
+
 }
 
