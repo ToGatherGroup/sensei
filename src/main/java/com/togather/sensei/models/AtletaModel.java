@@ -1,5 +1,6 @@
 package com.togather.sensei.models;
 
+import com.togather.sensei.models.classificacoes.GrupoModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "atleta_tb")
 public class AtletaModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,4 +27,9 @@ public class AtletaModel {
     private String foto;
     private String email;
     private Boolean isAtivo = Boolean.TRUE;
+
+    @ManyToOne
+    @JoinColumn(name = "grupo_id")
+    private GrupoModel grupo;
+
 }
