@@ -13,6 +13,7 @@
 //@CrossOrigin("*")
 //@RequiredArgsConstructor
 //@RequestMapping("/avaliacao_especifica")
+//@Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações")
 //public class DeletarAvaliacaoEspecificaController {
 //
 //    private final DeletarAvaliacaoEspecificaService deletarAvaliacaoEspecificaService;

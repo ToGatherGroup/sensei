@@ -1,8 +1,8 @@
 package com.togather.sensei.controllers.atletaController;
 
-import com.togather.sensei.DTO.atleta.AtletaDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.services.atletaService.BuscaAtletaByIdService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +12,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/atleta")
+@Tag(name = "Atleta", description = "Endpoints para gerenciamento de atletas")
 public class BuscaAtletaByIdController {
 
     private final BuscaAtletaByIdService buscaAtletaByIdService;

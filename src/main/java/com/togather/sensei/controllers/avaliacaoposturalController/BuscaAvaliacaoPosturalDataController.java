@@ -1,6 +1,7 @@
 package com.togather.sensei.controllers.avaliacaoposturalController;
 
 import com.togather.sensei.services.avaliacaoposturalService.AvaliacaoPosturalGetDataService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/avaliacaopostural")
+@Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações")
 public class BuscaAvaliacaoPosturalDataController {
 
     private final AvaliacaoPosturalGetDataService avaliacaoPosturalGetDataService;

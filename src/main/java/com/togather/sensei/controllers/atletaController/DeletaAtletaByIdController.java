@@ -11,6 +11,7 @@
 //@CrossOrigin("*")
 //@RequiredArgsConstructor
 //@RequestMapping("/atleta")
+//@Tag(name = "Atleta", description = "Endpoints para gerenciamento de atletas")
 //public class DeletaAtletaByIdController {
 //    private final DeletaAtletaByIdService deletaAtletaByIdService;
 //

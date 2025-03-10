@@ -1,6 +1,7 @@
 package com.togather.sensei.controllers.avaliacaoController;
 
 import com.togather.sensei.services.avaliacaoService.AvaliacaoPorDataService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,6 +16,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/avaliacao/datas")
+@Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações")
 public class BuscarDatasDeAvaliacaoController {
 
     private final AvaliacaoPorDataService avaliacaoPorDataService;

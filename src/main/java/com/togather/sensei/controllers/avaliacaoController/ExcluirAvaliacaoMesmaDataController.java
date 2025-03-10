@@ -1,6 +1,7 @@
 package com.togather.sensei.controllers.avaliacaoController;
 
 import com.togather.sensei.services.avaliacaoService.DeletarAvaliacaoMesmaDataService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/avaliacoes_mesma_data")
+@Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações")
 public class ExcluirAvaliacaoMesmaDataController {
     private final DeletarAvaliacaoMesmaDataService deletarAvaliacaoMesmaDataService;
 

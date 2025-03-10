@@ -2,6 +2,7 @@ package com.togather.sensei.controllers.avaliacaoController;
 
 import com.togather.sensei.models.AvaliacaoModel;
 import com.togather.sensei.services.avaliacaoService.AvaliacaoPostService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/avaliacao")
+@Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações")
 public class CadastrarAvaliacaoController {
 
     private final AvaliacaoPostService avaliacaoPostService;

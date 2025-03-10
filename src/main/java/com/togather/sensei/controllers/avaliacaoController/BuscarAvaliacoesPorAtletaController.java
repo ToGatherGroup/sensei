@@ -2,6 +2,7 @@ package com.togather.sensei.controllers.avaliacaoController;
 
 import com.togather.sensei.DTO.geral.SeriesDTO;
 import com.togather.sensei.services.avaliacaoService.AvaliacoesPorAtletaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/avaliacao")
+@Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações")
 public class BuscarAvaliacoesPorAtletaController {
 
     private final AvaliacoesPorAtletaService avaliacoesPorAtletaDataService;

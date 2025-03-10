@@ -1,6 +1,7 @@
 package com.togather.sensei.controllers.atletaController;
 
 import com.togather.sensei.services.avaliacaoService.DatasDeAvaliacaoPorAtletaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/avaliacoes_por_data_por_atleta")
-
+@Tag(name = "Atleta", description = "Endpoints para gerenciamento de atletas")
 public class BuscaDatasDeAvaliacaoPorAtletaController {
     private final DatasDeAvaliacaoPorAtletaService datasDeAvaliacaoPorAtletaService;
 

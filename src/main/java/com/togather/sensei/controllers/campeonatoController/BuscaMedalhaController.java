@@ -2,6 +2,7 @@ package com.togather.sensei.controllers.campeonatoController;
 
 import com.togather.sensei.DTO.campeonato.MedalhaDTO;
 import com.togather.sensei.services.campeonatosService.BuscaMedalhaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/campeonato")
+@Tag(name = "Campeonato", description = "Endpoints para gerenciamento de campeonatos")
 public class BuscaMedalhaController {
 
     private final BuscaMedalhaService buscaMedalhaService;

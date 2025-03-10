@@ -4,6 +4,7 @@ import com.togather.sensei.DTO.atleta.AtletaDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.AtletaNewModel;
 import com.togather.sensei.services.atletaService.AtualizaAtletatService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/atleta")
+@Tag(name = "Atleta", description = "Endpoints para gerenciamento de atletas")
 public class AtualizaAtletaController {
 
     private final AtualizaAtletatService atualizaAtletatService;
