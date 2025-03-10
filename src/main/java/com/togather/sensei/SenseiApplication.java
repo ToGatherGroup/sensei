@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.servers.Server;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
@@ -20,6 +21,15 @@ import org.springframework.cache.annotation.EnableCaching;
 		servers = {
 				@Server(url = "http://localhost:80", description = "Servidor Local"),
 				@Server(url = "https://sensei.squareweb.app/", description = "Servidor de Desenvolvimento")
+		},
+		tags = {
+				@Tag(name = "Atleta", description = "Endpoints para gerenciamento de atletas"),
+				@Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações"),
+				@Tag(name = "Campeonato", description = "Endpoints para gerenciamento de campeonatos"),
+				@Tag(name = "Relatório", description = "Endpoints para gerenciamento de relatórios"),
+				@Tag(name = "Grupo", description = "Endpoints para gerenciamento de grupos"),
+				@Tag(name = "Lesão", description = "Endpoint para gerenciamento de lesões"),
+				@Tag(name = "Presença", description = "Endpoints para gerenciamento de presenças")
 		}
 )
 public class SenseiApplication {
