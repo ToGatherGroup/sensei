@@ -12,7 +12,7 @@
 //@RestController
 //@CrossOrigin("*")
 //@RequiredArgsConstructor
-//@RequestMapping("/avaliacao_especifica")
+//@RequestMapping("/avaliacoes_especificas")
 //public class DeletarAvaliacaoEspecificaController {
 //
 //    private final DeletarAvaliacaoEspecificaService deletarAvaliacaoEspecificaService;

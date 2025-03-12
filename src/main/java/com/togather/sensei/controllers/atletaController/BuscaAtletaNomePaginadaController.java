@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.atletaController;
 
-import com.togather.sensei.DTO.atleta.AtletaIdNomeFotoDTO;
+import com.togather.sensei.dtos.atleta.AtletaIdNomeFotoDTO;
 import com.togather.sensei.services.atletaService.BuscaAtletaByNomePaginadaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
 @CrossOrigin("*")
-@RequestMapping("/atleta/nome")
+@RequestMapping("/atletas/nome")
 @RequiredArgsConstructor
 @RestController
 public class BuscaAtletaNomePaginadaController {

@@ -1,7 +1,7 @@
 package sensei.services;
 
-import com.togather.sensei.DTO.atleta.AtletaCardDTO;
-import com.togather.sensei.DTO.campeonato.MedalhaDTO;
+import com.togather.sensei.dtos.atleta.AtletaCardDTO;
+import com.togather.sensei.dtos.campeonato.MedalhaDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;
 import com.togather.sensei.repositories.CategoriaRepository;

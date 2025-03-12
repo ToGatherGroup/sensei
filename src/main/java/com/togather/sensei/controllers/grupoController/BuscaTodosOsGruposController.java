@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/grupo")
+@RequestMapping("/grupos")
 public class BuscaTodosOsGruposController {
 
     private final BuscarTodosOsGruposService buscarTodosOsGruposService;

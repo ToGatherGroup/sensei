@@ -1,8 +1,8 @@
 package sensei.services;
 
-import com.togather.sensei.DTO.atleta.AtletaCardComparativoDTO;
-import com.togather.sensei.DTO.campeonato.MedalhaDTO;
-import com.togather.sensei.DTO.geral.SeriesDTO;
+import com.togather.sensei.dtos.atleta.AtletaCardComparativoDTO;
+import com.togather.sensei.dtos.campeonato.MedalhaDTO;
+import com.togather.sensei.dtos.geral.SeriesDTO;
 import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.AvaliacaoModel;
@@ -19,7 +19,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
-import java.time.Year;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;

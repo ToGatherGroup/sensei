@@ -12,11 +12,11 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/atleta/chamada")
+@RequestMapping("/presencas")
 public class ChamadaDeAtletaController {
 
     private final ChamadaDeAtletaService chamadaDeAtletaService;
-    @PostMapping()
+    @PostMapping("/chamadas")
     public ResponseEntity<Void> chamadaDeAtleta(@RequestBody List<Long> idAtletaList){
         try {
             chamadaDeAtletaService.chamadaDeAtleta(idAtletaList);

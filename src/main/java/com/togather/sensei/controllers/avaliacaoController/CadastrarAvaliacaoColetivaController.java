@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.avaliacaoController;
 
-import com.togather.sensei.DTO.avaliacao.ResponseAvaliacoesIncompletasDTO;
+import com.togather.sensei.dtos.avaliacao.ResponseAvaliacoesIncompletasDTO;
 import com.togather.sensei.services.avaliacaoService.AvaliacaoColetivaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -11,7 +11,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/avaliacaocoletiva")
+@RequestMapping("/avaliacoes_coletivas")
 public class CadastrarAvaliacaoColetivaController {
 
     private final AvaliacaoColetivaService avaliacaoColetivaService;

@@ -1,19 +1,15 @@
 package com.togather.sensei.services.atletaService.impl;
 
-import com.togather.sensei.DTO.atleta.AtletaIdNomeDTO;
+import com.togather.sensei.dtos.atleta.AtletaIdNomeDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.AvaliacaoModel;
-import com.togather.sensei.models.AvaliacaoModelId;
-import com.togather.sensei.repositories.AtletaRepository;
 import com.togather.sensei.repositories.AvaliacaoRepository;
 import com.togather.sensei.services.atletaService.BuscaAtletaPorDataAvaliacaoService;
-import com.togather.sensei.services.atletaService.BuscaListaDeAusentesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service

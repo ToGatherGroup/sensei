@@ -9,7 +9,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/lesao")
+@RequestMapping("/lesoes")
 public class CadastraLesaoController {
 
     private final CadastraLesaoService cadastraLesaoService;

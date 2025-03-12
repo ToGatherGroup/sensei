@@ -1,6 +1,5 @@
 package sensei.services;
 
-import com.togather.sensei.DTO.atleta.AtletaDTO;
 import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;

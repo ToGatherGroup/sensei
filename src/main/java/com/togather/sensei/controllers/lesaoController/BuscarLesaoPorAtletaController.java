@@ -1,7 +1,6 @@
 package com.togather.sensei.controllers.lesaoController;
 
-import com.togather.sensei.DTO.lesao.LesaoDTO;
-import com.togather.sensei.models.LesaoModel;
+import com.togather.sensei.dtos.lesao.LesaoDTO;
 import com.togather.sensei.services.lesaoService.BuscarHistoricoLesoesPorAtletaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/lesao")
+@RequestMapping("/lesoes")
 public class BuscarLesaoPorAtletaController {
 
     private final BuscarHistoricoLesoesPorAtletaService buscarHistoricoLesoesPorAtletaService;

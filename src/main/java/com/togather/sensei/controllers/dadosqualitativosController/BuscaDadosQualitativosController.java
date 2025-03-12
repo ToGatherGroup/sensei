@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.dadosqualitativosController;
 
-import com.togather.sensei.DTO.dadosqualitativos.DadosQualitativosResponseDTO;
+import com.togather.sensei.dtos.dadosqualitativos.DadosQualitativosResponseDTO;
 import com.togather.sensei.services.dadosqualitativosService.BuscarDadosQualitativosService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

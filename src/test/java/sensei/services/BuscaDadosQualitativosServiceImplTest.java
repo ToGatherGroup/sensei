@@ -1,7 +1,7 @@
 package sensei.services;
 
-import com.togather.sensei.DTO.dadosqualitativos.DadosQualitativosDTO;
-import com.togather.sensei.DTO.dadosqualitativos.DadosQualitativosResponseDTO;
+import com.togather.sensei.dtos.dadosqualitativos.DadosQualitativosDTO;
+import com.togather.sensei.dtos.dadosqualitativos.DadosQualitativosResponseDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;
 import com.togather.sensei.repositories.AvaliacaoRepository;

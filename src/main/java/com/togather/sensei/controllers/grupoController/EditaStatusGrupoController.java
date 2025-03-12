@@ -9,7 +9,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/grupo")
+@RequestMapping("/grupos")
 public class EditaStatusGrupoController {
 
     private final EditaGrupoService editaGrupoService;

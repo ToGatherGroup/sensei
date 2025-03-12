@@ -1,6 +1,6 @@
 package sensei.services;
 
-import com.togather.sensei.DTO.atleta.AtletaDTO;
+import com.togather.sensei.dtos.atleta.AtletaDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.classificacoes.GrupoModel;
 import com.togather.sensei.repositories.AtletaRepository;
@@ -18,7 +18,6 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.assertArg;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)

@@ -1,4 +1,4 @@
-package com.togather.sensei.DTO.presenca;
+package com.togather.sensei.dtos.presenca;
 
 import lombok.*;
 

@@ -24,7 +24,7 @@ class EditaStatusGrupoControllerTest {
     @Test
     void updateStatusGrupo() {
         Long grupoId = 1L;
-        Boolean novoStatus = true;
+        boolean novoStatus = true;
 
         Mockito.doNothing().when(editaGrupoService).updateStatusGrupo(grupoId, novoStatus);
 
@@ -32,7 +32,7 @@ class EditaStatusGrupoControllerTest {
         ResponseEntity<String> response = editaStatusGrupoController.updateStatusGrupo(grupoId, novoStatus);
 
         // Verifica se a resposta tem o status HTTP 200 e se a mensagem é a esperada
-        assertEquals(200, response.getStatusCodeValue());
+        assertEquals(200, response.getStatusCode().value());
         assertEquals("Status do grupo atualizado com sucesso", response.getBody());
     }
 }

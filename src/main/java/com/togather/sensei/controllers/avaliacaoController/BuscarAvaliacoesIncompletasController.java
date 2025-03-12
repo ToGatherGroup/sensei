@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.avaliacaoController;
 
-import com.togather.sensei.DTO.avaliacao.ResponseAvaliacoesIncompletasDTO;
+import com.togather.sensei.dtos.avaliacao.ResponseAvaliacoesIncompletasDTO;
 import com.togather.sensei.services.avaliacaoService.AvaliacaoIncompletaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

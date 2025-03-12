@@ -7,7 +7,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.util.Optional;
 
-import com.togather.sensei.DTO.geral.SeriesDTO;
+import com.togather.sensei.dtos.geral.SeriesDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.AvaliacaoModel;
 import com.togather.sensei.repositories.AtletaRepository;

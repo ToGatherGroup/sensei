@@ -1,4 +1,4 @@
-package com.togather.sensei.DTO.dadosqualitativos;
+package com.togather.sensei.dtos.dadosqualitativos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

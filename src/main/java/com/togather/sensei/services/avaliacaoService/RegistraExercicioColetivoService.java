@@ -1,7 +1,7 @@
 package com.togather.sensei.services.avaliacaoService;
 
-import com.togather.sensei.DTO.avaliacao.ExercicioColetivoDTO;
-import com.togather.sensei.DTO.avaliacao.PossuiAvaliacaoIncompletaDTO;
+import com.togather.sensei.dtos.avaliacao.ExercicioColetivoDTO;
+import com.togather.sensei.dtos.avaliacao.PossuiAvaliacaoIncompletaDTO;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;

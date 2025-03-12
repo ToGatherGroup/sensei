@@ -11,7 +11,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/avaliacao")
+@RequestMapping("/avaliacoes")
 public class CadastrarAvaliacaoController {
 
     private final AvaliacaoPostService avaliacaoPostService;

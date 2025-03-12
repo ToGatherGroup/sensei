@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.atletaController;
 
-import com.togather.sensei.DTO.atleta.AtletaIdNomeDTO;
+import com.togather.sensei.dtos.atleta.AtletaIdNomeDTO;
 import com.togather.sensei.services.atletaService.BuscaAtletaPorDataAvaliacaoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/atleta/avaliacao")
+@RequestMapping("/atletas/avaliacao")
 public class BuscaAtletasPorDataAvaliacaoController {
 
     private final BuscaAtletaPorDataAvaliacaoService buscaAtletaPorDataAvaliacaoService;

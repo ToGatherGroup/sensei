@@ -10,7 +10,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/campeonato")
+@RequestMapping("/campeonatos")
 public class CadastraCampeonatoController {
 
     private final CadastraCampeonatoService cadastraCampeonatoService;

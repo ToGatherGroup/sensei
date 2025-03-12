@@ -1,6 +1,6 @@
 package com.togather.sensei.services.campeonatosService;
 
-import com.togather.sensei.DTO.campeonato.MedalhaDTO;
+import com.togather.sensei.dtos.campeonato.MedalhaDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

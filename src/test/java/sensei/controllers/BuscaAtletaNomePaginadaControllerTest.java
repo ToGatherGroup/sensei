@@ -1,6 +1,6 @@
 package sensei.controllers;
 
-import com.togather.sensei.DTO.atleta.AtletaIdNomeFotoDTO;
+import com.togather.sensei.dtos.atleta.AtletaIdNomeFotoDTO;
 import com.togather.sensei.controllers.atletaController.BuscaAtletaNomePaginadaController;
 import com.togather.sensei.services.atletaService.BuscaAtletaByNomePaginadaService;
 import org.junit.jupiter.api.Test;

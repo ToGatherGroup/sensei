@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.avaliacaoController;
 
-import com.togather.sensei.DTO.geral.SeriesDTO;
+import com.togather.sensei.dtos.geral.SeriesDTO;
 import com.togather.sensei.services.avaliacaoService.AvaliacoesPorAtletaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +10,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/avaliacao")
+@RequestMapping("/avaliacoes")
 public class BuscarAvaliacoesPorAtletaController {
 
     private final AvaliacoesPorAtletaService avaliacoesPorAtletaDataService;

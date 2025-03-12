@@ -6,7 +6,7 @@ import static org.mockito.Mockito.*;
 import java.time.LocalDate;
 import java.util.Optional;
 
-import com.togather.sensei.DTO.presenca.PresencaAtletaDTO;
+import com.togather.sensei.dtos.presenca.PresencaAtletaDTO;
 import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;

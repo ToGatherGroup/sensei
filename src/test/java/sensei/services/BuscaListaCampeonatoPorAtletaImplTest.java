@@ -1,6 +1,6 @@
 package sensei.services;
 
-import com.togather.sensei.DTO.campeonato.ListaCampeonatoDTO;
+import com.togather.sensei.dtos.campeonato.ListaCampeonatoDTO;
 import com.togather.sensei.enums.PosicaoEnum;
 import com.togather.sensei.models.CampeonatosDisputadosModel;
 import com.togather.sensei.repositories.CampeonatosRepository;

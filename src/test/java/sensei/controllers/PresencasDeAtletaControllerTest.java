@@ -1,6 +1,6 @@
 package sensei.controllers;
 
-import com.togather.sensei.DTO.presenca.PresencaAtletaDTO;
+import com.togather.sensei.dtos.presenca.PresencaAtletaDTO;
 import com.togather.sensei.controllers.presencaController.PresencasDeAtletaController;
 import com.togather.sensei.services.presencaService.PresencasDeAtletaService;
 import org.junit.jupiter.api.Test;

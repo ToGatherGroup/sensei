@@ -12,12 +12,12 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/avaliacaopostural")
+@RequestMapping("/avaliacoes")
 public class BuscaAvaliacaoPosturalDataController {
 
     private final AvaliacaoPosturalGetDataService avaliacaoPosturalGetDataService;
 
-    @GetMapping("/datas/{atletaId}")
+    @GetMapping("/postural/datas/{atletaId}")
     public ResponseEntity<List<LocalDate>> buscaAvaliacaoDataId(@PathVariable Long atletaId) {
         try {
             List<LocalDate> localDates = avaliacaoPosturalGetDataService.buscarDatasDeAvaliacoesPorAtletaId(atletaId);

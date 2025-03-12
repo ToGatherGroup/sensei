@@ -12,11 +12,11 @@ import java.time.LocalDate;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/avaliacoes_mesma_data")
+@RequestMapping("/avaliacoes")
 public class ExcluirAvaliacaoMesmaDataController {
     private final DeletarAvaliacaoMesmaDataService deletarAvaliacaoMesmaDataService;
 
-    @DeleteMapping("/{data}")
+    @DeleteMapping("/{data}/mesma_data")
     public ResponseEntity<Void> apagaAvaliacaoMesmaData(@PathVariable LocalDate data)
     {
         try {

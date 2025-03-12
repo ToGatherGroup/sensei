@@ -1,8 +1,8 @@
 package com.togather.sensei.services.atletaService.impl;
 
-import com.togather.sensei.DTO.atleta.AtletaCardComparativoDTO;
-import com.togather.sensei.DTO.campeonato.MedalhaDTO;
-import com.togather.sensei.DTO.geral.SeriesDTO;
+import com.togather.sensei.dtos.atleta.AtletaCardComparativoDTO;
+import com.togather.sensei.dtos.campeonato.MedalhaDTO;
+import com.togather.sensei.dtos.geral.SeriesDTO;
 import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.AvaliacaoModel;

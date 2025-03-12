@@ -1,6 +1,6 @@
 package sensei.controllers;
 
-import com.togather.sensei.DTO.campeonato.ListaCampeonatoDTO;
+import com.togather.sensei.dtos.campeonato.ListaCampeonatoDTO;
 import com.togather.sensei.controllers.campeonatoController.BuscaListaCampeonatoPorAtletaIdController;
 import com.togather.sensei.enums.PosicaoEnum;
 import com.togather.sensei.services.campeonatosService.impl.BuscaListaCampeonatoPorAtletaIdServiceImpl;

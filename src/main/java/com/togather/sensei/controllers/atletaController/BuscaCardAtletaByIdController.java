@@ -1,10 +1,7 @@
 package com.togather.sensei.controllers.atletaController;
 
-import com.togather.sensei.DTO.atleta.AtletaCardDTO;
-import com.togather.sensei.DTO.atleta.AtletaDTO;
-import com.togather.sensei.services.atletaService.BuscaAtletaByIdService;
+import com.togather.sensei.dtos.atleta.AtletaCardDTO;
 import com.togather.sensei.services.atletaService.BuscaCardAtletaByIdService;
-import com.togather.sensei.services.atletaService.impl.BuscaAtletaCardByIdServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +10,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/atleta")
+@RequestMapping("/atletas")
 public class BuscaCardAtletaByIdController {
 
     private final BuscaCardAtletaByIdService buscaAtletaByIdService;

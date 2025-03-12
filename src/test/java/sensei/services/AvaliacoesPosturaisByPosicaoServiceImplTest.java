@@ -1,6 +1,6 @@
 package sensei.services;
 
-import com.togather.sensei.DTO.avaliacaopostural.AvaliacaoPosturalDTO;
+import com.togather.sensei.dtos.avaliacaopostural.AvaliacaoPosturalDTO;
 import com.togather.sensei.enums.PosicaoFotoEnum;
 import com.togather.sensei.models.AvaliacaoPosturalModel;
 import com.togather.sensei.models.AvaliacaoPosturalPK;

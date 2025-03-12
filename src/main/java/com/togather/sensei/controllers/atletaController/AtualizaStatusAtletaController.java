@@ -8,7 +8,7 @@ import org.springframework.web.client.HttpClientErrorException;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/atleta")
+@RequestMapping("/atletas")
 @RequiredArgsConstructor
 public class AtualizaStatusAtletaController {
 

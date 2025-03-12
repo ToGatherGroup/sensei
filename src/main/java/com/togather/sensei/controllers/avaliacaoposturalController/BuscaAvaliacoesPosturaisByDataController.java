@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.avaliacaoposturalController;
 
-import com.togather.sensei.DTO.avaliacaopostural.AvaliacaoPosturalDTO;
+import com.togather.sensei.dtos.avaliacaopostural.AvaliacaoPosturalDTO;
 import com.togather.sensei.services.avaliacaoposturalService.AvaliacoesPosturaisByDataService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +13,12 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/avaliacaopostural")
+@RequestMapping("/avaliacoes")
 public class BuscaAvaliacoesPosturaisByDataController {
 
     private final AvaliacoesPosturaisByDataService avaliacoesPosturaisByDataService;
 
-    @GetMapping("{atletaId}/{data}")
+    @GetMapping("/posturais/{atletaId}/data/{data}")
     public ResponseEntity<List<AvaliacaoPosturalDTO>> buscarAvaliacoesPosturaisByData(@PathVariable Long atletaId, @PathVariable LocalDate data) {
         try {
             List<AvaliacaoPosturalDTO> avaliacaoPosturalDTOS = avaliacoesPosturaisByDataService.buscarAvaliacoesPosturalByData(atletaId, data);

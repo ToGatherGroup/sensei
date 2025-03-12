@@ -1,6 +1,6 @@
 package com.togather.sensei.services.presencaService.impl;
 
-import com.togather.sensei.DTO.presenca.PresencaAtletaDTO;
+import com.togather.sensei.dtos.presenca.PresencaAtletaDTO;
 import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;
@@ -47,7 +47,7 @@ public class PresencasDeAtletaServiceImpl implements PresencasDeAtletaService {
     }
 
     private String getPorcentagemPresenca(Long totalPresenca, Long totalDias) {
-        Long porcentagem = Math.round((totalPresenca.doubleValue() / totalDias.doubleValue()) * NUMERAL_CEM);
-        return porcentagem.toString().concat(PORCENTO);
+        long porcentagem = Math.round((totalPresenca.doubleValue() / totalDias.doubleValue()) * NUMERAL_CEM);
+        return Long.toString(porcentagem).concat(PORCENTO);
     }
 }

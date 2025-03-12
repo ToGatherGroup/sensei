@@ -1,4 +1,4 @@
-package com.togather.sensei.DTO.avaliacao;
+package com.togather.sensei.dtos.avaliacao;
 
 import lombok.*;
 

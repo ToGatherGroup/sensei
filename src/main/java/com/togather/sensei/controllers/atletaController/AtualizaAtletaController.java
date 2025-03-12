@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.atletaController;
 
-import com.togather.sensei.DTO.atleta.AtletaDTO;
+import com.togather.sensei.dtos.atleta.AtletaDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.AtletaNewModel;
 import com.togather.sensei.services.atletaService.AtualizaAtletatService;
@@ -13,7 +13,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/atleta")
+@RequestMapping("/atletas")
 public class AtualizaAtletaController {
 
     private final AtualizaAtletatService atualizaAtletatService;
