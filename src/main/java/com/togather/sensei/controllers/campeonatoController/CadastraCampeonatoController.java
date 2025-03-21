@@ -2,6 +2,7 @@ package com.togather.sensei.controllers.campeonatoController;
 
 import com.togather.sensei.models.CampeonatosDisputadosModel;
 import com.togather.sensei.services.campeonatosService.CadastraCampeonatoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/campeonatos")
+@Tag(name = "Campeonato", description = "Endpoints para gerenciamento de campeonatos")
 public class CadastraCampeonatoController {
 
     private final CadastraCampeonatoService cadastraCampeonatoService;

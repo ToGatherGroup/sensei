@@ -2,6 +2,7 @@ package com.togather.sensei.controllers.atletaController;
 
 import com.togather.sensei.dtos.atleta.AtletaIdNomeFotoDTO;
 import com.togather.sensei.services.atletaService.BuscaAtletaByNomePaginadaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,10 +11,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
-@CrossOrigin("*")
-@RequestMapping("/atletas/nome")
-@RequiredArgsConstructor
 @RestController
+@CrossOrigin("*")
+@RequiredArgsConstructor
+@RequestMapping("/atletas/nome")
+@Tag(name = "Atleta", description = "Endpoints para gerenciamento de atletas")
 public class BuscaAtletaNomePaginadaController {
 
     private final BuscaAtletaByNomePaginadaService buscaService;

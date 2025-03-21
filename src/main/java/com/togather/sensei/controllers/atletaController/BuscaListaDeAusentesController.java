@@ -2,6 +2,7 @@ package com.togather.sensei.controllers.atletaController;
 
 import com.togather.sensei.dtos.atleta.AtletaIdNomeDTO;
 import com.togather.sensei.services.atletaService.BuscaListaDeAusentesService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,6 +17,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/atletas")
+@Tag(name = "Atleta", description = "Endpoints para gerenciamento de atletas")
 public class BuscaListaDeAusentesController {
     private final BuscaListaDeAusentesService buscaListaDeAusentesService;
 

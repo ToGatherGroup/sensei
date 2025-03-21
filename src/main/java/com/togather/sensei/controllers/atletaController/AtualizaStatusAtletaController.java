@@ -1,6 +1,7 @@
 package com.togather.sensei.controllers.atletaController;
 
 import com.togather.sensei.services.atletaService.AtualizaAtletatService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @CrossOrigin("*")
 @RequestMapping("/atletas")
 @RequiredArgsConstructor
+@Tag(name = "Atleta", description = "Endpoints para gerenciamento de atletas")
 public class AtualizaStatusAtletaController {
 
     private final AtualizaAtletatService atualizaAtletatService;

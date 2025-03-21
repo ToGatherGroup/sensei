@@ -2,6 +2,7 @@ package com.togather.sensei.controllers.avaliacaoposturalController;
 
 import com.togather.sensei.models.AvaliacaoPosturalModel;
 import com.togather.sensei.services.avaliacaoposturalService.AvaliacaoPosturalPostService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/avaliacoes_posturais")
+@Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações")
 public class CadastraAvaliacaoPosturalController {
 
     private final AvaliacaoPosturalPostService avaliacaoPosturalPostService;

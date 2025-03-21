@@ -2,6 +2,7 @@ package com.togather.sensei.controllers.avaliacaoController;
 
 import com.togather.sensei.dtos.avaliacao.ResponseBuscaAvaliacaoDTO;
 import com.togather.sensei.services.avaliacaoService.BuscarAvaliacaoPorAtletaDataService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ import java.time.LocalDate;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/avaliacoes")
-
+@Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações")
 public class BuscarAvaliacoesPorAtletaDataController {
 
     private final BuscarAvaliacaoPorAtletaDataService buscarAvaliacaoPorAtletaDataService;

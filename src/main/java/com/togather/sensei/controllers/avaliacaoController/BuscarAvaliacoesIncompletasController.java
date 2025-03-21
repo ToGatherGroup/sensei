@@ -2,6 +2,7 @@ package com.togather.sensei.controllers.avaliacaoController;
 
 import com.togather.sensei.dtos.avaliacao.ResponseAvaliacoesIncompletasDTO;
 import com.togather.sensei.services.avaliacaoService.AvaliacaoIncompletaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/avaliacoes_incompletas")
+@Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações")
 public class BuscarAvaliacoesIncompletasController {
 
     private final AvaliacaoIncompletaService avaliacaoIncompletaService;

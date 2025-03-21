@@ -2,6 +2,7 @@ package com.togather.sensei.controllers.lesaoController;
 
 import com.togather.sensei.models.LesaoModel;
 import com.togather.sensei.services.lesaoService.CadastraLesaoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
@@ -10,6 +11,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/lesoes")
+@Tag(name = "Lesão", description = "Endpoint para gerenciamento de lesões")
 public class CadastraLesaoController {
 
     private final CadastraLesaoService cadastraLesaoService;

@@ -1,6 +1,7 @@
 package com.togather.sensei.controllers.grupoController;
 
 import com.togather.sensei.services.grupoService.EditaGrupoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/grupos")
+@Tag(name = "Grupo", description = "Endpoints para gerenciamento de grupos")
 public class EditaStatusGrupoController {
 
     private final EditaGrupoService editaGrupoService;
