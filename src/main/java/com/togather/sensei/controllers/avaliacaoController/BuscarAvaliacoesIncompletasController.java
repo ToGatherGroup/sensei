@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.avaliacaoController;
 
-import com.togather.sensei.DTO.avaliacao.ResponseAvaliacoesIncompletasDTO;
+import com.togather.sensei.dtos.avaliacao.ResponseAvaliacoesIncompletasDTO;
 import com.togather.sensei.services.avaliacaoService.AvaliacaoIncompletaService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

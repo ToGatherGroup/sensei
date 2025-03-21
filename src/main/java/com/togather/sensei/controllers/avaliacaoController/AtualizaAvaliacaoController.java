@@ -13,7 +13,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/avaliacao")
+@RequestMapping("/avaliacoes")
 @Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações")
 public class AtualizaAvaliacaoController {
 

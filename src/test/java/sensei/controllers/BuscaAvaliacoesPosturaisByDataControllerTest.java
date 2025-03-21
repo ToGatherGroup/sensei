@@ -1,6 +1,6 @@
 package sensei.controllers;
 
-import com.togather.sensei.DTO.avaliacaopostural.AvaliacaoPosturalDTO;
+import com.togather.sensei.dtos.avaliacaopostural.AvaliacaoPosturalDTO;
 import com.togather.sensei.controllers.avaliacaoposturalController.BuscaAvaliacoesPosturaisByDataController;
 import com.togather.sensei.services.avaliacaoposturalService.AvaliacoesPosturaisByDataService;
 import org.junit.jupiter.api.Test;

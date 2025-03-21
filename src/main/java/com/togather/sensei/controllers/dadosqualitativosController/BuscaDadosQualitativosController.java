@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.dadosqualitativosController;
 
-import com.togather.sensei.DTO.dadosqualitativos.DadosQualitativosResponseDTO;
+import com.togather.sensei.dtos.dadosqualitativos.DadosQualitativosResponseDTO;
 import com.togather.sensei.services.dadosqualitativosService.BuscarDadosQualitativosService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/grupo")
+@RequestMapping("/grupos")
 @Tag(name = "Grupo", description = "Endpoints para gerenciamento de grupos")
 public class BuscaTodosOsGruposController {
 

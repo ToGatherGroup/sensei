@@ -11,7 +11,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/atleta")
+@RequestMapping("/atletas")
 @Tag(name = "Atleta", description = "Endpoints para gerenciamento de atletas")
 public class BuscaAtletaByIdController {
 

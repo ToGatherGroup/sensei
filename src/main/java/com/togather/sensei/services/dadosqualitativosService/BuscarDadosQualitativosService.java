@@ -1,6 +1,6 @@
 package com.togather.sensei.services.dadosqualitativosService;
 
-import com.togather.sensei.DTO.dadosqualitativos.DadosQualitativosResponseDTO;
+import com.togather.sensei.dtos.dadosqualitativos.DadosQualitativosResponseDTO;
 import org.springframework.stereotype.Service;
 
 

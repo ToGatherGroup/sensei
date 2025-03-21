@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.atletaController;
 
-import com.togather.sensei.DTO.atleta.AtletaIdNomeFotoDTO;
+import com.togather.sensei.dtos.atleta.AtletaIdNomeFotoDTO;
 import com.togather.sensei.services.atletaService.BuscaAtletaPaginadaService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/atleta")
+@RequestMapping("/atletas")
 @Tag(name = "Atleta", description = "Endpoints para gerenciamento de atletas")
 public class BuscaAtletaPaginadaController {
 
@@ -29,13 +29,13 @@ public class BuscaAtletaPaginadaController {
         }
     }
 
-    @GetMapping("/new")
-    public ResponseEntity<Page<AtletaIdNomeFotoDTO>> findAllAtletaNew(Pageable pageable) {
-        try {
-            Page<AtletaIdNomeFotoDTO> atletaModelList = buscaAtletaPaginadaService.buscaAtletasFotosCache(pageable);
-            return ResponseEntity.ok(atletaModelList);
-        } catch (HttpClientErrorException e) {
-            throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
-        }
-    }
+//    @GetMapping("/new")
+//    public ResponseEntity<Page<AtletaIdNomeFotoDTO>> findAllAtletaNew(Pageable pageable) {
+//        try {
+//            Page<AtletaIdNomeFotoDTO> atletaModelList = buscaAtletaPaginadaService.buscaAtletasFotosCache(pageable);
+//            return ResponseEntity.ok(atletaModelList);
+//        } catch (HttpClientErrorException e) {
+//            throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
+//        }
+//    }
 }

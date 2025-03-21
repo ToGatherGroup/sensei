@@ -1,6 +1,6 @@
 package sensei.services;
 
-import com.togather.sensei.DTO.atleta.AtletaIdNomeDTO;
+import com.togather.sensei.dtos.atleta.AtletaIdNomeDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;
 import com.togather.sensei.services.atletaService.impl.BuscaAtletaIdNomeServiceImpl;

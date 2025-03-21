@@ -1,4 +1,4 @@
-package com.togather.sensei.DTO.geral;
+package com.togather.sensei.dtos.geral;
 
 import com.togather.sensei.enums.AvaliacaoEnum;
 import lombok.*;

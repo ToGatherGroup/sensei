@@ -1,4 +1,4 @@
-package com.togather.sensei.DTO.avaliacaopostural;
+package com.togather.sensei.dtos.avaliacaopostural;
 
 import com.togather.sensei.enums.PosicaoFotoEnum;
 import lombok.*;

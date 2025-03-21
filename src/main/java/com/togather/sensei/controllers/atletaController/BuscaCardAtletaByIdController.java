@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.atletaController;
 
-import com.togather.sensei.DTO.atleta.AtletaCardDTO;
+import com.togather.sensei.dtos.atleta.AtletaCardDTO;
 import com.togather.sensei.services.atletaService.BuscaCardAtletaByIdService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/atleta")
+@RequestMapping("/atletas")
 @Tag(name = "Atleta", description = "Endpoints para gerenciamento de atletas")
 public class BuscaCardAtletaByIdController {
 

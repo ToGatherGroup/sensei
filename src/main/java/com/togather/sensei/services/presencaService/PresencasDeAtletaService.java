@@ -1,6 +1,6 @@
 package com.togather.sensei.services.presencaService;
 
-import com.togather.sensei.DTO.presenca.PresencaAtletaDTO;
+import com.togather.sensei.dtos.presenca.PresencaAtletaDTO;
 
 import java.time.LocalDate;
 

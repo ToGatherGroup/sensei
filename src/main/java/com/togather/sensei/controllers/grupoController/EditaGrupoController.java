@@ -12,7 +12,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/grupo")
+@RequestMapping("/grupos")
 @Tag(name = "Grupo", description = "Endpoints para gerenciamento de grupos")
 public class EditaGrupoController {
 

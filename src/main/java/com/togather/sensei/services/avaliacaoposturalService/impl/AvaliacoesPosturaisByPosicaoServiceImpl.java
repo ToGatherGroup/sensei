@@ -1,6 +1,6 @@
 package com.togather.sensei.services.avaliacaoposturalService.impl;
 
-import com.togather.sensei.DTO.avaliacaopostural.AvaliacaoPosturalDTO;
+import com.togather.sensei.dtos.avaliacaopostural.AvaliacaoPosturalDTO;
 import com.togather.sensei.models.AvaliacaoPosturalModel;
 import com.togather.sensei.repositories.AvaliacaoPosturalRepository;
 import com.togather.sensei.services.avaliacaoposturalService.AvaliacoesPosturaisByDataService;

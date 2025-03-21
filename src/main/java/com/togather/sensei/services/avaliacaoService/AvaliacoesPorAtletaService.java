@@ -1,7 +1,7 @@
 package com.togather.sensei.services.avaliacaoService;
 
-import com.togather.sensei.DTO.geral.MetricaAvaliacao;
-import com.togather.sensei.DTO.geral.SeriesDTO;
+import com.togather.sensei.dtos.geral.MetricaAvaliacao;
+import com.togather.sensei.dtos.geral.SeriesDTO;
 
 import java.util.List;
 

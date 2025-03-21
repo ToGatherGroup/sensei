@@ -1,6 +1,6 @@
 package com.togather.sensei.services.campeonatosService.impl;
 
-import com.togather.sensei.DTO.campeonato.MedalhaDTO;
+import com.togather.sensei.dtos.campeonato.MedalhaDTO;
 import com.togather.sensei.enums.PosicaoEnum;
 import com.togather.sensei.repositories.CampeonatosRepository;
 import com.togather.sensei.services.campeonatosService.BuscaMedalhaService;

@@ -1,6 +1,6 @@
 package sensei.controllers;
 
-import com.togather.sensei.DTO.atleta.AtletaCardComparativoDTO;
+import com.togather.sensei.dtos.atleta.AtletaCardComparativoDTO;
 import com.togather.sensei.controllers.atletaController.BuscaCardComparativoByIdController;
 import com.togather.sensei.services.atletaService.BuscaComparativoAtletaByIdService;
 import org.junit.jupiter.api.Test;

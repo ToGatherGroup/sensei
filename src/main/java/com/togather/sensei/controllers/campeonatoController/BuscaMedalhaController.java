@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.campeonatoController;
 
-import com.togather.sensei.DTO.campeonato.MedalhaDTO;
+import com.togather.sensei.dtos.campeonato.MedalhaDTO;
 import com.togather.sensei.services.campeonatosService.BuscaMedalhaService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -13,15 +13,15 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/campeonato")
+@RequestMapping("/campeonatos")
 @Tag(name = "Campeonato", description = "Endpoints para gerenciamento de campeonatos")
 public class BuscaMedalhaController {
 
     private final BuscaMedalhaService buscaMedalhaService;
 
 
-    @GetMapping("/{atletaId}")
-    public ResponseEntity<List<MedalhaDTO>> cadastraCampeonato(@PathVariable Long atletaId) {
+    @GetMapping("/{atletaId}/medalhas")
+    public ResponseEntity<List<MedalhaDTO>> listarMedalhas(@PathVariable Long atletaId) {
         try {
             List<MedalhaDTO> medalhas = buscaMedalhaService.buscaMedalhas(atletaId);
             return ResponseEntity.ok(medalhas);

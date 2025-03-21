@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.lesaoController;
 
-import com.togather.sensei.DTO.lesao.LesaoDTO;
+import com.togather.sensei.dtos.lesao.LesaoDTO;
 import com.togather.sensei.services.lesaoService.BuscarHistoricoLesoesPorAtletaService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/lesao")
+@RequestMapping("/lesoes")
 @Tag(name = "Lesão", description = "Endpoint para gerenciamento de lesões")
 public class BuscarLesaoPorAtletaController {
 

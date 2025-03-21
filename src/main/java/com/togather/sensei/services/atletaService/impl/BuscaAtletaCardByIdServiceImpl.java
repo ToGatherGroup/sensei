@@ -1,7 +1,7 @@
 package com.togather.sensei.services.atletaService.impl;
 
-import com.togather.sensei.DTO.atleta.AtletaCardDTO;
-import com.togather.sensei.DTO.campeonato.MedalhaDTO;
+import com.togather.sensei.dtos.atleta.AtletaCardDTO;
+import com.togather.sensei.dtos.campeonato.MedalhaDTO;
 import com.togather.sensei.exceptions.NotFoundException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.repositories.AtletaRepository;
@@ -46,7 +46,7 @@ public class BuscaAtletaCardByIdServiceImpl implements BuscaCardAtletaByIdServic
     private AtletaCardDTO gerarCard(Long id){
         AtletaModel atleta= validaAtleta(atletaRepository.findById(id));
         List<MedalhaDTO> medalhaDTO= buscaMedalhaService.buscaMedalhas(id);
-        Integer idade= calculaIdade(atleta.getNascimento());
+        int idade= calculaIdade(atleta.getNascimento());
         String categoria= categoriaRepository.gerarCategoria(idade);
 
         AtletaCardDTO card = mapper.map(atleta, AtletaCardDTO.class);

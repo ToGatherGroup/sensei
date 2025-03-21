@@ -1,6 +1,6 @@
 package sensei.controllers;
 
-import com.togather.sensei.DTO.campeonato.MedalhaDTO;
+import com.togather.sensei.dtos.campeonato.MedalhaDTO;
 import com.togather.sensei.controllers.campeonatoController.BuscaMedalhaController;
 import com.togather.sensei.services.campeonatosService.BuscaMedalhaService;
 import org.junit.jupiter.api.Test;
@@ -38,7 +38,7 @@ class BuscaMedalhaControllerTest {
         Mockito.when(buscaMedalhaService.buscaMedalhas(inputAtletaId)).thenReturn(expectedMedals);
 
         // Chama o método a ser testado
-        ResponseEntity<List<MedalhaDTO>> response = buscaMedalhaController.cadastraCampeonato(inputAtletaId);
+        ResponseEntity<List<MedalhaDTO>> response = buscaMedalhaController.listarMedalhas(inputAtletaId);
 
         // Assert
         // Verifica se o status da resposta e o corpo são os esperados

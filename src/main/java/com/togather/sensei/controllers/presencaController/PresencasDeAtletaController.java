@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.presencaController;
 
-import com.togather.sensei.DTO.presenca.PresencaAtletaDTO;
+import com.togather.sensei.dtos.presenca.PresencaAtletaDTO;
 import com.togather.sensei.services.presencaService.PresencasDeAtletaService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/atleta/presenca")
+@RequestMapping("/presencas")
 @Tag(name = "Presença", description = "Endpoints para gerenciamento de presenças")
 public class PresencasDeAtletaController {
 

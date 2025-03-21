@@ -1,6 +1,6 @@
 package sensei.controllers;
 
-import com.togather.sensei.DTO.atleta.AtletaDTO;
+import com.togather.sensei.dtos.atleta.AtletaDTO;
 import com.togather.sensei.controllers.atletaController.CadastraAtletaController;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.services.atletaService.AtletaPostService;

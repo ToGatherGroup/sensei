@@ -13,12 +13,12 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/atleta/chamada")
+@RequestMapping("/presencas")
 @Tag(name = "Presença", description = "Endpoints para gerenciamento de presenças")
 public class ChamadaDeAtletaController {
 
     private final ChamadaDeAtletaService chamadaDeAtletaService;
-    @PostMapping()
+    @PostMapping("/chamadas")
     public ResponseEntity<Void> chamadaDeAtleta(@RequestBody List<Long> idAtletaList){
         try {
             chamadaDeAtletaService.chamadaDeAtleta(idAtletaList);

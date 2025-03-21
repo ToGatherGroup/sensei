@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.avaliacaoposturalController;
 
-import com.togather.sensei.DTO.avaliacaopostural.AvaliacaoPosturalDTO;
+import com.togather.sensei.dtos.avaliacaopostural.AvaliacaoPosturalDTO;
 import com.togather.sensei.services.avaliacaoposturalService.AvaliacoesPosturaisByDataService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -14,13 +14,13 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/avaliacaopostural")
+@RequestMapping("/avaliacoes")
 @Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações")
 public class BuscaAvaliacoesPosturaisByDataController {
 
     private final AvaliacoesPosturaisByDataService avaliacoesPosturaisByDataService;
 
-    @GetMapping("{atletaId}/{data}")
+    @GetMapping("/posturais/{atletaId}/data/{data}")
     public ResponseEntity<List<AvaliacaoPosturalDTO>> buscarAvaliacoesPosturaisByData(@PathVariable Long atletaId, @PathVariable LocalDate data) {
         try {
             List<AvaliacaoPosturalDTO> avaliacaoPosturalDTOS = avaliacoesPosturaisByDataService.buscarAvaliacoesPosturalByData(atletaId, data);

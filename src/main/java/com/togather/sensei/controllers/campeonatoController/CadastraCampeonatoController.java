@@ -11,7 +11,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/campeonato")
+@RequestMapping("/campeonatos")
 @Tag(name = "Campeonato", description = "Endpoints para gerenciamento de campeonatos")
 public class CadastraCampeonatoController {
 

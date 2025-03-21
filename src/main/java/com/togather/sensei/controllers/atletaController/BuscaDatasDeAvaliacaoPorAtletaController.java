@@ -13,12 +13,12 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/avaliacoes_por_data_por_atleta")
+@RequestMapping("/atletas")
 @Tag(name = "Atleta", description = "Endpoints para gerenciamento de atletas")
 public class BuscaDatasDeAvaliacaoPorAtletaController {
     private final DatasDeAvaliacaoPorAtletaService datasDeAvaliacaoPorAtletaService;
 
-    @GetMapping("{atletaId}")
+    @GetMapping("/avaliacoes_por_data/{atletaId}")
     public ResponseEntity<List<Date>> buscaPorDataPorAtleta(@PathVariable Long atletaId) {
         try {
             List<Date> datasAvaliacoesPorAtleta = datasDeAvaliacaoPorAtletaService.buscarDatasAvaliacoesPorAtleta(atletaId);

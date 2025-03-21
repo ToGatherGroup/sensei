@@ -1,7 +1,6 @@
 package com.togather.sensei.models;
 
 import com.togather.sensei.enums.PosicaoEnum;
-import com.togather.sensei.enums.RegiaoCorpoEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

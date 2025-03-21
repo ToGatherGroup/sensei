@@ -1,6 +1,6 @@
 package sensei.controllers;
 
-import com.togather.sensei.DTO.atleta.AtletaIdNomeDTO;
+import com.togather.sensei.dtos.atleta.AtletaIdNomeDTO;
 import com.togather.sensei.controllers.atletaController.BuscaListaDeAusentesController;
 import com.togather.sensei.services.atletaService.BuscaListaDeAusentesService;
 import org.junit.jupiter.api.Test;

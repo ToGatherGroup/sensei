@@ -1,8 +1,8 @@
 package com.togather.sensei.services.avaliacaoService.impl;
 
-import com.togather.sensei.DTO.avaliacao.AvaliacaoDTO;
-import com.togather.sensei.DTO.avaliacao.ListaExerciciosDTO;
-import com.togather.sensei.DTO.avaliacao.ResponseAvaliacoesIncompletasDTO;
+import com.togather.sensei.dtos.avaliacao.AvaliacaoDTO;
+import com.togather.sensei.dtos.avaliacao.ListaExerciciosDTO;
+import com.togather.sensei.dtos.avaliacao.ResponseAvaliacoesIncompletasDTO;
 import com.togather.sensei.exceptions.BusinessException;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.AvaliacaoModel;
@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

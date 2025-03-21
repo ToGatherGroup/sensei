@@ -1,8 +1,7 @@
 package sensei.controllers;
 
-import com.togather.sensei.DTO.lesao.LesaoDTO;
+import com.togather.sensei.dtos.lesao.LesaoDTO;
 import com.togather.sensei.controllers.lesaoController.BuscarLesaoPorAtletaController;
-import com.togather.sensei.models.LesaoModel;
 import com.togather.sensei.services.lesaoService.BuscarHistoricoLesoesPorAtletaService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

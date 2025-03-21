@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.atletaController;
 
-import com.togather.sensei.DTO.atleta.AtletaIdNomeDTO;
+import com.togather.sensei.dtos.atleta.AtletaIdNomeDTO;
 import com.togather.sensei.services.atletaService.BuscaAtletaPorDataAvaliacaoService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/atleta/avaliacao")
+@RequestMapping("/atletas/avaliacao")
 @Tag(name = "Atleta", description = "Endpoints para gerenciamento de atletas")
 public class BuscaAtletasPorDataAvaliacaoController {
 

@@ -1,7 +1,7 @@
 package com.togather.sensei.services.avaliacaoService.impl;
 
-import com.togather.sensei.DTO.avaliacao.ExercicioColetivoDTO;
-import com.togather.sensei.DTO.avaliacao.PossuiAvaliacaoIncompletaDTO;
+import com.togather.sensei.dtos.avaliacao.ExercicioColetivoDTO;
+import com.togather.sensei.dtos.avaliacao.PossuiAvaliacaoIncompletaDTO;
 import com.togather.sensei.helper.NullBeanUtils;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.AvaliacaoModel;

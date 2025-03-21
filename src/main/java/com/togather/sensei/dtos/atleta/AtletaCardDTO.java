@@ -1,6 +1,6 @@
-package com.togather.sensei.DTO.atleta;
+package com.togather.sensei.dtos.atleta;
 
-import com.togather.sensei.DTO.campeonato.MedalhaDTO;
+import com.togather.sensei.dtos.campeonato.MedalhaDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

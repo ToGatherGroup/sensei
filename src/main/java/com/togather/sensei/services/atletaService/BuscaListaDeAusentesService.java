@@ -1,6 +1,6 @@
 package com.togather.sensei.services.atletaService;
 
-import com.togather.sensei.DTO.atleta.AtletaIdNomeDTO;
+import com.togather.sensei.dtos.atleta.AtletaIdNomeDTO;
 
 import java.util.List;
 

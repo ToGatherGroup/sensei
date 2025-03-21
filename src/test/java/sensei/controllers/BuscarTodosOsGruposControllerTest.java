@@ -47,7 +47,7 @@ class BuscarTodosOsGruposControllerTest {
         ResponseEntity<List<GrupoModel>> response = buscaTodosOsGruposController.getAllGrupos();
 
         // Verifica se a resposta tem o status HTTP 200 e se a lista de grupos está correta
-        assertEquals(200, response.getStatusCodeValue()); // Verifica se o código de status é 200
+        assertEquals(200, response.getStatusCode().value()); // Verifica se o código de status é 200
         assertEquals(grupos, response.getBody()); // Verifica se o corpo da resposta contém a lista de grupos
     }
 }

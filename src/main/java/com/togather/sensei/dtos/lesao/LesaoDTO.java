@@ -1,8 +1,6 @@
-package com.togather.sensei.DTO.lesao;
+package com.togather.sensei.dtos.lesao;
 
 import com.togather.sensei.enums.RegiaoCorpoEnum;
-import com.togather.sensei.models.AtletaModel;
-import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;

@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.atletaController;
 
-import com.togather.sensei.DTO.atleta.AtletaDTO;
+import com.togather.sensei.dtos.atleta.AtletaDTO;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.models.AtletaNewModel;
 import com.togather.sensei.services.atletaService.AtletaPostService;
@@ -14,7 +14,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/atleta")
+@RequestMapping("/atletas")
 @Tag(name = "Atleta", description = "Endpoints para gerenciamento de atletas")
 public class CadastraAtletaController {
 
@@ -30,13 +30,13 @@ public class CadastraAtletaController {
         }
     }
 
-    @PostMapping("/new")
-    public ResponseEntity<AtletaNewModel> cadastraAtletaNew(@RequestBody AtletaDTO atletaDTO){
-        try {
-            AtletaNewModel atletaNewModel = atletaPostService.saveAtletaNew(atletaDTO);
-            return ResponseEntity.status(HttpStatus.CREATED).body(atletaNewModel);
-        } catch (HttpClientErrorException e) {
-            throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
-        }
-    }
+//    @PostMapping("/new")
+//    public ResponseEntity<AtletaNewModel> cadastraAtletaNew(@RequestBody AtletaDTO atletaDTO){
+//        try {
+//            AtletaNewModel atletaNewModel = atletaPostService.saveAtletaNew(atletaDTO);
+//            return ResponseEntity.status(HttpStatus.CREATED).body(atletaNewModel);
+//        } catch (HttpClientErrorException e) {
+//            throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
+//        }
+//    }
 }

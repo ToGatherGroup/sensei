@@ -1,14 +1,8 @@
 package sensei.controllers;
 
-import com.togather.sensei.DTO.avaliacao.ResponseBuscaAvaliacaoDTO;
-import com.togather.sensei.DTO.avaliacaopostural.AvaliacaoPosturalDTO;
+import com.togather.sensei.dtos.avaliacao.ResponseBuscaAvaliacaoDTO;
 import com.togather.sensei.controllers.avaliacaoController.BuscarAvaliacoesPorAtletaDataController;
-import com.togather.sensei.controllers.avaliacaoposturalController.BuscaAvaliacoesPosturaisByDataController;
-import com.togather.sensei.models.AtletaModel;
-import com.togather.sensei.models.AvaliacaoModel;
-import com.togather.sensei.models.AvaliacaoModelId;
 import com.togather.sensei.services.avaliacaoService.BuscarAvaliacaoPorAtletaDataService;
-import com.togather.sensei.services.avaliacaoposturalService.AvaliacoesPosturaisByDataService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -19,8 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -1,4 +1,4 @@
-package com.togather.sensei.DTO.atleta;
+package com.togather.sensei.dtos.atleta;
 
 import lombok.*;
 

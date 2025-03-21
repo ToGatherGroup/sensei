@@ -1,6 +1,6 @@
 package com.togather.sensei.services.lesaoService.impl;
 
-import com.togather.sensei.DTO.lesao.LesaoDTO;
+import com.togather.sensei.dtos.lesao.LesaoDTO;
 import com.togather.sensei.models.LesaoModel;
 import com.togather.sensei.repositories.LesaoRepository;
 import com.togather.sensei.services.lesaoService.BuscarHistoricoLesoesPorAtletaService;

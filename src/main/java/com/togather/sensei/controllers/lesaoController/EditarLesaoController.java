@@ -12,7 +12,7 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/lesao")
+@RequestMapping("/lesoes")
 @Tag(name = "Lesão", description = "Endpoint para gerenciamento de lesões")
 public class EditarLesaoController {
     private final EditarLesaoService service;

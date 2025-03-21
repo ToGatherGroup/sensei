@@ -1,6 +1,5 @@
-package com.togather.sensei.DTO.campeonato;
+package com.togather.sensei.dtos.campeonato;
 
-import com.togather.sensei.enums.PosicaoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

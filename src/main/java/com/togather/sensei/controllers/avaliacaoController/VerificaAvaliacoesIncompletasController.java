@@ -10,13 +10,13 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/avaliacoes_incompletas/verificar")
+@RequestMapping("/avaliacoes")
 @Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações")
 public class VerificaAvaliacoesIncompletasController {
 
     private final VerificaAvaliacaoIncompletaService verificaAvaliacaoIncompletasService;
 
-    @GetMapping()
+    @GetMapping("/verificar_incompletas")
     public ResponseEntity<Boolean> verificaAvaliacoesIncompletas() {
 
         try {

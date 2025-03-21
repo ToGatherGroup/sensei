@@ -15,13 +15,13 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/avaliacao/datas")
+@RequestMapping("/avaliacoes")
 @Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações")
 public class BuscarDatasDeAvaliacaoController {
 
     private final AvaliacaoPorDataService avaliacaoPorDataService;
 
-    @GetMapping()
+    @GetMapping("/datas")
     public ResponseEntity<List<String>> buscaDatasDeAvaliacao() {
         try {
             List<String> datas = avaliacaoPorDataService.buscaAvaliacoes();

@@ -1,6 +1,6 @@
 package sensei.controllers;
 
-import com.togather.sensei.DTO.avaliacao.ResponseAvaliacoesIncompletasDTO;
+import com.togather.sensei.dtos.avaliacao.ResponseAvaliacoesIncompletasDTO;
 import com.togather.sensei.controllers.avaliacaoController.BuscarAvaliacoesIncompletasController;
 import com.togather.sensei.services.avaliacaoService.AvaliacaoIncompletaService;
 import org.junit.jupiter.api.Assertions;

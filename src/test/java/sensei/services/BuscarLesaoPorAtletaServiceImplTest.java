@@ -3,7 +3,7 @@ package sensei.services;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import com.togather.sensei.DTO.lesao.LesaoDTO;
+import com.togather.sensei.dtos.lesao.LesaoDTO;
 import com.togather.sensei.models.LesaoModel;
 import com.togather.sensei.repositories.LesaoRepository;
 import com.togather.sensei.services.lesaoService.impl.BuscarLesaoPorAtletaServiceImpl;

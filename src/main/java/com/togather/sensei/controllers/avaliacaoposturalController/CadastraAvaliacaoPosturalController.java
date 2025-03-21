@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/avaliacaopostural")
+@RequestMapping("/avaliacoes_posturais")
 @Tag(name = "Avaliação", description = "Endpoints para gerenciamento de avaliações")
 public class CadastraAvaliacaoPosturalController {
 

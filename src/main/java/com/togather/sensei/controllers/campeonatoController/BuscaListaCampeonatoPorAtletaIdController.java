@@ -1,6 +1,6 @@
 package com.togather.sensei.controllers.campeonatoController;
 
-import com.togather.sensei.DTO.campeonato.ListaCampeonatoDTO;
+import com.togather.sensei.dtos.campeonato.ListaCampeonatoDTO;
 import com.togather.sensei.services.campeonatosService.impl.BuscaListaCampeonatoPorAtletaIdServiceImpl;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -13,13 +13,13 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("/campeonato/lista")
+@RequestMapping("/campeonatos")
 @Tag(name = "Campeonato", description = "Endpoints para gerenciamento de campeonatos")
 public class BuscaListaCampeonatoPorAtletaIdController {
 
     private final BuscaListaCampeonatoPorAtletaIdServiceImpl listaCampeonatoPorAtletaIdService;
 
-    @GetMapping("/{atleta_id}")
+    @GetMapping("/{atleta_id}/lista")
     public ResponseEntity<List<ListaCampeonatoDTO>> listaCampeonatos(@PathVariable Long atleta_id) {
         try {
             List<ListaCampeonatoDTO> campeonatos = listaCampeonatoPorAtletaIdService.listaCampeonatosPorAtletaId(atleta_id);

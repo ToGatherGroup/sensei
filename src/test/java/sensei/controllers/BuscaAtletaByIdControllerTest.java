@@ -1,6 +1,5 @@
 package sensei.controllers;
 
-import com.togather.sensei.DTO.atleta.AtletaDTO;
 import com.togather.sensei.controllers.atletaController.BuscaAtletaByIdController;
 import com.togather.sensei.models.AtletaModel;
 import com.togather.sensei.services.atletaService.BuscaAtletaByIdService;

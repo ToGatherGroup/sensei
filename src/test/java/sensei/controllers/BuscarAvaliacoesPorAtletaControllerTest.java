@@ -1,6 +1,6 @@
 package sensei.controllers;
 
-import com.togather.sensei.DTO.geral.SeriesDTO;
+import com.togather.sensei.dtos.geral.SeriesDTO;
 import com.togather.sensei.controllers.avaliacaoController.BuscarAvaliacoesPorAtletaController;
 import com.togather.sensei.services.avaliacaoService.AvaliacoesPorAtletaService;
 import org.junit.jupiter.api.Test;
