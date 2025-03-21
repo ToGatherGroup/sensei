@@ -1,8 +1,6 @@
 package com.togather.sensei.controllers.atletaController;
 
-import com.togather.sensei.dtos.atleta.AtletaDTO;
 import com.togather.sensei.models.AtletaModel;
-import com.togather.sensei.models.AtletaNewModel;
 import com.togather.sensei.services.atletaService.AtualizaAtletatService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -30,14 +28,14 @@ public class AtualizaAtletaController {
         }
     }
 
-    @PutMapping(("/new"))
-    public ResponseEntity<AtletaNewModel> alteraAtletaNew(@RequestBody AtletaDTO atletaDTO){
-        try {
-            AtletaNewModel atleta = atualizaAtletatService.updateAtletaNew(atletaDTO);
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body(atleta);
-        } catch (HttpClientErrorException e) {
-            throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
-        }
-    }
+//    @PutMapping(("/new"))
+//    public ResponseEntity<AtletaNewModel> alteraAtletaNew(@RequestBody AtletaDTO atletaDTO){
+//        try {
+//            AtletaNewModel atleta = atualizaAtletatService.updateAtletaNew(atletaDTO);
+//            return ResponseEntity.status(HttpStatus.ACCEPTED).body(atleta);
+//        } catch (HttpClientErrorException e) {
+//            throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
+//        }
+//    }
 }
 
